@@ -75,7 +75,6 @@ export async function generate(spec: string, options: CliOptions) {
   if (outputFile && operationCollection) {
     const dirPath = path.dirname(outputFile);
     const ext = path.extname(outputFile);
-    const onlyFileName = path.basename(outputFile).replace(ext, '');
 
     const mockApiDirPath = `${dirPath}/mockApi`;
     const isExistMockApiDir = fs.existsSync(mockApiDirPath);
@@ -90,7 +89,6 @@ export async function generate(spec: string, options: CliOptions) {
       const apiHandlerName = camelCase(`${value.verb}_${value.path}`);
 
       const code = mockApiTemplate(
-        onlyFileName,
         apiHandlerName,
         transformToApiHandlerCode(value)
       );
