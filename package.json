@@ -54,6 +54,10 @@
     "msw",
     "mock",
     "service-worker",
-    "openapi"
+    "openapi",
+    "swagger",
+    "typescript",
+    "mock-data",
+    "generate"
   ]
 }
