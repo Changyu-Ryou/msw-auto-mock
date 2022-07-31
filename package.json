@@ -1,5 +1,5 @@
 {
-  "name": "msw-auto-mock",
+  "name": "gen-msw-mock-comm",
   "version": "0.9.0",
   "description": "Generate random mock data from OpenAPI descriptions for msw.",
   "main": "dist/cli.js",
@@ -20,7 +20,7 @@
     "test": "vitest run",
     "gen:example": "node ./dist/cli.js https://raw.githubusercontent.com/github/rest-api-description/main/descriptions/ghes-3.3/ghes-3.3.json --output ./example/src/mock.ts"
   },
-  "author": "zoubingwu<zoubingwu@gmail.com>",
+  "author": "ycg02116<ycg02116@naver.com>",
   "license": "MIT",
   "dependencies": {
     "@apidevtools/swagger-parser": "^10.1.0",
@@ -41,12 +41,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zoubingwu/msw-auto-mock.git"
+    "url": "git+https://github.com/Changyu-ryou/msw-auto-mock.git"
   },
   "bugs": {
-    "url": "https://github.com/zoubingwu/msw-auto-mock/issues"
+    "url": "https://github.com/Changyu-ryou/msw-auto-mock/issues"
   },
-  "homepage": "https://github.com/zoubingwu/msw-auto-mock",
+  "homepage": "https://github.com/Changyu-ryou/msw-auto-mock",
   "files": [
     "dist"
   ],
