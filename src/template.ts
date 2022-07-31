@@ -35,6 +35,10 @@ const next = () => {
 
 export const handlers = [
   ${paths
+    .sort(
+      (aPath, bPath) =>
+        bPath.apiHandlerName.length - aPath.apiHandlerName.length
+    )
     .map(path => `...${path.apiHandlerName}(baseURL, MAX_ARRAY_LENGTH, next),`)
     .join('\n')}
 ];

@@ -740,540 +740,7 @@ const next = () => {
 };
 
 export const handlers = [
-  ...get(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getAdminHooks(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postAdminHooks(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getAdminHooksHookId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchAdminHooksHookId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteAdminHooksHookId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postAdminHooksHookIdPings(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getAdminKeys(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteAdminKeysKeyIds(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchAdminLdapTeamsTeamIdMapping(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postAdminLdapTeamsTeamIdSync(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchAdminLdapUsersUsernameMapping(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postAdminLdapUsersUsernameSync(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postAdminOrganizations(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchAdminOrganizationsOrg(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getAdminPreReceiveEnvironments(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postAdminPreReceiveEnvironments(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getAdminPreReceiveEnvironmentsPreReceiveEnvironmentId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...patchAdminPreReceiveEnvironmentsPreReceiveEnvironmentId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteAdminPreReceiveEnvironmentsPreReceiveEnvironmentId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postAdminPreReceiveEnvironmentsPreReceiveEnvironmentIdDownloads(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getAdminPreReceiveEnvironmentsPreReceiveEnvironmentIdDownloadsLatest(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getAdminPreReceiveHooks(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postAdminPreReceiveHooks(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getAdminPreReceiveHooksPreReceiveHookId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchAdminPreReceiveHooksPreReceiveHookId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteAdminPreReceiveHooksPreReceiveHookId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getAdminTokens(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteAdminTokensTokenId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postAdminUsers(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchAdminUsersUsername(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteAdminUsersUsername(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postAdminUsersUsernameAuthorizations(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteAdminUsersUsernameAuthorizations(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getApp(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postAppManifestsCodeConversions(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getAppHookConfig(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchAppHookConfig(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getAppHookDeliveries(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getAppHookDeliveriesDeliveryId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postAppHookDeliveriesDeliveryIdAttempts(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getAppInstallations(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getAppInstallationsInstallationId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteAppInstallationsInstallationId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postAppInstallationsInstallationIdAccessTokens(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...putAppInstallationsInstallationIdSuspended(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteAppInstallationsInstallationIdSuspended(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getApplicationsGrants(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getApplicationsGrantsGrantId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteApplicationsGrantsGrantId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteApplicationsClientIdGrant(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteApplicationsClientIdGrantsAccessToken(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postApplicationsClientIdToken(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchApplicationsClientIdToken(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteApplicationsClientIdToken(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postApplicationsClientIdTokenScoped(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getApplicationsClientIdTokensAccessToken(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postApplicationsClientIdTokensAccessToken(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteApplicationsClientIdTokensAccessToken(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getAppsAppSlug(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getAuthorizations(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postAuthorizations(baseURL, MAX_ARRAY_LENGTH, next),
-  ...putAuthorizationsClientsClientId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...putAuthorizationsClientsClientIdFingerprint(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getAuthorizationsAuthorizationId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchAuthorizationsAuthorizationId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteAuthorizationsAuthorizationId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getCodesOfConduct(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getCodesOfConductKey(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getEmojis(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getEnterpriseAnnouncement(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchEnterpriseAnnouncement(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteEnterpriseAnnouncement(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getEnterpriseSettingsLicense(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getEnterpriseStatsAll(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getEnterpriseStatsComments(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getEnterpriseStatsGists(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getEnterpriseStatsHooks(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getEnterpriseStatsIssues(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getEnterpriseStatsMilestones(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getEnterpriseStatsOrgs(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getEnterpriseStatsPages(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getEnterpriseStatsPulls(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getEnterpriseStatsRepos(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getEnterpriseStatsUsers(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getEnterprisesEnterpriseActionsPermissions(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...putEnterprisesEnterpriseActionsPermissions(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getEnterprisesEnterpriseActionsPermissionsOrganizations(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...putEnterprisesEnterpriseActionsPermissionsOrganizations(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...putEnterprisesEnterpriseActionsPermissionsOrganizationsOrgId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteEnterprisesEnterpriseActionsPermissionsOrganizationsOrgId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getEnterprisesEnterpriseActionsPermissionsSelectedActions(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...putEnterprisesEnterpriseActionsPermissionsSelectedActions(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getEnterprisesEnterpriseActionsRunnerGroups(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postEnterprisesEnterpriseActionsRunnerGroups(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...patchEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdOrganizations(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...putEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdOrganizations(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...putEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdOrganizationsOrgId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdOrganizationsOrgId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdRunners(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...putEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdRunners(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...putEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdRunnersRunnerId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdRunnersRunnerId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getEnterprisesEnterpriseActionsRunners(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getEnterprisesEnterpriseActionsRunnersDownloads(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postEnterprisesEnterpriseActionsRunnersRegistrationToken(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postEnterprisesEnterpriseActionsRunnersRemoveToken(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getEnterprisesEnterpriseActionsRunnersRunnerId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteEnterprisesEnterpriseActionsRunnersRunnerId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getEnterprisesEnterpriseAuditLog(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getEvents(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getFeeds(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getGists(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postGists(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getGistsPublic(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getGistsStarred(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getGistsGistId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchGistsGistId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteGistsGistId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getGistsGistIdComments(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postGistsGistIdComments(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getGistsGistIdCommentsCommentId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchGistsGistIdCommentsCommentId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteGistsGistIdCommentsCommentId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getGistsGistIdCommits(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getGistsGistIdForks(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postGistsGistIdForks(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getGistsGistIdStar(baseURL, MAX_ARRAY_LENGTH, next),
-  ...putGistsGistIdStar(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteGistsGistIdStar(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getGistsGistIdSha(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getGitignoreTemplates(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getGitignoreTemplatesName(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getInstallationRepositories(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteInstallationToken(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getIssues(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getLicenses(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getLicensesLicense(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postMarkdown(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postMarkdownRaw(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getMeta(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getNetworksOwnerRepoEvents(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getNotifications(baseURL, MAX_ARRAY_LENGTH, next),
-  ...putNotifications(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getNotificationsThreadsThreadId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchNotificationsThreadsThreadId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getNotificationsThreadsThreadIdSubscription(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...putNotificationsThreadsThreadIdSubscription(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteNotificationsThreadsThreadIdSubscription(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getOctocat(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrganizations(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrg(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchOrgsOrg(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgActionsPermissions(baseURL, MAX_ARRAY_LENGTH, next),
-  ...putOrgsOrgActionsPermissions(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgActionsPermissionsRepositories(baseURL, MAX_ARRAY_LENGTH, next),
-  ...putOrgsOrgActionsPermissionsRepositories(baseURL, MAX_ARRAY_LENGTH, next),
-  ...putOrgsOrgActionsPermissionsRepositoriesRepositoryId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteOrgsOrgActionsPermissionsRepositoriesRepositoryId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getOrgsOrgActionsPermissionsSelectedActions(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...putOrgsOrgActionsPermissionsSelectedActions(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getOrgsOrgActionsRunnerGroups(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postOrgsOrgActionsRunnerGroups(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgActionsRunnerGroupsRunnerGroupId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...patchOrgsOrgActionsRunnerGroupsRunnerGroupId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteOrgsOrgActionsRunnerGroupsRunnerGroupId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getOrgsOrgActionsRunnerGroupsRunnerGroupIdRepositories(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...putOrgsOrgActionsRunnerGroupsRunnerGroupIdRepositories(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...putOrgsOrgActionsRunnerGroupsRunnerGroupIdRepositoriesRepositoryId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteOrgsOrgActionsRunnerGroupsRunnerGroupIdRepositoriesRepositoryId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getOrgsOrgActionsRunnerGroupsRunnerGroupIdRunners(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...putOrgsOrgActionsRunnerGroupsRunnerGroupIdRunners(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...putOrgsOrgActionsRunnerGroupsRunnerGroupIdRunnersRunnerId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteOrgsOrgActionsRunnerGroupsRunnerGroupIdRunnersRunnerId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getOrgsOrgActionsRunners(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgActionsRunnersDownloads(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postOrgsOrgActionsRunnersRegistrationToken(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postOrgsOrgActionsRunnersRemoveToken(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgActionsRunnersRunnerId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteOrgsOrgActionsRunnersRunnerId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgActionsSecrets(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgActionsSecretsPublicKey(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgActionsSecretsSecretName(baseURL, MAX_ARRAY_LENGTH, next),
-  ...putOrgsOrgActionsSecretsSecretName(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteOrgsOrgActionsSecretsSecretName(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgActionsSecretsSecretNameRepositories(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...putOrgsOrgActionsSecretsSecretNameRepositories(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...putOrgsOrgActionsSecretsSecretNameRepositoriesRepositoryId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteOrgsOrgActionsSecretsSecretNameRepositoriesRepositoryId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getOrgsOrgAuditLog(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgEvents(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgHooks(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postOrgsOrgHooks(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgHooksHookId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchOrgsOrgHooksHookId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteOrgsOrgHooksHookId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgHooksHookIdConfig(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchOrgsOrgHooksHookIdConfig(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgHooksHookIdDeliveries(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgHooksHookIdDeliveriesDeliveryId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postOrgsOrgHooksHookIdDeliveriesDeliveryIdAttempts(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postOrgsOrgHooksHookIdPings(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgInstallation(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgInstallations(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgIssues(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgMembers(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgMembersUsername(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteOrgsOrgMembersUsername(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgMembershipsUsername(baseURL, MAX_ARRAY_LENGTH, next),
-  ...putOrgsOrgMembershipsUsername(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteOrgsOrgMembershipsUsername(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgOutsideCollaborators(baseURL, MAX_ARRAY_LENGTH, next),
-  ...putOrgsOrgOutsideCollaboratorsUsername(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteOrgsOrgOutsideCollaboratorsUsername(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgPreReceiveHooks(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgPreReceiveHooksPreReceiveHookId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchOrgsOrgPreReceiveHooksPreReceiveHookId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteOrgsOrgPreReceiveHooksPreReceiveHookId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getOrgsOrgProjects(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postOrgsOrgProjects(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgPublicMembers(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgPublicMembersUsername(baseURL, MAX_ARRAY_LENGTH, next),
-  ...putOrgsOrgPublicMembersUsername(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteOrgsOrgPublicMembersUsername(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgRepos(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postOrgsOrgRepos(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgSecretScanningAlerts(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgTeams(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postOrgsOrgTeams(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgTeamsTeamSlug(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchOrgsOrgTeamsTeamSlug(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteOrgsOrgTeamsTeamSlug(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgTeamsTeamSlugDiscussions(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postOrgsOrgTeamsTeamSlugDiscussions(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumber(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...patchOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumber(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumber(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberComments(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberComments(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberCommentsCommentNumber(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...patchOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberCommentsCommentNumber(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberCommentsCommentNumber(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberCommentsCommentNumberReactions(
+  ...deleteOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberCommentsCommentNumberReactionsReactionId(
     baseURL,
     MAX_ARRAY_LENGTH,
     next
@@ -1283,17 +750,37 @@ export const handlers = [
     MAX_ARRAY_LENGTH,
     next
   ),
-  ...deleteOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberCommentsCommentNumberReactionsReactionId(
+  ...getOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberCommentsCommentNumberReactions(
     baseURL,
     MAX_ARRAY_LENGTH,
     next
   ),
-  ...getOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberReactions(
+  ...deleteEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdOrganizationsOrgId(
     baseURL,
     MAX_ARRAY_LENGTH,
     next
   ),
-  ...postOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberReactions(
+  ...putEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdOrganizationsOrgId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdRunnersRunnerId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberCommentsCommentNumber(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteRepositoriesRepositoryIdEnvironmentsEnvironmentNameSecretsSecretName(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...patchOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberCommentsCommentNumber(
     baseURL,
     MAX_ARRAY_LENGTH,
     next
@@ -1303,867 +790,22 @@ export const handlers = [
     MAX_ARRAY_LENGTH,
     next
   ),
-  ...getOrgsOrgTeamsTeamSlugMembers(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgTeamsTeamSlugMembershipsUsername(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...putOrgsOrgTeamsTeamSlugMembershipsUsername(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteOrgsOrgTeamsTeamSlugMembershipsUsername(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getOrgsOrgTeamsTeamSlugProjects(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgTeamsTeamSlugProjectsProjectId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...putOrgsOrgTeamsTeamSlugProjectsProjectId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteOrgsOrgTeamsTeamSlugProjectsProjectId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getOrgsOrgTeamsTeamSlugRepos(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgTeamsTeamSlugReposOwnerRepo(baseURL, MAX_ARRAY_LENGTH, next),
-  ...putOrgsOrgTeamsTeamSlugReposOwnerRepo(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteOrgsOrgTeamsTeamSlugReposOwnerRepo(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getOrgsOrgTeamsTeamSlugTeams(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getProjectsColumnsCardsCardId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchProjectsColumnsCardsCardId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteProjectsColumnsCardsCardId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postProjectsColumnsCardsCardIdMoves(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getProjectsColumnsColumnId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchProjectsColumnsColumnId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteProjectsColumnsColumnId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getProjectsColumnsColumnIdCards(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postProjectsColumnsColumnIdCards(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postProjectsColumnsColumnIdMoves(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getProjectsProjectId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchProjectsProjectId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteProjectsProjectId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getProjectsProjectIdCollaborators(baseURL, MAX_ARRAY_LENGTH, next),
-  ...putProjectsProjectIdCollaboratorsUsername(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteProjectsProjectIdCollaboratorsUsername(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getProjectsProjectIdCollaboratorsUsernamePermission(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getProjectsProjectIdColumns(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postProjectsProjectIdColumns(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getRateLimit(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteReactionsReactionId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepo(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchReposOwnerRepo(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteReposOwnerRepo(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoActionsArtifacts(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoActionsArtifactsArtifactId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteReposOwnerRepoActionsArtifactsArtifactId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoActionsArtifactsArtifactIdArchiveFormat(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoActionsJobsJobId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoActionsJobsJobIdLogs(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoActionsPermissions(baseURL, MAX_ARRAY_LENGTH, next),
-  ...putReposOwnerRepoActionsPermissions(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoActionsPermissionsSelectedActions(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...putReposOwnerRepoActionsPermissionsSelectedActions(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoActionsRunners(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoActionsRunnersDownloads(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postReposOwnerRepoActionsRunnersRegistrationToken(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postReposOwnerRepoActionsRunnersRemoveToken(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoActionsRunnersRunnerId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteReposOwnerRepoActionsRunnersRunnerId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoActionsRuns(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoActionsRunsRunId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteReposOwnerRepoActionsRunsRunId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoActionsRunsRunIdApprovals(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoActionsRunsRunIdArtifacts(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postReposOwnerRepoActionsRunsRunIdCancel(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoActionsRunsRunIdJobs(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoActionsRunsRunIdLogs(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteReposOwnerRepoActionsRunsRunIdLogs(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoActionsRunsRunIdPendingDeployments(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postReposOwnerRepoActionsRunsRunIdPendingDeployments(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postReposOwnerRepoActionsRunsRunIdRerun(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoActionsSecrets(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoActionsSecretsPublicKey(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoActionsSecretsSecretName(baseURL, MAX_ARRAY_LENGTH, next),
-  ...putReposOwnerRepoActionsSecretsSecretName(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteReposOwnerRepoActionsSecretsSecretName(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoActionsWorkflows(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoActionsWorkflowsWorkflowId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...putReposOwnerRepoActionsWorkflowsWorkflowIdDisable(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postReposOwnerRepoActionsWorkflowsWorkflowIdDispatches(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...putReposOwnerRepoActionsWorkflowsWorkflowIdEnable(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoActionsWorkflowsWorkflowIdRuns(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoAssignees(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoAssigneesAssignee(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoAutolinks(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postReposOwnerRepoAutolinks(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoAutolinksAutolinkId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteReposOwnerRepoAutolinksAutolinkId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoBranches(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoBranchesBranch(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoBranchesBranchProtection(baseURL, MAX_ARRAY_LENGTH, next),
-  ...putReposOwnerRepoBranchesBranchProtection(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteReposOwnerRepoBranchesBranchProtection(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoBranchesBranchProtectionEnforceAdmins(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postReposOwnerRepoBranchesBranchProtectionEnforceAdmins(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteReposOwnerRepoBranchesBranchProtectionEnforceAdmins(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoBranchesBranchProtectionRequiredPullRequestReviews(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...patchReposOwnerRepoBranchesBranchProtectionRequiredPullRequestReviews(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteReposOwnerRepoBranchesBranchProtectionRequiredPullRequestReviews(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoBranchesBranchProtectionRequiredSignatures(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postReposOwnerRepoBranchesBranchProtectionRequiredSignatures(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteReposOwnerRepoBranchesBranchProtectionRequiredSignatures(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoBranchesBranchProtectionRequiredStatusChecks(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...patchReposOwnerRepoBranchesBranchProtectionRequiredStatusChecks(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteReposOwnerRepoBranchesBranchProtectionRequiredStatusChecks(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoBranchesBranchProtectionRequiredStatusChecksContexts(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postReposOwnerRepoBranchesBranchProtectionRequiredStatusChecksContexts(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...putReposOwnerRepoBranchesBranchProtectionRequiredStatusChecksContexts(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
   ...deleteReposOwnerRepoBranchesBranchProtectionRequiredStatusChecksContexts(
     baseURL,
     MAX_ARRAY_LENGTH,
     next
   ),
-  ...getReposOwnerRepoBranchesBranchProtectionRestrictions(
+  ...postTeamsTeamIdDiscussionsDiscussionNumberCommentsCommentNumberReactions(
     baseURL,
     MAX_ARRAY_LENGTH,
     next
   ),
-  ...deleteReposOwnerRepoBranchesBranchProtectionRestrictions(
+  ...putEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdRunnersRunnerId(
     baseURL,
     MAX_ARRAY_LENGTH,
     next
   ),
-  ...getReposOwnerRepoBranchesBranchProtectionRestrictionsApps(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postReposOwnerRepoBranchesBranchProtectionRestrictionsApps(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...putReposOwnerRepoBranchesBranchProtectionRestrictionsApps(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteReposOwnerRepoBranchesBranchProtectionRestrictionsApps(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoBranchesBranchProtectionRestrictionsTeams(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postReposOwnerRepoBranchesBranchProtectionRestrictionsTeams(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...putReposOwnerRepoBranchesBranchProtectionRestrictionsTeams(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteReposOwnerRepoBranchesBranchProtectionRestrictionsTeams(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoBranchesBranchProtectionRestrictionsUsers(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postReposOwnerRepoBranchesBranchProtectionRestrictionsUsers(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...putReposOwnerRepoBranchesBranchProtectionRestrictionsUsers(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteReposOwnerRepoBranchesBranchProtectionRestrictionsUsers(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postReposOwnerRepoBranchesBranchRename(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postReposOwnerRepoCheckRuns(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoCheckRunsCheckRunId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchReposOwnerRepoCheckRunsCheckRunId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoCheckRunsCheckRunIdAnnotations(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postReposOwnerRepoCheckRunsCheckRunIdRerequest(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postReposOwnerRepoCheckSuites(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchReposOwnerRepoCheckSuitesPreferences(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoCheckSuitesCheckSuiteId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoCheckSuitesCheckSuiteIdCheckRuns(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postReposOwnerRepoCheckSuitesCheckSuiteIdRerequest(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoCodeScanningAlerts(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoCodeScanningAlertsAlertNumber(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...patchReposOwnerRepoCodeScanningAlertsAlertNumber(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoCodeScanningAlertsAlertNumberInstances(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoCodeScanningAnalyses(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoCodeScanningAnalysesAnalysisId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteReposOwnerRepoCodeScanningAnalysesAnalysisId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postReposOwnerRepoCodeScanningSarifs(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoCodeScanningSarifsSarifId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoCollaborators(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoCollaboratorsUsername(baseURL, MAX_ARRAY_LENGTH, next),
-  ...putReposOwnerRepoCollaboratorsUsername(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteReposOwnerRepoCollaboratorsUsername(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoCollaboratorsUsernamePermission(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoComments(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoCommentsCommentId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchReposOwnerRepoCommentsCommentId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteReposOwnerRepoCommentsCommentId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoCommentsCommentIdReactions(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postReposOwnerRepoCommentsCommentIdReactions(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteReposOwnerRepoCommentsCommentIdReactionsReactionId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoCommits(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoCommitsCommitShaBranchesWhereHead(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoCommitsCommitShaComments(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postReposOwnerRepoCommitsCommitShaComments(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoCommitsCommitShaPulls(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoCommitsRef(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoCommitsRefCheckRuns(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoCommitsRefCheckSuites(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoCommitsRefStatus(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoCommitsRefStatuses(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoCompareBasehead(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postReposOwnerRepoContentReferencesContentReferenceIdAttachments(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoContentsPath(baseURL, MAX_ARRAY_LENGTH, next),
-  ...putReposOwnerRepoContentsPath(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteReposOwnerRepoContentsPath(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoContributors(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoDeployments(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postReposOwnerRepoDeployments(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoDeploymentsDeploymentId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteReposOwnerRepoDeploymentsDeploymentId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoDeploymentsDeploymentIdStatuses(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postReposOwnerRepoDeploymentsDeploymentIdStatuses(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoDeploymentsDeploymentIdStatusesStatusId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postReposOwnerRepoDispatches(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoEnvironments(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoEnvironmentsEnvironmentName(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...putReposOwnerRepoEnvironmentsEnvironmentName(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteReposOwnerRepoEnvironmentsEnvironmentName(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoEvents(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoForks(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postReposOwnerRepoForks(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postReposOwnerRepoGitBlobs(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoGitBlobsFileSha(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postReposOwnerRepoGitCommits(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoGitCommitsCommitSha(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoGitMatchingRefsRef(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoGitRefRef(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postReposOwnerRepoGitRefs(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchReposOwnerRepoGitRefsRef(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteReposOwnerRepoGitRefsRef(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postReposOwnerRepoGitTags(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoGitTagsTagSha(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postReposOwnerRepoGitTrees(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoGitTreesTreeSha(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoHooks(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postReposOwnerRepoHooks(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoHooksHookId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchReposOwnerRepoHooksHookId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteReposOwnerRepoHooksHookId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoHooksHookIdConfig(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchReposOwnerRepoHooksHookIdConfig(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoHooksHookIdDeliveries(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoHooksHookIdDeliveriesDeliveryId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postReposOwnerRepoHooksHookIdDeliveriesDeliveryIdAttempts(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postReposOwnerRepoHooksHookIdPings(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postReposOwnerRepoHooksHookIdTests(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoInstallation(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoInvitations(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchReposOwnerRepoInvitationsInvitationId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteReposOwnerRepoInvitationsInvitationId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoIssues(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postReposOwnerRepoIssues(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoIssuesComments(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoIssuesCommentsCommentId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchReposOwnerRepoIssuesCommentsCommentId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteReposOwnerRepoIssuesCommentsCommentId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoIssuesCommentsCommentIdReactions(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postReposOwnerRepoIssuesCommentsCommentIdReactions(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteReposOwnerRepoIssuesCommentsCommentIdReactionsReactionId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoIssuesEvents(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoIssuesEventsEventId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoIssuesIssueNumber(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchReposOwnerRepoIssuesIssueNumber(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postReposOwnerRepoIssuesIssueNumberAssignees(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteReposOwnerRepoIssuesIssueNumberAssignees(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoIssuesIssueNumberComments(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postReposOwnerRepoIssuesIssueNumberComments(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoIssuesIssueNumberEvents(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoIssuesIssueNumberLabels(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postReposOwnerRepoIssuesIssueNumberLabels(baseURL, MAX_ARRAY_LENGTH, next),
-  ...putReposOwnerRepoIssuesIssueNumberLabels(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteReposOwnerRepoIssuesIssueNumberLabels(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteReposOwnerRepoIssuesIssueNumberLabelsName(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...putReposOwnerRepoIssuesIssueNumberLock(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteReposOwnerRepoIssuesIssueNumberLock(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoIssuesIssueNumberReactions(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postReposOwnerRepoIssuesIssueNumberReactions(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteReposOwnerRepoIssuesIssueNumberReactionsReactionId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoIssuesIssueNumberTimeline(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoKeys(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postReposOwnerRepoKeys(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoKeysKeyId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteReposOwnerRepoKeysKeyId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoLabels(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postReposOwnerRepoLabels(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoLabelsName(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchReposOwnerRepoLabelsName(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteReposOwnerRepoLabelsName(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoLanguages(baseURL, MAX_ARRAY_LENGTH, next),
-  ...putReposOwnerRepoLfs(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteReposOwnerRepoLfs(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoLicense(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postReposOwnerRepoMergeUpstream(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postReposOwnerRepoMerges(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoMilestones(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postReposOwnerRepoMilestones(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoMilestonesMilestoneNumber(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...patchReposOwnerRepoMilestonesMilestoneNumber(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteReposOwnerRepoMilestonesMilestoneNumber(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoMilestonesMilestoneNumberLabels(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoNotifications(baseURL, MAX_ARRAY_LENGTH, next),
-  ...putReposOwnerRepoNotifications(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoPages(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postReposOwnerRepoPages(baseURL, MAX_ARRAY_LENGTH, next),
-  ...putReposOwnerRepoPages(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteReposOwnerRepoPages(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoPagesBuilds(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postReposOwnerRepoPagesBuilds(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoPagesBuildsLatest(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoPagesBuildsBuildId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoPreReceiveHooks(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoPreReceiveHooksPreReceiveHookId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...patchReposOwnerRepoPreReceiveHooksPreReceiveHookId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteReposOwnerRepoPreReceiveHooksPreReceiveHookId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoProjects(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postReposOwnerRepoProjects(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoPulls(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postReposOwnerRepoPulls(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoPullsComments(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoPullsCommentsCommentId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchReposOwnerRepoPullsCommentsCommentId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteReposOwnerRepoPullsCommentsCommentId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoPullsCommentsCommentIdReactions(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postReposOwnerRepoPullsCommentsCommentIdReactions(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteReposOwnerRepoPullsCommentsCommentIdReactionsReactionId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoPullsPullNumber(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchReposOwnerRepoPullsPullNumber(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoPullsPullNumberComments(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postReposOwnerRepoPullsPullNumberComments(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postReposOwnerRepoPullsPullNumberCommentsCommentIdReplies(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoPullsPullNumberCommits(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoPullsPullNumberFiles(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoPullsPullNumberMerge(baseURL, MAX_ARRAY_LENGTH, next),
-  ...putReposOwnerRepoPullsPullNumberMerge(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoPullsPullNumberRequestedReviewers(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postReposOwnerRepoPullsPullNumberRequestedReviewers(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteReposOwnerRepoPullsPullNumberRequestedReviewers(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoPullsPullNumberReviews(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postReposOwnerRepoPullsPullNumberReviews(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoPullsPullNumberReviewsReviewId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...putReposOwnerRepoPullsPullNumberReviewsReviewId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteReposOwnerRepoPullsPullNumberReviewsReviewId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoPullsPullNumberReviewsReviewIdComments(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...putReposOwnerRepoPullsPullNumberReviewsReviewIdDismissals(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postReposOwnerRepoPullsPullNumberReviewsReviewIdEvents(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...putReposOwnerRepoPullsPullNumberUpdateBranch(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoReadme(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoReadmeDir(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoReleases(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postReposOwnerRepoReleases(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoReleasesAssetsAssetId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchReposOwnerRepoReleasesAssetsAssetId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteReposOwnerRepoReleasesAssetsAssetId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postReposOwnerRepoReleasesGenerateNotes(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoReleasesLatest(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoReleasesTagsTag(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoReleasesReleaseId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchReposOwnerRepoReleasesReleaseId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteReposOwnerRepoReleasesReleaseId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoReleasesReleaseIdAssets(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postReposOwnerRepoReleasesReleaseIdAssets(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoReleasesReleaseIdReactions(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...postReposOwnerRepoReleasesReleaseIdReactions(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...deleteReposOwnerRepoReleasesReleaseIdReactionsReactionId(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoSecretScanningAlerts(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoSecretScanningAlertsAlertNumber(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...patchReposOwnerRepoSecretScanningAlertsAlertNumber(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoSecretScanningAlertsAlertNumberLocations(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getReposOwnerRepoStargazers(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoStatsCodeFrequency(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoStatsCommitActivity(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoStatsContributors(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoStatsParticipation(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoStatsPunchCard(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postReposOwnerRepoStatusesSha(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoSubscribers(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoSubscription(baseURL, MAX_ARRAY_LENGTH, next),
-  ...putReposOwnerRepoSubscription(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteReposOwnerRepoSubscription(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoTags(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoTarballRef(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoTeams(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoTopics(baseURL, MAX_ARRAY_LENGTH, next),
-  ...putReposOwnerRepoTopics(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postReposOwnerRepoTransfer(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getReposOwnerRepoZipballRef(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postReposTemplateOwnerTemplateRepoGenerate(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getRepositories(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getRepositoriesRepositoryIdEnvironmentsEnvironmentNameSecrets(
-    baseURL,
-    MAX_ARRAY_LENGTH,
-    next
-  ),
-  ...getRepositoriesRepositoryIdEnvironmentsEnvironmentNameSecretsPublicKey(
+  ...getOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberCommentsCommentNumber(
     baseURL,
     MAX_ARRAY_LENGTH,
     next
@@ -2178,61 +820,67 @@ export const handlers = [
     MAX_ARRAY_LENGTH,
     next
   ),
-  ...deleteRepositoriesRepositoryIdEnvironmentsEnvironmentNameSecretsSecretName(
+  ...getTeamsTeamIdDiscussionsDiscussionNumberCommentsCommentNumberReactions(
     baseURL,
     MAX_ARRAY_LENGTH,
     next
   ),
-  ...getSearchCode(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getSearchCommits(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getSearchIssues(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getSearchLabels(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getSearchRepositories(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getSearchTopics(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getSearchUsers(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getSetupApiConfigcheck(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postSetupApiConfigure(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getSetupApiMaintenance(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postSetupApiMaintenance(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getSetupApiSettings(baseURL, MAX_ARRAY_LENGTH, next),
-  ...putSetupApiSettings(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getSetupApiSettingsAuthorizedKeys(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postSetupApiSettingsAuthorizedKeys(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteSetupApiSettingsAuthorizedKeys(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postSetupApiStart(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postSetupApiUpgrade(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getTeamsTeamId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchTeamsTeamId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteTeamsTeamId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getTeamsTeamIdDiscussions(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postTeamsTeamIdDiscussions(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getTeamsTeamIdDiscussionsDiscussionNumber(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchTeamsTeamIdDiscussionsDiscussionNumber(
+  ...deleteReposOwnerRepoBranchesBranchProtectionRequiredPullRequestReviews(
     baseURL,
     MAX_ARRAY_LENGTH,
     next
   ),
-  ...deleteTeamsTeamIdDiscussionsDiscussionNumber(
+  ...postReposOwnerRepoBranchesBranchProtectionRequiredStatusChecksContexts(
     baseURL,
     MAX_ARRAY_LENGTH,
     next
   ),
-  ...getTeamsTeamIdDiscussionsDiscussionNumberComments(
+  ...getRepositoriesRepositoryIdEnvironmentsEnvironmentNameSecretsPublicKey(
     baseURL,
     MAX_ARRAY_LENGTH,
     next
   ),
-  ...postTeamsTeamIdDiscussionsDiscussionNumberComments(
+  ...getEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdOrganizations(
     baseURL,
     MAX_ARRAY_LENGTH,
     next
   ),
-  ...getTeamsTeamIdDiscussionsDiscussionNumberCommentsCommentNumber(
+  ...putEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdOrganizations(
     baseURL,
     MAX_ARRAY_LENGTH,
     next
   ),
-  ...patchTeamsTeamIdDiscussionsDiscussionNumberCommentsCommentNumber(
+  ...deleteOrgsOrgActionsRunnerGroupsRunnerGroupIdRepositoriesRepositoryId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...patchReposOwnerRepoBranchesBranchProtectionRequiredPullRequestReviews(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoBranchesBranchProtectionRequiredStatusChecksContexts(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...putReposOwnerRepoBranchesBranchProtectionRequiredStatusChecksContexts(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getAdminPreReceiveEnvironmentsPreReceiveEnvironmentIdDownloadsLatest(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoBranchesBranchProtectionRequiredPullRequestReviews(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...putOrgsOrgActionsRunnerGroupsRunnerGroupIdRepositoriesRepositoryId(
     baseURL,
     MAX_ARRAY_LENGTH,
     next
@@ -2242,63 +890,87 @@ export const handlers = [
     MAX_ARRAY_LENGTH,
     next
   ),
-  ...getTeamsTeamIdDiscussionsDiscussionNumberCommentsCommentNumberReactions(
+  ...deleteReposOwnerRepoBranchesBranchProtectionRequiredStatusChecks(
     baseURL,
     MAX_ARRAY_LENGTH,
     next
   ),
-  ...postTeamsTeamIdDiscussionsDiscussionNumberCommentsCommentNumberReactions(
+  ...postReposOwnerRepoContentReferencesContentReferenceIdAttachments(
     baseURL,
     MAX_ARRAY_LENGTH,
     next
   ),
-  ...getTeamsTeamIdDiscussionsDiscussionNumberReactions(
+  ...patchTeamsTeamIdDiscussionsDiscussionNumberCommentsCommentNumber(
     baseURL,
     MAX_ARRAY_LENGTH,
     next
   ),
-  ...postTeamsTeamIdDiscussionsDiscussionNumberReactions(
+  ...postAdminPreReceiveEnvironmentsPreReceiveEnvironmentIdDownloads(
     baseURL,
     MAX_ARRAY_LENGTH,
     next
   ),
-  ...getTeamsTeamIdMembers(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getTeamsTeamIdMembersUsername(baseURL, MAX_ARRAY_LENGTH, next),
-  ...putTeamsTeamIdMembersUsername(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteTeamsTeamIdMembersUsername(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getTeamsTeamIdMembershipsUsername(baseURL, MAX_ARRAY_LENGTH, next),
-  ...putTeamsTeamIdMembershipsUsername(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteTeamsTeamIdMembershipsUsername(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getTeamsTeamIdProjects(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getTeamsTeamIdProjectsProjectId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...putTeamsTeamIdProjectsProjectId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteTeamsTeamIdProjectsProjectId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getTeamsTeamIdRepos(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getTeamsTeamIdReposOwnerRepo(baseURL, MAX_ARRAY_LENGTH, next),
-  ...putTeamsTeamIdReposOwnerRepo(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteTeamsTeamIdReposOwnerRepo(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getTeamsTeamIdTeams(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getUser(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchUser(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getUserEmails(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postUserEmails(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteUserEmails(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getUserFollowers(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getUserFollowing(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getUserFollowingUsername(baseURL, MAX_ARRAY_LENGTH, next),
-  ...putUserFollowingUsername(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteUserFollowingUsername(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getUserGpgKeys(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postUserGpgKeys(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getUserGpgKeysGpgKeyId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteUserGpgKeysGpgKeyId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getUserInstallations(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getUserInstallationsInstallationIdRepositories(
+  ...deleteEnterprisesEnterpriseActionsPermissionsOrganizationsOrgId(
     baseURL,
     MAX_ARRAY_LENGTH,
     next
   ),
-  ...putUserInstallationsInstallationIdRepositoriesRepositoryId(
+  ...getEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdRunners(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...putEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdRunners(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...patchReposOwnerRepoBranchesBranchProtectionRequiredStatusChecks(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteReposOwnerRepoBranchesBranchProtectionRequiredSignatures(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteReposOwnerRepoIssuesCommentsCommentIdReactionsReactionId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getTeamsTeamIdDiscussionsDiscussionNumberCommentsCommentNumber(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteOrgsOrgActionsSecretsSecretNameRepositoriesRepositoryId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoBranchesBranchProtectionRequiredStatusChecks(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteReposOwnerRepoBranchesBranchProtectionRestrictionsTeams(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteReposOwnerRepoBranchesBranchProtectionRestrictionsUsers(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteReposOwnerRepoPullsCommentsCommentIdReactionsReactionId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getRepositoriesRepositoryIdEnvironmentsEnvironmentNameSecrets(
     baseURL,
     MAX_ARRAY_LENGTH,
     next
@@ -2308,21 +980,782 @@ export const handlers = [
     MAX_ARRAY_LENGTH,
     next
   ),
-  ...getUserIssues(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getUserKeys(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postUserKeys(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getUserKeysKeyId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteUserKeysKeyId(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getUserMembershipsOrgs(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getUserMembershipsOrgsOrg(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchUserMembershipsOrgsOrg(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getUserOrgs(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postUserProjects(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getUserPublicEmails(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getUserRepos(baseURL, MAX_ARRAY_LENGTH, next),
-  ...postUserRepos(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getUserRepositoryInvitations(baseURL, MAX_ARRAY_LENGTH, next),
-  ...patchUserRepositoryInvitationsInvitationId(
+  ...putEnterprisesEnterpriseActionsPermissionsOrganizationsOrgId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteOrgsOrgActionsRunnerGroupsRunnerGroupIdRunnersRunnerId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...postOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberReactions(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...postReposOwnerRepoBranchesBranchProtectionRequiredSignatures(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteReposOwnerRepoBranchesBranchProtectionRestrictionsApps(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...postOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberComments(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberReactions(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoBranchesBranchProtectionRequiredSignatures(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...postReposOwnerRepoBranchesBranchProtectionRestrictionsTeams(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...postReposOwnerRepoBranchesBranchProtectionRestrictionsUsers(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...patchEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...putOrgsOrgActionsSecretsSecretNameRepositoriesRepositoryId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberComments(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...postReposOwnerRepoBranchesBranchProtectionRestrictionsApps(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoBranchesBranchProtectionRestrictionsTeams(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...putReposOwnerRepoBranchesBranchProtectionRestrictionsTeams(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoBranchesBranchProtectionRestrictionsUsers(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...putReposOwnerRepoBranchesBranchProtectionRestrictionsUsers(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...putUserInstallationsInstallationIdRepositoriesRepositoryId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getEnterprisesEnterpriseActionsPermissionsSelectedActions(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...putEnterprisesEnterpriseActionsPermissionsSelectedActions(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...putOrgsOrgActionsRunnerGroupsRunnerGroupIdRunnersRunnerId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteReposOwnerRepoBranchesBranchProtectionEnforceAdmins(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoBranchesBranchProtectionRestrictionsApps(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...putReposOwnerRepoBranchesBranchProtectionRestrictionsApps(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...postReposOwnerRepoHooksHookIdDeliveriesDeliveryIdAttempts(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...postReposOwnerRepoPullsPullNumberCommentsCommentIdReplies(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...putReposOwnerRepoPullsPullNumberReviewsReviewIdDismissals(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoSecretScanningAlertsAlertNumberLocations(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteAdminPreReceiveEnvironmentsPreReceiveEnvironmentId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...postEnterprisesEnterpriseActionsRunnersRegistrationToken(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoActionsArtifactsArtifactIdArchiveFormat(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteReposOwnerRepoBranchesBranchProtectionRestrictions(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteReposOwnerRepoCommentsCommentIdReactionsReactionId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoDeploymentsDeploymentIdStatusesStatusId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteReposOwnerRepoIssuesIssueNumberReactionsReactionId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteReposOwnerRepoReleasesReleaseIdReactionsReactionId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...patchAdminPreReceiveEnvironmentsPreReceiveEnvironmentId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getEnterprisesEnterpriseActionsPermissionsOrganizations(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...putEnterprisesEnterpriseActionsPermissionsOrganizations(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteOrgsOrgActionsPermissionsRepositoriesRepositoryId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...postReposOwnerRepoBranchesBranchProtectionEnforceAdmins(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoCodeScanningAlertsAlertNumberInstances(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoPullsPullNumberReviewsReviewIdComments(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getOrgsOrgActionsRunnerGroupsRunnerGroupIdRepositories(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...putOrgsOrgActionsRunnerGroupsRunnerGroupIdRepositories(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...postReposOwnerRepoActionsWorkflowsWorkflowIdDispatches(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoBranchesBranchProtectionEnforceAdmins(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...postReposOwnerRepoPullsPullNumberReviewsReviewIdEvents(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getAdminPreReceiveEnvironmentsPreReceiveEnvironmentId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumber(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoBranchesBranchProtectionRestrictions(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteReposOwnerRepoPullsPullNumberRequestedReviewers(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...putOrgsOrgActionsPermissionsRepositoriesRepositoryId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...patchOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumber(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...postReposOwnerRepoActionsRunsRunIdPendingDeployments(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getProjectsProjectIdCollaboratorsUsernamePermission(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoActionsRunsRunIdPendingDeployments(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteReposOwnerRepoPreReceiveHooksPreReceiveHookId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...postReposOwnerRepoPullsPullNumberRequestedReviewers(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...postTeamsTeamIdDiscussionsDiscussionNumberReactions(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...postEnterprisesEnterpriseActionsRunnersRemoveToken(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...postOrgsOrgHooksHookIdDeliveriesDeliveryIdAttempts(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumber(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoActionsPermissionsSelectedActions(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...putReposOwnerRepoActionsPermissionsSelectedActions(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...putReposOwnerRepoActionsWorkflowsWorkflowIdDisable(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...postReposOwnerRepoCheckSuitesCheckSuiteIdRerequest(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteReposOwnerRepoCodeScanningAnalysesAnalysisId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoCommitsCommitShaBranchesWhereHead(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...postReposOwnerRepoIssuesCommentsCommentIdReactions(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...patchReposOwnerRepoPreReceiveHooksPreReceiveHookId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoPullsPullNumberRequestedReviewers(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteReposOwnerRepoPullsPullNumberReviewsReviewId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...patchReposOwnerRepoSecretScanningAlertsAlertNumber(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...postTeamsTeamIdDiscussionsDiscussionNumberComments(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getTeamsTeamIdDiscussionsDiscussionNumberReactions(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteEnterprisesEnterpriseActionsRunnersRunnerId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getOrgsOrgActionsRunnerGroupsRunnerGroupIdRunners(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...putOrgsOrgActionsRunnerGroupsRunnerGroupIdRunners(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...postReposOwnerRepoActionsRunnersRegistrationToken(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...putReposOwnerRepoActionsWorkflowsWorkflowIdEnable(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoCheckSuitesCheckSuiteIdCheckRuns(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...postReposOwnerRepoDeploymentsDeploymentIdStatuses(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoIssuesCommentsCommentIdReactions(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...postReposOwnerRepoPullsCommentsCommentIdReactions(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getTeamsTeamIdDiscussionsDiscussionNumberComments(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...patchReposOwnerRepoCodeScanningAlertsAlertNumber(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoCollaboratorsUsernamePermission(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoDeploymentsDeploymentIdStatuses(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoHooksHookIdDeliveriesDeliveryId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoMilestonesMilestoneNumberLabels(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoPreReceiveHooksPreReceiveHookId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoPullsCommentsCommentIdReactions(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoSecretScanningAlertsAlertNumber(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getEnterprisesEnterpriseActionsRunnersDownloads(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoActionsWorkflowsWorkflowIdRuns(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoCheckRunsCheckRunIdAnnotations(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoCodeScanningAnalysesAnalysisId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteReposOwnerRepoEnvironmentsEnvironmentName(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteReposOwnerRepoIssuesIssueNumberLabelsName(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoPullsPullNumberReviewsReviewId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...putReposOwnerRepoPullsPullNumberReviewsReviewId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...postAppInstallationsInstallationIdAccessTokens(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getEnterprisesEnterpriseActionsRunnersRunnerId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteNotificationsThreadsThreadIdSubscription(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getOrgsOrgActionsSecretsSecretNameRepositories(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...putOrgsOrgActionsSecretsSecretNameRepositories(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteReposOwnerRepoActionsArtifactsArtifactId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...postReposOwnerRepoCheckRunsCheckRunIdRerequest(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoCodeScanningAlertsAlertNumber(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteReposOwnerRepoIssuesIssueNumberAssignees(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getUserInstallationsInstallationIdRepositories(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteAppInstallationsInstallationIdSuspended(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteOrgsOrgActionsRunnerGroupsRunnerGroupId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteOrgsOrgTeamsTeamSlugMembershipsUsername(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteReposOwnerRepoMilestonesMilestoneNumber(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...postEnterprisesEnterpriseActionsRunnerGroups(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...patchOrgsOrgActionsRunnerGroupsRunnerGroupId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteOrgsOrgPreReceiveHooksPreReceiveHookId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteProjectsProjectIdCollaboratorsUsername(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteReposOwnerRepoActionsSecretsSecretName(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteReposOwnerRepoBranchesBranchProtection(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...postReposOwnerRepoCommentsCommentIdReactions(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoEnvironmentsEnvironmentName(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...putReposOwnerRepoEnvironmentsEnvironmentName(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...postReposOwnerRepoIssuesIssueNumberAssignees(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...postReposOwnerRepoIssuesIssueNumberReactions(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...patchReposOwnerRepoMilestonesMilestoneNumber(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...putReposOwnerRepoPullsPullNumberUpdateBranch(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...postReposOwnerRepoReleasesReleaseIdReactions(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteTeamsTeamIdDiscussionsDiscussionNumber(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteApplicationsClientIdGrantsAccessToken(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteApplicationsClientIdTokensAccessToken(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...putAuthorizationsClientsClientIdFingerprint(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getEnterprisesEnterpriseActionsRunnerGroups(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getNotificationsThreadsThreadIdSubscription(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...putNotificationsThreadsThreadIdSubscription(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getOrgsOrgActionsPermissionsSelectedActions(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...putOrgsOrgActionsPermissionsSelectedActions(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...patchOrgsOrgPreReceiveHooksPreReceiveHookId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteOrgsOrgTeamsTeamSlugProjectsProjectId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoActionsArtifactsArtifactId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...postReposOwnerRepoActionsRunnersRemoveToken(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoActionsWorkflowsWorkflowId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoCommentsCommentIdReactions(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteReposOwnerRepoDeploymentsDeploymentId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteReposOwnerRepoInvitationsInvitationId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteReposOwnerRepoIssuesCommentsCommentId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...postReposOwnerRepoIssuesIssueNumberComments(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteReposOwnerRepoIssuesIssueNumberLabels(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoIssuesIssueNumberReactions(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoReleasesReleaseIdReactions(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...patchTeamsTeamIdDiscussionsDiscussionNumber(
     baseURL,
     MAX_ARRAY_LENGTH,
     next
@@ -2332,37 +1765,604 @@ export const handlers = [
     MAX_ARRAY_LENGTH,
     next
   ),
-  ...getUserStarred(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getUserStarredOwnerRepo(baseURL, MAX_ARRAY_LENGTH, next),
-  ...putUserStarredOwnerRepo(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteUserStarredOwnerRepo(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getUserSubscriptions(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getUserTeams(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getUsers(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getUsersUsername(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getUsersUsernameEvents(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteAdminPreReceiveHooksPreReceiveHookId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...putAppInstallationsInstallationIdSuspended(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getEnterprisesEnterpriseActionsPermissions(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...putEnterprisesEnterpriseActionsPermissions(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getOrgsOrgActionsRunnerGroupsRunnerGroupId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...postOrgsOrgActionsRunnersRegistrationToken(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getOrgsOrgTeamsTeamSlugMembershipsUsername(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...putOrgsOrgTeamsTeamSlugMembershipsUsername(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteReposOwnerRepoActionsRunnersRunnerId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoActionsRunsRunIdApprovals(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoActionsRunsRunIdArtifacts(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoCodeScanningSarifsSarifId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...postReposOwnerRepoCommitsCommitShaComments(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...patchReposOwnerRepoInvitationsInvitationId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...patchReposOwnerRepoIssuesCommentsCommentId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoIssuesIssueNumberComments(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoIssuesIssueNumberTimeline(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...getReposOwnerRepoMilestonesMilestoneNumber(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...deleteReposOwnerRepoPullsCommentsCommentId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...postReposTemplateOwnerTemplateRepoGenerate(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...patchUserRepositoryInvitationsInvitationId(
+    baseURL,
+    MAX_ARRAY_LENGTH,
+    next
+  ),
+  ...patchAdminPreReceiveHooksPreReceiveHookId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postApplicationsClientIdTokensAccessToken(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgHooksHookIdDeliveriesDeliveryId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteOrgsOrgOutsideCollaboratorsUsername(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgPreReceiveHooksPreReceiveHookId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...putProjectsProjectIdCollaboratorsUsername(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoActionsSecretsSecretName(baseURL, MAX_ARRAY_LENGTH, next),
+  ...putReposOwnerRepoActionsSecretsSecretName(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoBranchesBranchProtection(baseURL, MAX_ARRAY_LENGTH, next),
+  ...putReposOwnerRepoBranchesBranchProtection(baseURL, MAX_ARRAY_LENGTH, next),
+  ...patchReposOwnerRepoCheckSuitesPreferences(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteReposOwnerRepoCollaboratorsUsername(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoCommitsCommitShaComments(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoIssuesIssueNumberLabels(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteReposOwnerRepoIssuesIssueNumberLock(baseURL, MAX_ARRAY_LENGTH, next),
+  ...patchReposOwnerRepoPullsCommentsCommentId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoPullsPullNumberComments(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteReposOwnerRepoReleasesAssetsAssetId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoReleasesReleaseIdAssets(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getTeamsTeamIdDiscussionsDiscussionNumber(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getApplicationsClientIdTokensAccessToken(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgActionsPermissionsRepositories(baseURL, MAX_ARRAY_LENGTH, next),
+  ...putOrgsOrgActionsPermissionsRepositories(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgTeamsTeamSlugProjectsProjectId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...putOrgsOrgTeamsTeamSlugProjectsProjectId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteOrgsOrgTeamsTeamSlugReposOwnerRepo(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoActionsRunnersDownloads(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoActionsRunsRunIdCancel(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteReposOwnerRepoActionsRunsRunIdLogs(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoActionsSecretsPublicKey(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoCheckSuitesCheckSuiteId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoDeploymentsDeploymentId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoIssuesCommentsCommentId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoIssuesIssueNumberEvents(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoIssuesIssueNumberLabels(baseURL, MAX_ARRAY_LENGTH, next),
+  ...putReposOwnerRepoIssuesIssueNumberLabels(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoPullsPullNumberComments(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoPullsPullNumberReviews(baseURL, MAX_ARRAY_LENGTH, next),
+  ...patchReposOwnerRepoReleasesAssetsAssetId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoReleasesReleaseIdAssets(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getAdminPreReceiveHooksPreReceiveHookId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postAppHookDeliveriesDeliveryIdAttempts(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoActionsRunnersRunnerId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoActionsRunsRunIdRerun(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteReposOwnerRepoAutolinksAutolinkId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoPullsCommentsCommentId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoPullsPullNumberCommits(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoPullsPullNumberReviews(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoReleasesGenerateNotes(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteAdminUsersUsernameAuthorizations(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getEnterprisesEnterpriseActionsRunners(baseURL, MAX_ARRAY_LENGTH, next),
+  ...putOrgsOrgOutsideCollaboratorsUsername(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoBranchesBranchRename(baseURL, MAX_ARRAY_LENGTH, next),
+  ...patchReposOwnerRepoCheckRunsCheckRunId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoCollaboratorsUsername(baseURL, MAX_ARRAY_LENGTH, next),
+  ...putReposOwnerRepoCollaboratorsUsername(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoCommitsCommitShaPulls(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoCommitsRefCheckSuites(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoHooksHookIdDeliveries(baseURL, MAX_ARRAY_LENGTH, next),
+  ...putReposOwnerRepoIssuesIssueNumberLock(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoReleasesAssetsAssetId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteOrgsOrgActionsSecretsSecretName(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgTeamsTeamSlugReposOwnerRepo(baseURL, MAX_ARRAY_LENGTH, next),
+  ...putOrgsOrgTeamsTeamSlugReposOwnerRepo(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoActionsJobsJobIdLogs(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoActionsRunsRunIdJobs(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoActionsRunsRunIdLogs(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoCodeScanningAnalyses(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteReposOwnerRepoCommentsCommentId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoPullsPullNumberFiles(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoPullsPullNumberMerge(baseURL, MAX_ARRAY_LENGTH, next),
+  ...putReposOwnerRepoPullsPullNumberMerge(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteReposOwnerRepoReleasesReleaseId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoSecretScanningAlerts(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postAdminUsersUsernameAuthorizations(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteAppInstallationsInstallationId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postOrgsOrgActionsRunnersRemoveToken(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteReposOwnerRepoActionsRunsRunId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoAutolinksAutolinkId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoCheckRunsCheckRunId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoCodeScanningSarifs(baseURL, MAX_ARRAY_LENGTH, next),
+  ...patchReposOwnerRepoCommentsCommentId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoCommitsRefCheckRuns(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoGitCommitsCommitSha(baseURL, MAX_ARRAY_LENGTH, next),
+  ...patchReposOwnerRepoHooksHookIdConfig(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoIssuesEventsEventId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...patchReposOwnerRepoIssuesIssueNumber(baseURL, MAX_ARRAY_LENGTH, next),
+  ...patchReposOwnerRepoReleasesReleaseId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoStatsCommitActivity(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteSetupApiSettingsAuthorizedKeys(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteTeamsTeamIdMembershipsUsername(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getUsersUsernameReceivedEventsPublic(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postApplicationsClientIdTokenScoped(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteAuthorizationsAuthorizationId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteOrgsOrgActionsRunnersRunnerId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postOrgsOrgTeamsTeamSlugDiscussions(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postProjectsColumnsCardsCardIdMoves(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoActionsPermissions(baseURL, MAX_ARRAY_LENGTH, next),
+  ...putReposOwnerRepoActionsPermissions(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoCodeScanningAlerts(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoCommitsRefStatuses(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoGitMatchingRefsRef(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoPagesBuildsBuildId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoStatsCodeFrequency(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoStatsParticipation(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getUsersUsernameFollowingTargetUser(baseURL, MAX_ARRAY_LENGTH, next),
+  ...patchAdminLdapUsersUsernameMapping(baseURL, MAX_ARRAY_LENGTH, next),
+  ...patchAuthorizationsAuthorizationId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteGistsGistIdCommentsCommentId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgActionsSecretsSecretName(baseURL, MAX_ARRAY_LENGTH, next),
+  ...putOrgsOrgActionsSecretsSecretName(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteOrgsOrgPublicMembersUsername(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgTeamsTeamSlugDiscussions(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoAssigneesAssignee(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoCommentsCommentId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoHooksHookIdConfig(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoHooksHookIdPings(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoHooksHookIdTests(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoIssuesIssueNumber(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoPagesBuildsLatest(baseURL, MAX_ARRAY_LENGTH, next),
+  ...patchReposOwnerRepoPullsPullNumber(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoReleasesReleaseId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoStatsContributors(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postSetupApiSettingsAuthorizedKeys(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteTeamsTeamIdProjectsProjectId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getAppInstallationsInstallationId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...patchGistsGistIdCommentsCommentId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...patchNotificationsThreadsThreadId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgActionsRunnersDownloads(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgActionsSecretsPublicKey(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getProjectsProjectIdCollaborators(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoActionsArtifacts(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoActionsJobsJobId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoActionsRunsRunId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoActionsWorkflows(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoCommitsRefStatus(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getSetupApiSettingsAuthorizedKeys(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getTeamsTeamIdMembershipsUsername(baseURL, MAX_ARRAY_LENGTH, next),
+  ...putTeamsTeamIdMembershipsUsername(baseURL, MAX_ARRAY_LENGTH, next),
+  ...patchAdminLdapTeamsTeamIdMapping(baseURL, MAX_ARRAY_LENGTH, next),
+  ...putAuthorizationsClientsClientId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getAuthorizationsAuthorizationId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getEnterprisesEnterpriseAuditLog(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgActionsRunnersRunnerId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteOrgsOrgMembershipsUsername(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteProjectsColumnsCardsCardId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postProjectsColumnsColumnIdCards(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postProjectsColumnsColumnIdMoves(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoCompareBasehead(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteReposOwnerRepoContentsPath(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoGitBlobsFileSha(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoGitTreesTreeSha(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoPreReceiveHooks(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoPullsPullNumber(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoReleasesTagsTag(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteReposOwnerRepoSubscription(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteTeamsTeamIdMembersUsername(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postAdminPreReceiveEnvironments(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postAppManifestsCodeConversions(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteApplicationsGrantsGrantId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteApplicationsClientIdGrant(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteApplicationsClientIdToken(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getGistsGistIdCommentsCommentId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getNotificationsThreadsThreadId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgHooksHookIdDeliveries(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgPublicMembersUsername(baseURL, MAX_ARRAY_LENGTH, next),
+  ...putOrgsOrgPublicMembersUsername(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgTeamsTeamSlugProjects(baseURL, MAX_ARRAY_LENGTH, next),
+  ...patchProjectsColumnsCardsCardId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getProjectsColumnsColumnIdCards(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoActionsRunners(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoActionsSecrets(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoBranchesBranch(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteReposOwnerRepoHooksHookId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoIssuesComments(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoMergeUpstream(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoReleasesLatest(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoStatsPunchCard(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getTeamsTeamIdProjectsProjectId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...putTeamsTeamIdProjectsProjectId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteTeamsTeamIdReposOwnerRepo(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postAdminLdapUsersUsernameSync(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getAdminPreReceiveEnvironments(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getAppHookDeliveriesDeliveryId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...patchApplicationsClientIdToken(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postOrgsOrgActionsRunnerGroups(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgOutsideCollaborators(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgSecretScanningAlerts(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgTeamsTeamSlugMembers(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoCollaborators(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteReposOwnerRepoGitRefsRef(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoGitTagsTagSha(baseURL, MAX_ARRAY_LENGTH, next),
+  ...patchReposOwnerRepoHooksHookId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteReposOwnerRepoLabelsName(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoNotifications(baseURL, MAX_ARRAY_LENGTH, next),
+  ...putReposOwnerRepoNotifications(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoPullsComments(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getUsersUsernameReceivedEvents(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postApplicationsClientIdToken(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgActionsRunnerGroups(baseURL, MAX_ARRAY_LENGTH, next),
+  ...patchOrgsOrgHooksHookIdConfig(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgMembershipsUsername(baseURL, MAX_ARRAY_LENGTH, next),
+  ...putOrgsOrgMembershipsUsername(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getProjectsColumnsCardsCardId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteProjectsColumnsColumnId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoCheckSuites(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoContentsPath(baseURL, MAX_ARRAY_LENGTH, next),
+  ...putReposOwnerRepoContentsPath(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoContributors(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoDeployments(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoEnvironments(baseURL, MAX_ARRAY_LENGTH, next),
+  ...patchReposOwnerRepoGitRefsRef(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoInstallation(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoIssuesEvents(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteReposOwnerRepoKeysKeyId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...patchReposOwnerRepoLabelsName(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoPagesBuilds(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoStatusesSha(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoSubscription(baseURL, MAX_ARRAY_LENGTH, next),
+  ...putReposOwnerRepoSubscription(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getTeamsTeamIdMembersUsername(baseURL, MAX_ARRAY_LENGTH, next),
+  ...putTeamsTeamIdMembersUsername(baseURL, MAX_ARRAY_LENGTH, next),
   ...getUsersUsernameEventsOrgsOrg(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getUsersUsernameSubscriptions(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postAdminLdapTeamsTeamIdSync(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getApplicationsGrantsGrantId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteEnterpriseAnnouncement(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getEnterpriseSettingsLicense(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getEnterpriseStatsMilestones(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgActionsPermissions(baseURL, MAX_ARRAY_LENGTH, next),
+  ...putOrgsOrgActionsPermissions(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteOrgsOrgMembersUsername(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgTeamsTeamSlugRepos(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgTeamsTeamSlugTeams(baseURL, MAX_ARRAY_LENGTH, next),
+  ...patchProjectsColumnsColumnId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postProjectsProjectIdColumns(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoActionsRuns(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoDeployments(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoDispatches(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoGitCommits(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoHooksHookId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoInvitations(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoMilestones(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoPagesBuilds(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoSubscribers(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getTeamsTeamIdReposOwnerRepo(baseURL, MAX_ARRAY_LENGTH, next),
+  ...putTeamsTeamIdReposOwnerRepo(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getUserRepositoryInvitations(baseURL, MAX_ARRAY_LENGTH, next),
   ...getUsersUsernameEventsPublic(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getUsersUsernameInstallation(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteUsersUsernameSiteAdmin(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteUsersUsernameSuspended(baseURL, MAX_ARRAY_LENGTH, next),
+  ...patchEnterpriseAnnouncement(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getInstallationRepositories(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgHooksHookIdConfig(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postOrgsOrgHooksHookIdPings(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getProjectsProjectIdColumns(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoAutolinks(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoCheckRuns(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoCommitsRef(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoLabelsName(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoMilestones(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoStargazers(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoTarballRef(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoZipballRef(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteUserFollowingUsername(baseURL, MAX_ARRAY_LENGTH, next),
+  ...patchUserMembershipsOrgsOrg(baseURL, MAX_ARRAY_LENGTH, next),
+  ...patchAdminOrganizationsOrg(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getEnterpriseStatsComments(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getNetworksOwnerRepoEvents(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteOrgsOrgTeamsTeamSlug(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getProjectsColumnsColumnId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoAssignees(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoAutolinks(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoGitBlobs(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoGitRefRef(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoGitTrees(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoKeysKeyId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoLanguages(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoProjects(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoReadmeDir(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoReleases(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoTransfer(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postTeamsTeamIdDiscussions(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteUserStarredOwnerRepo(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postAdminHooksHookIdPings(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getEnterpriseAnnouncement(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getGitignoreTemplatesName(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgMembersUsername(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgPreReceiveHooks(baseURL, MAX_ARRAY_LENGTH, next),
+  ...patchOrgsOrgTeamsTeamSlug(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteReactionsReactionId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoBranches(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoComments(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoGitRefs(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoGitTags(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteReposOwnerRepoPages(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoProjects(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoReleases(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getTeamsTeamIdDiscussions(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteUserGpgKeysGpgKeyId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getUserMembershipsOrgsOrg(baseURL, MAX_ARRAY_LENGTH, next),
   ...getUsersUsernameFollowers(baseURL, MAX_ARRAY_LENGTH, next),
   ...getUsersUsernameFollowing(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getUsersUsernameFollowingTargetUser(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getUsersUsernameGists(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getUsersUsernameGpgKeys(baseURL, MAX_ARRAY_LENGTH, next),
   ...getUsersUsernameHovercard(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getUsersUsernameInstallation(baseURL, MAX_ARRAY_LENGTH, next),
+  ...putUsersUsernameSiteAdmin(baseURL, MAX_ARRAY_LENGTH, next),
+  ...putUsersUsernameSuspended(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postAdminPreReceiveHooks(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteAdminTokensTokenId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteAdminUsersUsername(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getEnterpriseStatsIssues(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgActionsRunners(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgActionsSecrets(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteOrgsOrgHooksHookId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoCommits(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoIssues(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoLabels(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoLicense(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoMerges(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getUserFollowingUsername(baseURL, MAX_ARRAY_LENGTH, next),
+  ...putUserFollowingUsername(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getUsersUsernameProjects(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getAdminPreReceiveHooks(baseURL, MAX_ARRAY_LENGTH, next),
+  ...patchAdminUsersUsername(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getEnterpriseStatsGists(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getEnterpriseStatsHooks(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getEnterpriseStatsPages(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getEnterpriseStatsPulls(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getEnterpriseStatsRepos(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getEnterpriseStatsUsers(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postGistsGistIdComments(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteInstallationToken(baseURL, MAX_ARRAY_LENGTH, next),
+  ...patchOrgsOrgHooksHookId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgInstallations(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgPublicMembers(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgTeamsTeamSlug(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteProjectsProjectId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoEvents(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoForks(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoHooks(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoIssues(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoLabels(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteReposOwnerRepoLfs(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoPages(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoPulls(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoReadme(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoTopics(baseURL, MAX_ARRAY_LENGTH, next),
+  ...putReposOwnerRepoTopics(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postSetupApiMaintenance(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getUserStarredOwnerRepo(baseURL, MAX_ARRAY_LENGTH, next),
+  ...putUserStarredOwnerRepo(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getUsersUsernameGpgKeys(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getUsersUsernameStarred(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteAdminHooksHookId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postAdminOrganizations(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getEnterpriseStatsOrgs(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getGistsGistIdComments(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgInstallation(baseURL, MAX_ARRAY_LENGTH, next),
+  ...patchProjectsProjectId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoForks(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoHooks(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postReposOwnerRepoKeys(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoPages(baseURL, MAX_ARRAY_LENGTH, next),
+  ...putReposOwnerRepoPages(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoPulls(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoTeams(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getSetupApiConfigcheck(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getSetupApiMaintenance(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getTeamsTeamIdProjects(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getUserGpgKeysGpgKeyId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getUserMembershipsOrgs(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getUsersUsernameEvents(baseURL, MAX_ARRAY_LENGTH, next),
+  ...patchAdminHooksHookId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteAdminKeysKeyIds(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getApplicationsGrants(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getEnterpriseStatsAll(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getGistsGistIdCommits(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteGistsGistIdStar(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getGitignoreTemplates(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgHooksHookId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoKeys(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepoTags(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getSearchRepositories(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postSetupApiConfigure(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getTeamsTeamIdMembers(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getUsersUsernameGists(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getUsersUsernameRepos(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getAppHookDeliveries(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getCodesOfConductKey(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postGistsGistIdForks(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getProjectsProjectId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteReposOwnerRepo(baseURL, MAX_ARRAY_LENGTH, next),
+  ...putReposOwnerRepoLfs(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getUserInstallations(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getUserSubscriptions(baseURL, MAX_ARRAY_LENGTH, next),
   ...getUsersUsernameKeys(baseURL, MAX_ARRAY_LENGTH, next),
   ...getUsersUsernameOrgs(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getUsersUsernameProjects(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getUsersUsernameReceivedEvents(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getUsersUsernameReceivedEventsPublic(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getUsersUsernameRepos(baseURL, MAX_ARRAY_LENGTH, next),
-  ...putUsersUsernameSiteAdmin(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteUsersUsernameSiteAdmin(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getUsersUsernameStarred(baseURL, MAX_ARRAY_LENGTH, next),
-  ...getUsersUsernameSubscriptions(baseURL, MAX_ARRAY_LENGTH, next),
-  ...putUsersUsernameSuspended(baseURL, MAX_ARRAY_LENGTH, next),
-  ...deleteUsersUsernameSuspended(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getAdminHooksHookId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getAppInstallations(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getGistsGistIdForks(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postOrgsOrgProjects(baseURL, MAX_ARRAY_LENGTH, next),
+  ...patchReposOwnerRepo(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getSetupApiSettings(baseURL, MAX_ARRAY_LENGTH, next),
+  ...putSetupApiSettings(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postSetupApiUpgrade(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getTeamsTeamIdRepos(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getTeamsTeamIdTeams(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteUserKeysKeyId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getUserPublicEmails(baseURL, MAX_ARRAY_LENGTH, next),
+  ...patchAppHookConfig(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postAuthorizations(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getGistsGistIdStar(baseURL, MAX_ARRAY_LENGTH, next),
+  ...putGistsGistIdStar(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getLicensesLicense(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgAuditLog(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgProjects(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getAuthorizations(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getCodesOfConduct(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteGistsGistId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getGistsGistIdSha(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgMembers(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getReposOwnerRepo(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postSetupApiStart(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteTeamsTeamId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getAppHookConfig(baseURL, MAX_ARRAY_LENGTH, next),
+  ...patchGistsGistId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getNotifications(baseURL, MAX_ARRAY_LENGTH, next),
+  ...putNotifications(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrganizations(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgEvents(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postOrgsOrgHooks(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgIssues(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postOrgsOrgRepos(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postOrgsOrgTeams(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getSearchCommits(baseURL, MAX_ARRAY_LENGTH, next),
+  ...patchTeamsTeamId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...deleteUserEmails(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getUserFollowers(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getUserFollowing(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getUserKeysKeyId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postUserProjects(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getUsersUsername(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getGistsStarred(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postMarkdownRaw(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgHooks(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgRepos(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrgTeams(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getRepositories(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getSearchIssues(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getSearchLabels(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getSearchTopics(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postUserGpgKeys(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postAdminHooks(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getAdminTokens(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postAdminUsers(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getAppsAppSlug(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getGistsPublic(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getGistsGistId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getSearchUsers(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getTeamsTeamId(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postUserEmails(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getUserGpgKeys(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getUserStarred(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getAdminHooks(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getSearchCode(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getUserEmails(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getUserIssues(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postUserRepos(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getAdminKeys(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postMarkdown(baseURL, MAX_ARRAY_LENGTH, next),
+  ...patchOrgsOrg(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getRateLimit(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postUserKeys(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getUserRepos(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getUserTeams(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getLicenses(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getUserKeys(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getUserOrgs(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOctocat(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getOrgsOrg(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getEmojis(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getEvents(baseURL, MAX_ARRAY_LENGTH, next),
+  ...postGists(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getIssues(baseURL, MAX_ARRAY_LENGTH, next),
+  ...patchUser(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getFeeds(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getGists(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getUsers(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getMeta(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getUser(baseURL, MAX_ARRAY_LENGTH, next),
+  ...getApp(baseURL, MAX_ARRAY_LENGTH, next),
   ...getZen(baseURL, MAX_ARRAY_LENGTH, next),
+  ...get(baseURL, MAX_ARRAY_LENGTH, next),
 ];
 
 // This configures a Service Worker with the given request handlers.
