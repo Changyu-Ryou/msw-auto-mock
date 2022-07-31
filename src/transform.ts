@@ -96,7 +96,7 @@ function transformJSONSchemaToFakerCode(
         !jsonSchema.properties &&
         typeof jsonSchema.additionalProperties === 'object'
       ) {
-        return `[...new Array(5).keys()].map(_ => ({ [faker.lorem.word()]: ${transformJSONSchemaToFakerCode(
+        return `[...new Array(5)].map(_ => ({ [faker.lorem.word()]: ${transformJSONSchemaToFakerCode(
           jsonSchema.additionalProperties as OpenAPIV3.SchemaObject
         )} })).reduce((acc, next) => Object.assign(acc, next), {})`;
       }
@@ -112,7 +112,7 @@ function transformJSONSchemaToFakerCode(
           .join(',\n')}
     }`;
     case 'array':
-      return `[...(new Array(faker.datatype.number({ max: MAX_ARRAY_LENGTH }))).keys()].map(_ => (${transformJSONSchemaToFakerCode(
+      return `[...(new Array(faker.datatype.number({ max: MAX_ARRAY_LENGTH })))].map(_ => (${transformJSONSchemaToFakerCode(
         jsonSchema.items as OpenAPIV3.SchemaObject
       )}))`;
     default:
