@@ -6,12 +6,725 @@
 /* tslint:disable */
 import { setupWorker, rest } from 'msw';
 import { faker } from '@faker-js/faker';
-import { get__ } from './mockApi/get__.mock';
-import { get__admin_hooks } from './mockApi/get__admin_hooks.mock';
-import { post__admin_hooks } from './mockApi/post__admin_hooks.mock';
-import { get__admin_hooks_hookId } from './mockApi/get__admin_hooks_hookId.mock';
-import { patch__admin_hooks_hookId } from './mockApi/patch__admin_hooks_hookId.mock';
-import { delete__admin_hooks_hookId } from './mockApi/delete__admin_hooks_hookId.mock';
+import { get } from './mockApi/get.mock';
+import { getAdminHooks } from './mockApi/getAdminHooks.mock';
+import { postAdminHooks } from './mockApi/postAdminHooks.mock';
+import { getAdminHooksHookId } from './mockApi/getAdminHooksHookId.mock';
+import { patchAdminHooksHookId } from './mockApi/patchAdminHooksHookId.mock';
+import { deleteAdminHooksHookId } from './mockApi/deleteAdminHooksHookId.mock';
+import { postAdminHooksHookIdPings } from './mockApi/postAdminHooksHookIdPings.mock';
+import { getAdminKeys } from './mockApi/getAdminKeys.mock';
+import { deleteAdminKeysKeyIds } from './mockApi/deleteAdminKeysKeyIds.mock';
+import { patchAdminLdapTeamsTeamIdMapping } from './mockApi/patchAdminLdapTeamsTeamIdMapping.mock';
+import { postAdminLdapTeamsTeamIdSync } from './mockApi/postAdminLdapTeamsTeamIdSync.mock';
+import { patchAdminLdapUsersUsernameMapping } from './mockApi/patchAdminLdapUsersUsernameMapping.mock';
+import { postAdminLdapUsersUsernameSync } from './mockApi/postAdminLdapUsersUsernameSync.mock';
+import { postAdminOrganizations } from './mockApi/postAdminOrganizations.mock';
+import { patchAdminOrganizationsOrg } from './mockApi/patchAdminOrganizationsOrg.mock';
+import { getAdminPreReceiveEnvironments } from './mockApi/getAdminPreReceiveEnvironments.mock';
+import { postAdminPreReceiveEnvironments } from './mockApi/postAdminPreReceiveEnvironments.mock';
+import { getAdminPreReceiveEnvironmentsPreReceiveEnvironmentId } from './mockApi/getAdminPreReceiveEnvironmentsPreReceiveEnvironmentId.mock';
+import { patchAdminPreReceiveEnvironmentsPreReceiveEnvironmentId } from './mockApi/patchAdminPreReceiveEnvironmentsPreReceiveEnvironmentId.mock';
+import { deleteAdminPreReceiveEnvironmentsPreReceiveEnvironmentId } from './mockApi/deleteAdminPreReceiveEnvironmentsPreReceiveEnvironmentId.mock';
+import { postAdminPreReceiveEnvironmentsPreReceiveEnvironmentIdDownloads } from './mockApi/postAdminPreReceiveEnvironmentsPreReceiveEnvironmentIdDownloads.mock';
+import { getAdminPreReceiveEnvironmentsPreReceiveEnvironmentIdDownloadsLatest } from './mockApi/getAdminPreReceiveEnvironmentsPreReceiveEnvironmentIdDownloadsLatest.mock';
+import { getAdminPreReceiveHooks } from './mockApi/getAdminPreReceiveHooks.mock';
+import { postAdminPreReceiveHooks } from './mockApi/postAdminPreReceiveHooks.mock';
+import { getAdminPreReceiveHooksPreReceiveHookId } from './mockApi/getAdminPreReceiveHooksPreReceiveHookId.mock';
+import { patchAdminPreReceiveHooksPreReceiveHookId } from './mockApi/patchAdminPreReceiveHooksPreReceiveHookId.mock';
+import { deleteAdminPreReceiveHooksPreReceiveHookId } from './mockApi/deleteAdminPreReceiveHooksPreReceiveHookId.mock';
+import { getAdminTokens } from './mockApi/getAdminTokens.mock';
+import { deleteAdminTokensTokenId } from './mockApi/deleteAdminTokensTokenId.mock';
+import { postAdminUsers } from './mockApi/postAdminUsers.mock';
+import { patchAdminUsersUsername } from './mockApi/patchAdminUsersUsername.mock';
+import { deleteAdminUsersUsername } from './mockApi/deleteAdminUsersUsername.mock';
+import { postAdminUsersUsernameAuthorizations } from './mockApi/postAdminUsersUsernameAuthorizations.mock';
+import { deleteAdminUsersUsernameAuthorizations } from './mockApi/deleteAdminUsersUsernameAuthorizations.mock';
+import { getApp } from './mockApi/getApp.mock';
+import { postAppManifestsCodeConversions } from './mockApi/postAppManifestsCodeConversions.mock';
+import { getAppHookConfig } from './mockApi/getAppHookConfig.mock';
+import { patchAppHookConfig } from './mockApi/patchAppHookConfig.mock';
+import { getAppHookDeliveries } from './mockApi/getAppHookDeliveries.mock';
+import { getAppHookDeliveriesDeliveryId } from './mockApi/getAppHookDeliveriesDeliveryId.mock';
+import { postAppHookDeliveriesDeliveryIdAttempts } from './mockApi/postAppHookDeliveriesDeliveryIdAttempts.mock';
+import { getAppInstallations } from './mockApi/getAppInstallations.mock';
+import { getAppInstallationsInstallationId } from './mockApi/getAppInstallationsInstallationId.mock';
+import { deleteAppInstallationsInstallationId } from './mockApi/deleteAppInstallationsInstallationId.mock';
+import { postAppInstallationsInstallationIdAccessTokens } from './mockApi/postAppInstallationsInstallationIdAccessTokens.mock';
+import { putAppInstallationsInstallationIdSuspended } from './mockApi/putAppInstallationsInstallationIdSuspended.mock';
+import { deleteAppInstallationsInstallationIdSuspended } from './mockApi/deleteAppInstallationsInstallationIdSuspended.mock';
+import { getApplicationsGrants } from './mockApi/getApplicationsGrants.mock';
+import { getApplicationsGrantsGrantId } from './mockApi/getApplicationsGrantsGrantId.mock';
+import { deleteApplicationsGrantsGrantId } from './mockApi/deleteApplicationsGrantsGrantId.mock';
+import { deleteApplicationsClientIdGrant } from './mockApi/deleteApplicationsClientIdGrant.mock';
+import { deleteApplicationsClientIdGrantsAccessToken } from './mockApi/deleteApplicationsClientIdGrantsAccessToken.mock';
+import { postApplicationsClientIdToken } from './mockApi/postApplicationsClientIdToken.mock';
+import { patchApplicationsClientIdToken } from './mockApi/patchApplicationsClientIdToken.mock';
+import { deleteApplicationsClientIdToken } from './mockApi/deleteApplicationsClientIdToken.mock';
+import { postApplicationsClientIdTokenScoped } from './mockApi/postApplicationsClientIdTokenScoped.mock';
+import { getApplicationsClientIdTokensAccessToken } from './mockApi/getApplicationsClientIdTokensAccessToken.mock';
+import { postApplicationsClientIdTokensAccessToken } from './mockApi/postApplicationsClientIdTokensAccessToken.mock';
+import { deleteApplicationsClientIdTokensAccessToken } from './mockApi/deleteApplicationsClientIdTokensAccessToken.mock';
+import { getAppsAppSlug } from './mockApi/getAppsAppSlug.mock';
+import { getAuthorizations } from './mockApi/getAuthorizations.mock';
+import { postAuthorizations } from './mockApi/postAuthorizations.mock';
+import { putAuthorizationsClientsClientId } from './mockApi/putAuthorizationsClientsClientId.mock';
+import { putAuthorizationsClientsClientIdFingerprint } from './mockApi/putAuthorizationsClientsClientIdFingerprint.mock';
+import { getAuthorizationsAuthorizationId } from './mockApi/getAuthorizationsAuthorizationId.mock';
+import { patchAuthorizationsAuthorizationId } from './mockApi/patchAuthorizationsAuthorizationId.mock';
+import { deleteAuthorizationsAuthorizationId } from './mockApi/deleteAuthorizationsAuthorizationId.mock';
+import { getCodesOfConduct } from './mockApi/getCodesOfConduct.mock';
+import { getCodesOfConductKey } from './mockApi/getCodesOfConductKey.mock';
+import { getEmojis } from './mockApi/getEmojis.mock';
+import { getEnterpriseAnnouncement } from './mockApi/getEnterpriseAnnouncement.mock';
+import { patchEnterpriseAnnouncement } from './mockApi/patchEnterpriseAnnouncement.mock';
+import { deleteEnterpriseAnnouncement } from './mockApi/deleteEnterpriseAnnouncement.mock';
+import { getEnterpriseSettingsLicense } from './mockApi/getEnterpriseSettingsLicense.mock';
+import { getEnterpriseStatsAll } from './mockApi/getEnterpriseStatsAll.mock';
+import { getEnterpriseStatsComments } from './mockApi/getEnterpriseStatsComments.mock';
+import { getEnterpriseStatsGists } from './mockApi/getEnterpriseStatsGists.mock';
+import { getEnterpriseStatsHooks } from './mockApi/getEnterpriseStatsHooks.mock';
+import { getEnterpriseStatsIssues } from './mockApi/getEnterpriseStatsIssues.mock';
+import { getEnterpriseStatsMilestones } from './mockApi/getEnterpriseStatsMilestones.mock';
+import { getEnterpriseStatsOrgs } from './mockApi/getEnterpriseStatsOrgs.mock';
+import { getEnterpriseStatsPages } from './mockApi/getEnterpriseStatsPages.mock';
+import { getEnterpriseStatsPulls } from './mockApi/getEnterpriseStatsPulls.mock';
+import { getEnterpriseStatsRepos } from './mockApi/getEnterpriseStatsRepos.mock';
+import { getEnterpriseStatsUsers } from './mockApi/getEnterpriseStatsUsers.mock';
+import { getEnterprisesEnterpriseActionsPermissions } from './mockApi/getEnterprisesEnterpriseActionsPermissions.mock';
+import { putEnterprisesEnterpriseActionsPermissions } from './mockApi/putEnterprisesEnterpriseActionsPermissions.mock';
+import { getEnterprisesEnterpriseActionsPermissionsOrganizations } from './mockApi/getEnterprisesEnterpriseActionsPermissionsOrganizations.mock';
+import { putEnterprisesEnterpriseActionsPermissionsOrganizations } from './mockApi/putEnterprisesEnterpriseActionsPermissionsOrganizations.mock';
+import { putEnterprisesEnterpriseActionsPermissionsOrganizationsOrgId } from './mockApi/putEnterprisesEnterpriseActionsPermissionsOrganizationsOrgId.mock';
+import { deleteEnterprisesEnterpriseActionsPermissionsOrganizationsOrgId } from './mockApi/deleteEnterprisesEnterpriseActionsPermissionsOrganizationsOrgId.mock';
+import { getEnterprisesEnterpriseActionsPermissionsSelectedActions } from './mockApi/getEnterprisesEnterpriseActionsPermissionsSelectedActions.mock';
+import { putEnterprisesEnterpriseActionsPermissionsSelectedActions } from './mockApi/putEnterprisesEnterpriseActionsPermissionsSelectedActions.mock';
+import { getEnterprisesEnterpriseActionsRunnerGroups } from './mockApi/getEnterprisesEnterpriseActionsRunnerGroups.mock';
+import { postEnterprisesEnterpriseActionsRunnerGroups } from './mockApi/postEnterprisesEnterpriseActionsRunnerGroups.mock';
+import { getEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupId } from './mockApi/getEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupId.mock';
+import { patchEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupId } from './mockApi/patchEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupId.mock';
+import { deleteEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupId } from './mockApi/deleteEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupId.mock';
+import { getEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdOrganizations } from './mockApi/getEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdOrganizations.mock';
+import { putEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdOrganizations } from './mockApi/putEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdOrganizations.mock';
+import { putEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdOrganizationsOrgId } from './mockApi/putEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdOrganizationsOrgId.mock';
+import { deleteEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdOrganizationsOrgId } from './mockApi/deleteEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdOrganizationsOrgId.mock';
+import { getEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdRunners } from './mockApi/getEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdRunners.mock';
+import { putEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdRunners } from './mockApi/putEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdRunners.mock';
+import { putEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdRunnersRunnerId } from './mockApi/putEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdRunnersRunnerId.mock';
+import { deleteEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdRunnersRunnerId } from './mockApi/deleteEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdRunnersRunnerId.mock';
+import { getEnterprisesEnterpriseActionsRunners } from './mockApi/getEnterprisesEnterpriseActionsRunners.mock';
+import { getEnterprisesEnterpriseActionsRunnersDownloads } from './mockApi/getEnterprisesEnterpriseActionsRunnersDownloads.mock';
+import { postEnterprisesEnterpriseActionsRunnersRegistrationToken } from './mockApi/postEnterprisesEnterpriseActionsRunnersRegistrationToken.mock';
+import { postEnterprisesEnterpriseActionsRunnersRemoveToken } from './mockApi/postEnterprisesEnterpriseActionsRunnersRemoveToken.mock';
+import { getEnterprisesEnterpriseActionsRunnersRunnerId } from './mockApi/getEnterprisesEnterpriseActionsRunnersRunnerId.mock';
+import { deleteEnterprisesEnterpriseActionsRunnersRunnerId } from './mockApi/deleteEnterprisesEnterpriseActionsRunnersRunnerId.mock';
+import { getEnterprisesEnterpriseAuditLog } from './mockApi/getEnterprisesEnterpriseAuditLog.mock';
+import { getEvents } from './mockApi/getEvents.mock';
+import { getFeeds } from './mockApi/getFeeds.mock';
+import { getGists } from './mockApi/getGists.mock';
+import { postGists } from './mockApi/postGists.mock';
+import { getGistsPublic } from './mockApi/getGistsPublic.mock';
+import { getGistsStarred } from './mockApi/getGistsStarred.mock';
+import { getGistsGistId } from './mockApi/getGistsGistId.mock';
+import { patchGistsGistId } from './mockApi/patchGistsGistId.mock';
+import { deleteGistsGistId } from './mockApi/deleteGistsGistId.mock';
+import { getGistsGistIdComments } from './mockApi/getGistsGistIdComments.mock';
+import { postGistsGistIdComments } from './mockApi/postGistsGistIdComments.mock';
+import { getGistsGistIdCommentsCommentId } from './mockApi/getGistsGistIdCommentsCommentId.mock';
+import { patchGistsGistIdCommentsCommentId } from './mockApi/patchGistsGistIdCommentsCommentId.mock';
+import { deleteGistsGistIdCommentsCommentId } from './mockApi/deleteGistsGistIdCommentsCommentId.mock';
+import { getGistsGistIdCommits } from './mockApi/getGistsGistIdCommits.mock';
+import { getGistsGistIdForks } from './mockApi/getGistsGistIdForks.mock';
+import { postGistsGistIdForks } from './mockApi/postGistsGistIdForks.mock';
+import { getGistsGistIdStar } from './mockApi/getGistsGistIdStar.mock';
+import { putGistsGistIdStar } from './mockApi/putGistsGistIdStar.mock';
+import { deleteGistsGistIdStar } from './mockApi/deleteGistsGistIdStar.mock';
+import { getGistsGistIdSha } from './mockApi/getGistsGistIdSha.mock';
+import { getGitignoreTemplates } from './mockApi/getGitignoreTemplates.mock';
+import { getGitignoreTemplatesName } from './mockApi/getGitignoreTemplatesName.mock';
+import { getInstallationRepositories } from './mockApi/getInstallationRepositories.mock';
+import { deleteInstallationToken } from './mockApi/deleteInstallationToken.mock';
+import { getIssues } from './mockApi/getIssues.mock';
+import { getLicenses } from './mockApi/getLicenses.mock';
+import { getLicensesLicense } from './mockApi/getLicensesLicense.mock';
+import { postMarkdown } from './mockApi/postMarkdown.mock';
+import { postMarkdownRaw } from './mockApi/postMarkdownRaw.mock';
+import { getMeta } from './mockApi/getMeta.mock';
+import { getNetworksOwnerRepoEvents } from './mockApi/getNetworksOwnerRepoEvents.mock';
+import { getNotifications } from './mockApi/getNotifications.mock';
+import { putNotifications } from './mockApi/putNotifications.mock';
+import { getNotificationsThreadsThreadId } from './mockApi/getNotificationsThreadsThreadId.mock';
+import { patchNotificationsThreadsThreadId } from './mockApi/patchNotificationsThreadsThreadId.mock';
+import { getNotificationsThreadsThreadIdSubscription } from './mockApi/getNotificationsThreadsThreadIdSubscription.mock';
+import { putNotificationsThreadsThreadIdSubscription } from './mockApi/putNotificationsThreadsThreadIdSubscription.mock';
+import { deleteNotificationsThreadsThreadIdSubscription } from './mockApi/deleteNotificationsThreadsThreadIdSubscription.mock';
+import { getOctocat } from './mockApi/getOctocat.mock';
+import { getOrganizations } from './mockApi/getOrganizations.mock';
+import { getOrgsOrg } from './mockApi/getOrgsOrg.mock';
+import { patchOrgsOrg } from './mockApi/patchOrgsOrg.mock';
+import { getOrgsOrgActionsPermissions } from './mockApi/getOrgsOrgActionsPermissions.mock';
+import { putOrgsOrgActionsPermissions } from './mockApi/putOrgsOrgActionsPermissions.mock';
+import { getOrgsOrgActionsPermissionsRepositories } from './mockApi/getOrgsOrgActionsPermissionsRepositories.mock';
+import { putOrgsOrgActionsPermissionsRepositories } from './mockApi/putOrgsOrgActionsPermissionsRepositories.mock';
+import { putOrgsOrgActionsPermissionsRepositoriesRepositoryId } from './mockApi/putOrgsOrgActionsPermissionsRepositoriesRepositoryId.mock';
+import { deleteOrgsOrgActionsPermissionsRepositoriesRepositoryId } from './mockApi/deleteOrgsOrgActionsPermissionsRepositoriesRepositoryId.mock';
+import { getOrgsOrgActionsPermissionsSelectedActions } from './mockApi/getOrgsOrgActionsPermissionsSelectedActions.mock';
+import { putOrgsOrgActionsPermissionsSelectedActions } from './mockApi/putOrgsOrgActionsPermissionsSelectedActions.mock';
+import { getOrgsOrgActionsRunnerGroups } from './mockApi/getOrgsOrgActionsRunnerGroups.mock';
+import { postOrgsOrgActionsRunnerGroups } from './mockApi/postOrgsOrgActionsRunnerGroups.mock';
+import { getOrgsOrgActionsRunnerGroupsRunnerGroupId } from './mockApi/getOrgsOrgActionsRunnerGroupsRunnerGroupId.mock';
+import { patchOrgsOrgActionsRunnerGroupsRunnerGroupId } from './mockApi/patchOrgsOrgActionsRunnerGroupsRunnerGroupId.mock';
+import { deleteOrgsOrgActionsRunnerGroupsRunnerGroupId } from './mockApi/deleteOrgsOrgActionsRunnerGroupsRunnerGroupId.mock';
+import { getOrgsOrgActionsRunnerGroupsRunnerGroupIdRepositories } from './mockApi/getOrgsOrgActionsRunnerGroupsRunnerGroupIdRepositories.mock';
+import { putOrgsOrgActionsRunnerGroupsRunnerGroupIdRepositories } from './mockApi/putOrgsOrgActionsRunnerGroupsRunnerGroupIdRepositories.mock';
+import { putOrgsOrgActionsRunnerGroupsRunnerGroupIdRepositoriesRepositoryId } from './mockApi/putOrgsOrgActionsRunnerGroupsRunnerGroupIdRepositoriesRepositoryId.mock';
+import { deleteOrgsOrgActionsRunnerGroupsRunnerGroupIdRepositoriesRepositoryId } from './mockApi/deleteOrgsOrgActionsRunnerGroupsRunnerGroupIdRepositoriesRepositoryId.mock';
+import { getOrgsOrgActionsRunnerGroupsRunnerGroupIdRunners } from './mockApi/getOrgsOrgActionsRunnerGroupsRunnerGroupIdRunners.mock';
+import { putOrgsOrgActionsRunnerGroupsRunnerGroupIdRunners } from './mockApi/putOrgsOrgActionsRunnerGroupsRunnerGroupIdRunners.mock';
+import { putOrgsOrgActionsRunnerGroupsRunnerGroupIdRunnersRunnerId } from './mockApi/putOrgsOrgActionsRunnerGroupsRunnerGroupIdRunnersRunnerId.mock';
+import { deleteOrgsOrgActionsRunnerGroupsRunnerGroupIdRunnersRunnerId } from './mockApi/deleteOrgsOrgActionsRunnerGroupsRunnerGroupIdRunnersRunnerId.mock';
+import { getOrgsOrgActionsRunners } from './mockApi/getOrgsOrgActionsRunners.mock';
+import { getOrgsOrgActionsRunnersDownloads } from './mockApi/getOrgsOrgActionsRunnersDownloads.mock';
+import { postOrgsOrgActionsRunnersRegistrationToken } from './mockApi/postOrgsOrgActionsRunnersRegistrationToken.mock';
+import { postOrgsOrgActionsRunnersRemoveToken } from './mockApi/postOrgsOrgActionsRunnersRemoveToken.mock';
+import { getOrgsOrgActionsRunnersRunnerId } from './mockApi/getOrgsOrgActionsRunnersRunnerId.mock';
+import { deleteOrgsOrgActionsRunnersRunnerId } from './mockApi/deleteOrgsOrgActionsRunnersRunnerId.mock';
+import { getOrgsOrgActionsSecrets } from './mockApi/getOrgsOrgActionsSecrets.mock';
+import { getOrgsOrgActionsSecretsPublicKey } from './mockApi/getOrgsOrgActionsSecretsPublicKey.mock';
+import { getOrgsOrgActionsSecretsSecretName } from './mockApi/getOrgsOrgActionsSecretsSecretName.mock';
+import { putOrgsOrgActionsSecretsSecretName } from './mockApi/putOrgsOrgActionsSecretsSecretName.mock';
+import { deleteOrgsOrgActionsSecretsSecretName } from './mockApi/deleteOrgsOrgActionsSecretsSecretName.mock';
+import { getOrgsOrgActionsSecretsSecretNameRepositories } from './mockApi/getOrgsOrgActionsSecretsSecretNameRepositories.mock';
+import { putOrgsOrgActionsSecretsSecretNameRepositories } from './mockApi/putOrgsOrgActionsSecretsSecretNameRepositories.mock';
+import { putOrgsOrgActionsSecretsSecretNameRepositoriesRepositoryId } from './mockApi/putOrgsOrgActionsSecretsSecretNameRepositoriesRepositoryId.mock';
+import { deleteOrgsOrgActionsSecretsSecretNameRepositoriesRepositoryId } from './mockApi/deleteOrgsOrgActionsSecretsSecretNameRepositoriesRepositoryId.mock';
+import { getOrgsOrgAuditLog } from './mockApi/getOrgsOrgAuditLog.mock';
+import { getOrgsOrgEvents } from './mockApi/getOrgsOrgEvents.mock';
+import { getOrgsOrgHooks } from './mockApi/getOrgsOrgHooks.mock';
+import { postOrgsOrgHooks } from './mockApi/postOrgsOrgHooks.mock';
+import { getOrgsOrgHooksHookId } from './mockApi/getOrgsOrgHooksHookId.mock';
+import { patchOrgsOrgHooksHookId } from './mockApi/patchOrgsOrgHooksHookId.mock';
+import { deleteOrgsOrgHooksHookId } from './mockApi/deleteOrgsOrgHooksHookId.mock';
+import { getOrgsOrgHooksHookIdConfig } from './mockApi/getOrgsOrgHooksHookIdConfig.mock';
+import { patchOrgsOrgHooksHookIdConfig } from './mockApi/patchOrgsOrgHooksHookIdConfig.mock';
+import { getOrgsOrgHooksHookIdDeliveries } from './mockApi/getOrgsOrgHooksHookIdDeliveries.mock';
+import { getOrgsOrgHooksHookIdDeliveriesDeliveryId } from './mockApi/getOrgsOrgHooksHookIdDeliveriesDeliveryId.mock';
+import { postOrgsOrgHooksHookIdDeliveriesDeliveryIdAttempts } from './mockApi/postOrgsOrgHooksHookIdDeliveriesDeliveryIdAttempts.mock';
+import { postOrgsOrgHooksHookIdPings } from './mockApi/postOrgsOrgHooksHookIdPings.mock';
+import { getOrgsOrgInstallation } from './mockApi/getOrgsOrgInstallation.mock';
+import { getOrgsOrgInstallations } from './mockApi/getOrgsOrgInstallations.mock';
+import { getOrgsOrgIssues } from './mockApi/getOrgsOrgIssues.mock';
+import { getOrgsOrgMembers } from './mockApi/getOrgsOrgMembers.mock';
+import { getOrgsOrgMembersUsername } from './mockApi/getOrgsOrgMembersUsername.mock';
+import { deleteOrgsOrgMembersUsername } from './mockApi/deleteOrgsOrgMembersUsername.mock';
+import { getOrgsOrgMembershipsUsername } from './mockApi/getOrgsOrgMembershipsUsername.mock';
+import { putOrgsOrgMembershipsUsername } from './mockApi/putOrgsOrgMembershipsUsername.mock';
+import { deleteOrgsOrgMembershipsUsername } from './mockApi/deleteOrgsOrgMembershipsUsername.mock';
+import { getOrgsOrgOutsideCollaborators } from './mockApi/getOrgsOrgOutsideCollaborators.mock';
+import { putOrgsOrgOutsideCollaboratorsUsername } from './mockApi/putOrgsOrgOutsideCollaboratorsUsername.mock';
+import { deleteOrgsOrgOutsideCollaboratorsUsername } from './mockApi/deleteOrgsOrgOutsideCollaboratorsUsername.mock';
+import { getOrgsOrgPreReceiveHooks } from './mockApi/getOrgsOrgPreReceiveHooks.mock';
+import { getOrgsOrgPreReceiveHooksPreReceiveHookId } from './mockApi/getOrgsOrgPreReceiveHooksPreReceiveHookId.mock';
+import { patchOrgsOrgPreReceiveHooksPreReceiveHookId } from './mockApi/patchOrgsOrgPreReceiveHooksPreReceiveHookId.mock';
+import { deleteOrgsOrgPreReceiveHooksPreReceiveHookId } from './mockApi/deleteOrgsOrgPreReceiveHooksPreReceiveHookId.mock';
+import { getOrgsOrgProjects } from './mockApi/getOrgsOrgProjects.mock';
+import { postOrgsOrgProjects } from './mockApi/postOrgsOrgProjects.mock';
+import { getOrgsOrgPublicMembers } from './mockApi/getOrgsOrgPublicMembers.mock';
+import { getOrgsOrgPublicMembersUsername } from './mockApi/getOrgsOrgPublicMembersUsername.mock';
+import { putOrgsOrgPublicMembersUsername } from './mockApi/putOrgsOrgPublicMembersUsername.mock';
+import { deleteOrgsOrgPublicMembersUsername } from './mockApi/deleteOrgsOrgPublicMembersUsername.mock';
+import { getOrgsOrgRepos } from './mockApi/getOrgsOrgRepos.mock';
+import { postOrgsOrgRepos } from './mockApi/postOrgsOrgRepos.mock';
+import { getOrgsOrgSecretScanningAlerts } from './mockApi/getOrgsOrgSecretScanningAlerts.mock';
+import { getOrgsOrgTeams } from './mockApi/getOrgsOrgTeams.mock';
+import { postOrgsOrgTeams } from './mockApi/postOrgsOrgTeams.mock';
+import { getOrgsOrgTeamsTeamSlug } from './mockApi/getOrgsOrgTeamsTeamSlug.mock';
+import { patchOrgsOrgTeamsTeamSlug } from './mockApi/patchOrgsOrgTeamsTeamSlug.mock';
+import { deleteOrgsOrgTeamsTeamSlug } from './mockApi/deleteOrgsOrgTeamsTeamSlug.mock';
+import { getOrgsOrgTeamsTeamSlugDiscussions } from './mockApi/getOrgsOrgTeamsTeamSlugDiscussions.mock';
+import { postOrgsOrgTeamsTeamSlugDiscussions } from './mockApi/postOrgsOrgTeamsTeamSlugDiscussions.mock';
+import { getOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumber } from './mockApi/getOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumber.mock';
+import { patchOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumber } from './mockApi/patchOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumber.mock';
+import { deleteOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumber } from './mockApi/deleteOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumber.mock';
+import { getOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberComments } from './mockApi/getOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberComments.mock';
+import { postOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberComments } from './mockApi/postOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberComments.mock';
+import { getOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberCommentsCommentNumber } from './mockApi/getOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberCommentsCommentNumber.mock';
+import { patchOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberCommentsCommentNumber } from './mockApi/patchOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberCommentsCommentNumber.mock';
+import { deleteOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberCommentsCommentNumber } from './mockApi/deleteOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberCommentsCommentNumber.mock';
+import { getOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberCommentsCommentNumberReactions } from './mockApi/getOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberCommentsCommentNumberReactions.mock';
+import { postOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberCommentsCommentNumberReactions } from './mockApi/postOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberCommentsCommentNumberReactions.mock';
+import { deleteOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberCommentsCommentNumberReactionsReactionId } from './mockApi/deleteOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberCommentsCommentNumberReactionsReactionId.mock';
+import { getOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberReactions } from './mockApi/getOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberReactions.mock';
+import { postOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberReactions } from './mockApi/postOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberReactions.mock';
+import { deleteOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberReactionsReactionId } from './mockApi/deleteOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberReactionsReactionId.mock';
+import { getOrgsOrgTeamsTeamSlugMembers } from './mockApi/getOrgsOrgTeamsTeamSlugMembers.mock';
+import { getOrgsOrgTeamsTeamSlugMembershipsUsername } from './mockApi/getOrgsOrgTeamsTeamSlugMembershipsUsername.mock';
+import { putOrgsOrgTeamsTeamSlugMembershipsUsername } from './mockApi/putOrgsOrgTeamsTeamSlugMembershipsUsername.mock';
+import { deleteOrgsOrgTeamsTeamSlugMembershipsUsername } from './mockApi/deleteOrgsOrgTeamsTeamSlugMembershipsUsername.mock';
+import { getOrgsOrgTeamsTeamSlugProjects } from './mockApi/getOrgsOrgTeamsTeamSlugProjects.mock';
+import { getOrgsOrgTeamsTeamSlugProjectsProjectId } from './mockApi/getOrgsOrgTeamsTeamSlugProjectsProjectId.mock';
+import { putOrgsOrgTeamsTeamSlugProjectsProjectId } from './mockApi/putOrgsOrgTeamsTeamSlugProjectsProjectId.mock';
+import { deleteOrgsOrgTeamsTeamSlugProjectsProjectId } from './mockApi/deleteOrgsOrgTeamsTeamSlugProjectsProjectId.mock';
+import { getOrgsOrgTeamsTeamSlugRepos } from './mockApi/getOrgsOrgTeamsTeamSlugRepos.mock';
+import { getOrgsOrgTeamsTeamSlugReposOwnerRepo } from './mockApi/getOrgsOrgTeamsTeamSlugReposOwnerRepo.mock';
+import { putOrgsOrgTeamsTeamSlugReposOwnerRepo } from './mockApi/putOrgsOrgTeamsTeamSlugReposOwnerRepo.mock';
+import { deleteOrgsOrgTeamsTeamSlugReposOwnerRepo } from './mockApi/deleteOrgsOrgTeamsTeamSlugReposOwnerRepo.mock';
+import { getOrgsOrgTeamsTeamSlugTeams } from './mockApi/getOrgsOrgTeamsTeamSlugTeams.mock';
+import { getProjectsColumnsCardsCardId } from './mockApi/getProjectsColumnsCardsCardId.mock';
+import { patchProjectsColumnsCardsCardId } from './mockApi/patchProjectsColumnsCardsCardId.mock';
+import { deleteProjectsColumnsCardsCardId } from './mockApi/deleteProjectsColumnsCardsCardId.mock';
+import { postProjectsColumnsCardsCardIdMoves } from './mockApi/postProjectsColumnsCardsCardIdMoves.mock';
+import { getProjectsColumnsColumnId } from './mockApi/getProjectsColumnsColumnId.mock';
+import { patchProjectsColumnsColumnId } from './mockApi/patchProjectsColumnsColumnId.mock';
+import { deleteProjectsColumnsColumnId } from './mockApi/deleteProjectsColumnsColumnId.mock';
+import { getProjectsColumnsColumnIdCards } from './mockApi/getProjectsColumnsColumnIdCards.mock';
+import { postProjectsColumnsColumnIdCards } from './mockApi/postProjectsColumnsColumnIdCards.mock';
+import { postProjectsColumnsColumnIdMoves } from './mockApi/postProjectsColumnsColumnIdMoves.mock';
+import { getProjectsProjectId } from './mockApi/getProjectsProjectId.mock';
+import { patchProjectsProjectId } from './mockApi/patchProjectsProjectId.mock';
+import { deleteProjectsProjectId } from './mockApi/deleteProjectsProjectId.mock';
+import { getProjectsProjectIdCollaborators } from './mockApi/getProjectsProjectIdCollaborators.mock';
+import { putProjectsProjectIdCollaboratorsUsername } from './mockApi/putProjectsProjectIdCollaboratorsUsername.mock';
+import { deleteProjectsProjectIdCollaboratorsUsername } from './mockApi/deleteProjectsProjectIdCollaboratorsUsername.mock';
+import { getProjectsProjectIdCollaboratorsUsernamePermission } from './mockApi/getProjectsProjectIdCollaboratorsUsernamePermission.mock';
+import { getProjectsProjectIdColumns } from './mockApi/getProjectsProjectIdColumns.mock';
+import { postProjectsProjectIdColumns } from './mockApi/postProjectsProjectIdColumns.mock';
+import { getRateLimit } from './mockApi/getRateLimit.mock';
+import { deleteReactionsReactionId } from './mockApi/deleteReactionsReactionId.mock';
+import { getReposOwnerRepo } from './mockApi/getReposOwnerRepo.mock';
+import { patchReposOwnerRepo } from './mockApi/patchReposOwnerRepo.mock';
+import { deleteReposOwnerRepo } from './mockApi/deleteReposOwnerRepo.mock';
+import { getReposOwnerRepoActionsArtifacts } from './mockApi/getReposOwnerRepoActionsArtifacts.mock';
+import { getReposOwnerRepoActionsArtifactsArtifactId } from './mockApi/getReposOwnerRepoActionsArtifactsArtifactId.mock';
+import { deleteReposOwnerRepoActionsArtifactsArtifactId } from './mockApi/deleteReposOwnerRepoActionsArtifactsArtifactId.mock';
+import { getReposOwnerRepoActionsArtifactsArtifactIdArchiveFormat } from './mockApi/getReposOwnerRepoActionsArtifactsArtifactIdArchiveFormat.mock';
+import { getReposOwnerRepoActionsJobsJobId } from './mockApi/getReposOwnerRepoActionsJobsJobId.mock';
+import { getReposOwnerRepoActionsJobsJobIdLogs } from './mockApi/getReposOwnerRepoActionsJobsJobIdLogs.mock';
+import { getReposOwnerRepoActionsPermissions } from './mockApi/getReposOwnerRepoActionsPermissions.mock';
+import { putReposOwnerRepoActionsPermissions } from './mockApi/putReposOwnerRepoActionsPermissions.mock';
+import { getReposOwnerRepoActionsPermissionsSelectedActions } from './mockApi/getReposOwnerRepoActionsPermissionsSelectedActions.mock';
+import { putReposOwnerRepoActionsPermissionsSelectedActions } from './mockApi/putReposOwnerRepoActionsPermissionsSelectedActions.mock';
+import { getReposOwnerRepoActionsRunners } from './mockApi/getReposOwnerRepoActionsRunners.mock';
+import { getReposOwnerRepoActionsRunnersDownloads } from './mockApi/getReposOwnerRepoActionsRunnersDownloads.mock';
+import { postReposOwnerRepoActionsRunnersRegistrationToken } from './mockApi/postReposOwnerRepoActionsRunnersRegistrationToken.mock';
+import { postReposOwnerRepoActionsRunnersRemoveToken } from './mockApi/postReposOwnerRepoActionsRunnersRemoveToken.mock';
+import { getReposOwnerRepoActionsRunnersRunnerId } from './mockApi/getReposOwnerRepoActionsRunnersRunnerId.mock';
+import { deleteReposOwnerRepoActionsRunnersRunnerId } from './mockApi/deleteReposOwnerRepoActionsRunnersRunnerId.mock';
+import { getReposOwnerRepoActionsRuns } from './mockApi/getReposOwnerRepoActionsRuns.mock';
+import { getReposOwnerRepoActionsRunsRunId } from './mockApi/getReposOwnerRepoActionsRunsRunId.mock';
+import { deleteReposOwnerRepoActionsRunsRunId } from './mockApi/deleteReposOwnerRepoActionsRunsRunId.mock';
+import { getReposOwnerRepoActionsRunsRunIdApprovals } from './mockApi/getReposOwnerRepoActionsRunsRunIdApprovals.mock';
+import { getReposOwnerRepoActionsRunsRunIdArtifacts } from './mockApi/getReposOwnerRepoActionsRunsRunIdArtifacts.mock';
+import { postReposOwnerRepoActionsRunsRunIdCancel } from './mockApi/postReposOwnerRepoActionsRunsRunIdCancel.mock';
+import { getReposOwnerRepoActionsRunsRunIdJobs } from './mockApi/getReposOwnerRepoActionsRunsRunIdJobs.mock';
+import { getReposOwnerRepoActionsRunsRunIdLogs } from './mockApi/getReposOwnerRepoActionsRunsRunIdLogs.mock';
+import { deleteReposOwnerRepoActionsRunsRunIdLogs } from './mockApi/deleteReposOwnerRepoActionsRunsRunIdLogs.mock';
+import { getReposOwnerRepoActionsRunsRunIdPendingDeployments } from './mockApi/getReposOwnerRepoActionsRunsRunIdPendingDeployments.mock';
+import { postReposOwnerRepoActionsRunsRunIdPendingDeployments } from './mockApi/postReposOwnerRepoActionsRunsRunIdPendingDeployments.mock';
+import { postReposOwnerRepoActionsRunsRunIdRerun } from './mockApi/postReposOwnerRepoActionsRunsRunIdRerun.mock';
+import { getReposOwnerRepoActionsSecrets } from './mockApi/getReposOwnerRepoActionsSecrets.mock';
+import { getReposOwnerRepoActionsSecretsPublicKey } from './mockApi/getReposOwnerRepoActionsSecretsPublicKey.mock';
+import { getReposOwnerRepoActionsSecretsSecretName } from './mockApi/getReposOwnerRepoActionsSecretsSecretName.mock';
+import { putReposOwnerRepoActionsSecretsSecretName } from './mockApi/putReposOwnerRepoActionsSecretsSecretName.mock';
+import { deleteReposOwnerRepoActionsSecretsSecretName } from './mockApi/deleteReposOwnerRepoActionsSecretsSecretName.mock';
+import { getReposOwnerRepoActionsWorkflows } from './mockApi/getReposOwnerRepoActionsWorkflows.mock';
+import { getReposOwnerRepoActionsWorkflowsWorkflowId } from './mockApi/getReposOwnerRepoActionsWorkflowsWorkflowId.mock';
+import { putReposOwnerRepoActionsWorkflowsWorkflowIdDisable } from './mockApi/putReposOwnerRepoActionsWorkflowsWorkflowIdDisable.mock';
+import { postReposOwnerRepoActionsWorkflowsWorkflowIdDispatches } from './mockApi/postReposOwnerRepoActionsWorkflowsWorkflowIdDispatches.mock';
+import { putReposOwnerRepoActionsWorkflowsWorkflowIdEnable } from './mockApi/putReposOwnerRepoActionsWorkflowsWorkflowIdEnable.mock';
+import { getReposOwnerRepoActionsWorkflowsWorkflowIdRuns } from './mockApi/getReposOwnerRepoActionsWorkflowsWorkflowIdRuns.mock';
+import { getReposOwnerRepoAssignees } from './mockApi/getReposOwnerRepoAssignees.mock';
+import { getReposOwnerRepoAssigneesAssignee } from './mockApi/getReposOwnerRepoAssigneesAssignee.mock';
+import { getReposOwnerRepoAutolinks } from './mockApi/getReposOwnerRepoAutolinks.mock';
+import { postReposOwnerRepoAutolinks } from './mockApi/postReposOwnerRepoAutolinks.mock';
+import { getReposOwnerRepoAutolinksAutolinkId } from './mockApi/getReposOwnerRepoAutolinksAutolinkId.mock';
+import { deleteReposOwnerRepoAutolinksAutolinkId } from './mockApi/deleteReposOwnerRepoAutolinksAutolinkId.mock';
+import { getReposOwnerRepoBranches } from './mockApi/getReposOwnerRepoBranches.mock';
+import { getReposOwnerRepoBranchesBranch } from './mockApi/getReposOwnerRepoBranchesBranch.mock';
+import { getReposOwnerRepoBranchesBranchProtection } from './mockApi/getReposOwnerRepoBranchesBranchProtection.mock';
+import { putReposOwnerRepoBranchesBranchProtection } from './mockApi/putReposOwnerRepoBranchesBranchProtection.mock';
+import { deleteReposOwnerRepoBranchesBranchProtection } from './mockApi/deleteReposOwnerRepoBranchesBranchProtection.mock';
+import { getReposOwnerRepoBranchesBranchProtectionEnforceAdmins } from './mockApi/getReposOwnerRepoBranchesBranchProtectionEnforceAdmins.mock';
+import { postReposOwnerRepoBranchesBranchProtectionEnforceAdmins } from './mockApi/postReposOwnerRepoBranchesBranchProtectionEnforceAdmins.mock';
+import { deleteReposOwnerRepoBranchesBranchProtectionEnforceAdmins } from './mockApi/deleteReposOwnerRepoBranchesBranchProtectionEnforceAdmins.mock';
+import { getReposOwnerRepoBranchesBranchProtectionRequiredPullRequestReviews } from './mockApi/getReposOwnerRepoBranchesBranchProtectionRequiredPullRequestReviews.mock';
+import { patchReposOwnerRepoBranchesBranchProtectionRequiredPullRequestReviews } from './mockApi/patchReposOwnerRepoBranchesBranchProtectionRequiredPullRequestReviews.mock';
+import { deleteReposOwnerRepoBranchesBranchProtectionRequiredPullRequestReviews } from './mockApi/deleteReposOwnerRepoBranchesBranchProtectionRequiredPullRequestReviews.mock';
+import { getReposOwnerRepoBranchesBranchProtectionRequiredSignatures } from './mockApi/getReposOwnerRepoBranchesBranchProtectionRequiredSignatures.mock';
+import { postReposOwnerRepoBranchesBranchProtectionRequiredSignatures } from './mockApi/postReposOwnerRepoBranchesBranchProtectionRequiredSignatures.mock';
+import { deleteReposOwnerRepoBranchesBranchProtectionRequiredSignatures } from './mockApi/deleteReposOwnerRepoBranchesBranchProtectionRequiredSignatures.mock';
+import { getReposOwnerRepoBranchesBranchProtectionRequiredStatusChecks } from './mockApi/getReposOwnerRepoBranchesBranchProtectionRequiredStatusChecks.mock';
+import { patchReposOwnerRepoBranchesBranchProtectionRequiredStatusChecks } from './mockApi/patchReposOwnerRepoBranchesBranchProtectionRequiredStatusChecks.mock';
+import { deleteReposOwnerRepoBranchesBranchProtectionRequiredStatusChecks } from './mockApi/deleteReposOwnerRepoBranchesBranchProtectionRequiredStatusChecks.mock';
+import { getReposOwnerRepoBranchesBranchProtectionRequiredStatusChecksContexts } from './mockApi/getReposOwnerRepoBranchesBranchProtectionRequiredStatusChecksContexts.mock';
+import { postReposOwnerRepoBranchesBranchProtectionRequiredStatusChecksContexts } from './mockApi/postReposOwnerRepoBranchesBranchProtectionRequiredStatusChecksContexts.mock';
+import { putReposOwnerRepoBranchesBranchProtectionRequiredStatusChecksContexts } from './mockApi/putReposOwnerRepoBranchesBranchProtectionRequiredStatusChecksContexts.mock';
+import { deleteReposOwnerRepoBranchesBranchProtectionRequiredStatusChecksContexts } from './mockApi/deleteReposOwnerRepoBranchesBranchProtectionRequiredStatusChecksContexts.mock';
+import { getReposOwnerRepoBranchesBranchProtectionRestrictions } from './mockApi/getReposOwnerRepoBranchesBranchProtectionRestrictions.mock';
+import { deleteReposOwnerRepoBranchesBranchProtectionRestrictions } from './mockApi/deleteReposOwnerRepoBranchesBranchProtectionRestrictions.mock';
+import { getReposOwnerRepoBranchesBranchProtectionRestrictionsApps } from './mockApi/getReposOwnerRepoBranchesBranchProtectionRestrictionsApps.mock';
+import { postReposOwnerRepoBranchesBranchProtectionRestrictionsApps } from './mockApi/postReposOwnerRepoBranchesBranchProtectionRestrictionsApps.mock';
+import { putReposOwnerRepoBranchesBranchProtectionRestrictionsApps } from './mockApi/putReposOwnerRepoBranchesBranchProtectionRestrictionsApps.mock';
+import { deleteReposOwnerRepoBranchesBranchProtectionRestrictionsApps } from './mockApi/deleteReposOwnerRepoBranchesBranchProtectionRestrictionsApps.mock';
+import { getReposOwnerRepoBranchesBranchProtectionRestrictionsTeams } from './mockApi/getReposOwnerRepoBranchesBranchProtectionRestrictionsTeams.mock';
+import { postReposOwnerRepoBranchesBranchProtectionRestrictionsTeams } from './mockApi/postReposOwnerRepoBranchesBranchProtectionRestrictionsTeams.mock';
+import { putReposOwnerRepoBranchesBranchProtectionRestrictionsTeams } from './mockApi/putReposOwnerRepoBranchesBranchProtectionRestrictionsTeams.mock';
+import { deleteReposOwnerRepoBranchesBranchProtectionRestrictionsTeams } from './mockApi/deleteReposOwnerRepoBranchesBranchProtectionRestrictionsTeams.mock';
+import { getReposOwnerRepoBranchesBranchProtectionRestrictionsUsers } from './mockApi/getReposOwnerRepoBranchesBranchProtectionRestrictionsUsers.mock';
+import { postReposOwnerRepoBranchesBranchProtectionRestrictionsUsers } from './mockApi/postReposOwnerRepoBranchesBranchProtectionRestrictionsUsers.mock';
+import { putReposOwnerRepoBranchesBranchProtectionRestrictionsUsers } from './mockApi/putReposOwnerRepoBranchesBranchProtectionRestrictionsUsers.mock';
+import { deleteReposOwnerRepoBranchesBranchProtectionRestrictionsUsers } from './mockApi/deleteReposOwnerRepoBranchesBranchProtectionRestrictionsUsers.mock';
+import { postReposOwnerRepoBranchesBranchRename } from './mockApi/postReposOwnerRepoBranchesBranchRename.mock';
+import { postReposOwnerRepoCheckRuns } from './mockApi/postReposOwnerRepoCheckRuns.mock';
+import { getReposOwnerRepoCheckRunsCheckRunId } from './mockApi/getReposOwnerRepoCheckRunsCheckRunId.mock';
+import { patchReposOwnerRepoCheckRunsCheckRunId } from './mockApi/patchReposOwnerRepoCheckRunsCheckRunId.mock';
+import { getReposOwnerRepoCheckRunsCheckRunIdAnnotations } from './mockApi/getReposOwnerRepoCheckRunsCheckRunIdAnnotations.mock';
+import { postReposOwnerRepoCheckRunsCheckRunIdRerequest } from './mockApi/postReposOwnerRepoCheckRunsCheckRunIdRerequest.mock';
+import { postReposOwnerRepoCheckSuites } from './mockApi/postReposOwnerRepoCheckSuites.mock';
+import { patchReposOwnerRepoCheckSuitesPreferences } from './mockApi/patchReposOwnerRepoCheckSuitesPreferences.mock';
+import { getReposOwnerRepoCheckSuitesCheckSuiteId } from './mockApi/getReposOwnerRepoCheckSuitesCheckSuiteId.mock';
+import { getReposOwnerRepoCheckSuitesCheckSuiteIdCheckRuns } from './mockApi/getReposOwnerRepoCheckSuitesCheckSuiteIdCheckRuns.mock';
+import { postReposOwnerRepoCheckSuitesCheckSuiteIdRerequest } from './mockApi/postReposOwnerRepoCheckSuitesCheckSuiteIdRerequest.mock';
+import { getReposOwnerRepoCodeScanningAlerts } from './mockApi/getReposOwnerRepoCodeScanningAlerts.mock';
+import { getReposOwnerRepoCodeScanningAlertsAlertNumber } from './mockApi/getReposOwnerRepoCodeScanningAlertsAlertNumber.mock';
+import { patchReposOwnerRepoCodeScanningAlertsAlertNumber } from './mockApi/patchReposOwnerRepoCodeScanningAlertsAlertNumber.mock';
+import { getReposOwnerRepoCodeScanningAlertsAlertNumberInstances } from './mockApi/getReposOwnerRepoCodeScanningAlertsAlertNumberInstances.mock';
+import { getReposOwnerRepoCodeScanningAnalyses } from './mockApi/getReposOwnerRepoCodeScanningAnalyses.mock';
+import { getReposOwnerRepoCodeScanningAnalysesAnalysisId } from './mockApi/getReposOwnerRepoCodeScanningAnalysesAnalysisId.mock';
+import { deleteReposOwnerRepoCodeScanningAnalysesAnalysisId } from './mockApi/deleteReposOwnerRepoCodeScanningAnalysesAnalysisId.mock';
+import { postReposOwnerRepoCodeScanningSarifs } from './mockApi/postReposOwnerRepoCodeScanningSarifs.mock';
+import { getReposOwnerRepoCodeScanningSarifsSarifId } from './mockApi/getReposOwnerRepoCodeScanningSarifsSarifId.mock';
+import { getReposOwnerRepoCollaborators } from './mockApi/getReposOwnerRepoCollaborators.mock';
+import { getReposOwnerRepoCollaboratorsUsername } from './mockApi/getReposOwnerRepoCollaboratorsUsername.mock';
+import { putReposOwnerRepoCollaboratorsUsername } from './mockApi/putReposOwnerRepoCollaboratorsUsername.mock';
+import { deleteReposOwnerRepoCollaboratorsUsername } from './mockApi/deleteReposOwnerRepoCollaboratorsUsername.mock';
+import { getReposOwnerRepoCollaboratorsUsernamePermission } from './mockApi/getReposOwnerRepoCollaboratorsUsernamePermission.mock';
+import { getReposOwnerRepoComments } from './mockApi/getReposOwnerRepoComments.mock';
+import { getReposOwnerRepoCommentsCommentId } from './mockApi/getReposOwnerRepoCommentsCommentId.mock';
+import { patchReposOwnerRepoCommentsCommentId } from './mockApi/patchReposOwnerRepoCommentsCommentId.mock';
+import { deleteReposOwnerRepoCommentsCommentId } from './mockApi/deleteReposOwnerRepoCommentsCommentId.mock';
+import { getReposOwnerRepoCommentsCommentIdReactions } from './mockApi/getReposOwnerRepoCommentsCommentIdReactions.mock';
+import { postReposOwnerRepoCommentsCommentIdReactions } from './mockApi/postReposOwnerRepoCommentsCommentIdReactions.mock';
+import { deleteReposOwnerRepoCommentsCommentIdReactionsReactionId } from './mockApi/deleteReposOwnerRepoCommentsCommentIdReactionsReactionId.mock';
+import { getReposOwnerRepoCommits } from './mockApi/getReposOwnerRepoCommits.mock';
+import { getReposOwnerRepoCommitsCommitShaBranchesWhereHead } from './mockApi/getReposOwnerRepoCommitsCommitShaBranchesWhereHead.mock';
+import { getReposOwnerRepoCommitsCommitShaComments } from './mockApi/getReposOwnerRepoCommitsCommitShaComments.mock';
+import { postReposOwnerRepoCommitsCommitShaComments } from './mockApi/postReposOwnerRepoCommitsCommitShaComments.mock';
+import { getReposOwnerRepoCommitsCommitShaPulls } from './mockApi/getReposOwnerRepoCommitsCommitShaPulls.mock';
+import { getReposOwnerRepoCommitsRef } from './mockApi/getReposOwnerRepoCommitsRef.mock';
+import { getReposOwnerRepoCommitsRefCheckRuns } from './mockApi/getReposOwnerRepoCommitsRefCheckRuns.mock';
+import { getReposOwnerRepoCommitsRefCheckSuites } from './mockApi/getReposOwnerRepoCommitsRefCheckSuites.mock';
+import { getReposOwnerRepoCommitsRefStatus } from './mockApi/getReposOwnerRepoCommitsRefStatus.mock';
+import { getReposOwnerRepoCommitsRefStatuses } from './mockApi/getReposOwnerRepoCommitsRefStatuses.mock';
+import { getReposOwnerRepoCompareBasehead } from './mockApi/getReposOwnerRepoCompareBasehead.mock';
+import { postReposOwnerRepoContentReferencesContentReferenceIdAttachments } from './mockApi/postReposOwnerRepoContentReferencesContentReferenceIdAttachments.mock';
+import { getReposOwnerRepoContentsPath } from './mockApi/getReposOwnerRepoContentsPath.mock';
+import { putReposOwnerRepoContentsPath } from './mockApi/putReposOwnerRepoContentsPath.mock';
+import { deleteReposOwnerRepoContentsPath } from './mockApi/deleteReposOwnerRepoContentsPath.mock';
+import { getReposOwnerRepoContributors } from './mockApi/getReposOwnerRepoContributors.mock';
+import { getReposOwnerRepoDeployments } from './mockApi/getReposOwnerRepoDeployments.mock';
+import { postReposOwnerRepoDeployments } from './mockApi/postReposOwnerRepoDeployments.mock';
+import { getReposOwnerRepoDeploymentsDeploymentId } from './mockApi/getReposOwnerRepoDeploymentsDeploymentId.mock';
+import { deleteReposOwnerRepoDeploymentsDeploymentId } from './mockApi/deleteReposOwnerRepoDeploymentsDeploymentId.mock';
+import { getReposOwnerRepoDeploymentsDeploymentIdStatuses } from './mockApi/getReposOwnerRepoDeploymentsDeploymentIdStatuses.mock';
+import { postReposOwnerRepoDeploymentsDeploymentIdStatuses } from './mockApi/postReposOwnerRepoDeploymentsDeploymentIdStatuses.mock';
+import { getReposOwnerRepoDeploymentsDeploymentIdStatusesStatusId } from './mockApi/getReposOwnerRepoDeploymentsDeploymentIdStatusesStatusId.mock';
+import { postReposOwnerRepoDispatches } from './mockApi/postReposOwnerRepoDispatches.mock';
+import { getReposOwnerRepoEnvironments } from './mockApi/getReposOwnerRepoEnvironments.mock';
+import { getReposOwnerRepoEnvironmentsEnvironmentName } from './mockApi/getReposOwnerRepoEnvironmentsEnvironmentName.mock';
+import { putReposOwnerRepoEnvironmentsEnvironmentName } from './mockApi/putReposOwnerRepoEnvironmentsEnvironmentName.mock';
+import { deleteReposOwnerRepoEnvironmentsEnvironmentName } from './mockApi/deleteReposOwnerRepoEnvironmentsEnvironmentName.mock';
+import { getReposOwnerRepoEvents } from './mockApi/getReposOwnerRepoEvents.mock';
+import { getReposOwnerRepoForks } from './mockApi/getReposOwnerRepoForks.mock';
+import { postReposOwnerRepoForks } from './mockApi/postReposOwnerRepoForks.mock';
+import { postReposOwnerRepoGitBlobs } from './mockApi/postReposOwnerRepoGitBlobs.mock';
+import { getReposOwnerRepoGitBlobsFileSha } from './mockApi/getReposOwnerRepoGitBlobsFileSha.mock';
+import { postReposOwnerRepoGitCommits } from './mockApi/postReposOwnerRepoGitCommits.mock';
+import { getReposOwnerRepoGitCommitsCommitSha } from './mockApi/getReposOwnerRepoGitCommitsCommitSha.mock';
+import { getReposOwnerRepoGitMatchingRefsRef } from './mockApi/getReposOwnerRepoGitMatchingRefsRef.mock';
+import { getReposOwnerRepoGitRefRef } from './mockApi/getReposOwnerRepoGitRefRef.mock';
+import { postReposOwnerRepoGitRefs } from './mockApi/postReposOwnerRepoGitRefs.mock';
+import { patchReposOwnerRepoGitRefsRef } from './mockApi/patchReposOwnerRepoGitRefsRef.mock';
+import { deleteReposOwnerRepoGitRefsRef } from './mockApi/deleteReposOwnerRepoGitRefsRef.mock';
+import { postReposOwnerRepoGitTags } from './mockApi/postReposOwnerRepoGitTags.mock';
+import { getReposOwnerRepoGitTagsTagSha } from './mockApi/getReposOwnerRepoGitTagsTagSha.mock';
+import { postReposOwnerRepoGitTrees } from './mockApi/postReposOwnerRepoGitTrees.mock';
+import { getReposOwnerRepoGitTreesTreeSha } from './mockApi/getReposOwnerRepoGitTreesTreeSha.mock';
+import { getReposOwnerRepoHooks } from './mockApi/getReposOwnerRepoHooks.mock';
+import { postReposOwnerRepoHooks } from './mockApi/postReposOwnerRepoHooks.mock';
+import { getReposOwnerRepoHooksHookId } from './mockApi/getReposOwnerRepoHooksHookId.mock';
+import { patchReposOwnerRepoHooksHookId } from './mockApi/patchReposOwnerRepoHooksHookId.mock';
+import { deleteReposOwnerRepoHooksHookId } from './mockApi/deleteReposOwnerRepoHooksHookId.mock';
+import { getReposOwnerRepoHooksHookIdConfig } from './mockApi/getReposOwnerRepoHooksHookIdConfig.mock';
+import { patchReposOwnerRepoHooksHookIdConfig } from './mockApi/patchReposOwnerRepoHooksHookIdConfig.mock';
+import { getReposOwnerRepoHooksHookIdDeliveries } from './mockApi/getReposOwnerRepoHooksHookIdDeliveries.mock';
+import { getReposOwnerRepoHooksHookIdDeliveriesDeliveryId } from './mockApi/getReposOwnerRepoHooksHookIdDeliveriesDeliveryId.mock';
+import { postReposOwnerRepoHooksHookIdDeliveriesDeliveryIdAttempts } from './mockApi/postReposOwnerRepoHooksHookIdDeliveriesDeliveryIdAttempts.mock';
+import { postReposOwnerRepoHooksHookIdPings } from './mockApi/postReposOwnerRepoHooksHookIdPings.mock';
+import { postReposOwnerRepoHooksHookIdTests } from './mockApi/postReposOwnerRepoHooksHookIdTests.mock';
+import { getReposOwnerRepoInstallation } from './mockApi/getReposOwnerRepoInstallation.mock';
+import { getReposOwnerRepoInvitations } from './mockApi/getReposOwnerRepoInvitations.mock';
+import { patchReposOwnerRepoInvitationsInvitationId } from './mockApi/patchReposOwnerRepoInvitationsInvitationId.mock';
+import { deleteReposOwnerRepoInvitationsInvitationId } from './mockApi/deleteReposOwnerRepoInvitationsInvitationId.mock';
+import { getReposOwnerRepoIssues } from './mockApi/getReposOwnerRepoIssues.mock';
+import { postReposOwnerRepoIssues } from './mockApi/postReposOwnerRepoIssues.mock';
+import { getReposOwnerRepoIssuesComments } from './mockApi/getReposOwnerRepoIssuesComments.mock';
+import { getReposOwnerRepoIssuesCommentsCommentId } from './mockApi/getReposOwnerRepoIssuesCommentsCommentId.mock';
+import { patchReposOwnerRepoIssuesCommentsCommentId } from './mockApi/patchReposOwnerRepoIssuesCommentsCommentId.mock';
+import { deleteReposOwnerRepoIssuesCommentsCommentId } from './mockApi/deleteReposOwnerRepoIssuesCommentsCommentId.mock';
+import { getReposOwnerRepoIssuesCommentsCommentIdReactions } from './mockApi/getReposOwnerRepoIssuesCommentsCommentIdReactions.mock';
+import { postReposOwnerRepoIssuesCommentsCommentIdReactions } from './mockApi/postReposOwnerRepoIssuesCommentsCommentIdReactions.mock';
+import { deleteReposOwnerRepoIssuesCommentsCommentIdReactionsReactionId } from './mockApi/deleteReposOwnerRepoIssuesCommentsCommentIdReactionsReactionId.mock';
+import { getReposOwnerRepoIssuesEvents } from './mockApi/getReposOwnerRepoIssuesEvents.mock';
+import { getReposOwnerRepoIssuesEventsEventId } from './mockApi/getReposOwnerRepoIssuesEventsEventId.mock';
+import { getReposOwnerRepoIssuesIssueNumber } from './mockApi/getReposOwnerRepoIssuesIssueNumber.mock';
+import { patchReposOwnerRepoIssuesIssueNumber } from './mockApi/patchReposOwnerRepoIssuesIssueNumber.mock';
+import { postReposOwnerRepoIssuesIssueNumberAssignees } from './mockApi/postReposOwnerRepoIssuesIssueNumberAssignees.mock';
+import { deleteReposOwnerRepoIssuesIssueNumberAssignees } from './mockApi/deleteReposOwnerRepoIssuesIssueNumberAssignees.mock';
+import { getReposOwnerRepoIssuesIssueNumberComments } from './mockApi/getReposOwnerRepoIssuesIssueNumberComments.mock';
+import { postReposOwnerRepoIssuesIssueNumberComments } from './mockApi/postReposOwnerRepoIssuesIssueNumberComments.mock';
+import { getReposOwnerRepoIssuesIssueNumberEvents } from './mockApi/getReposOwnerRepoIssuesIssueNumberEvents.mock';
+import { getReposOwnerRepoIssuesIssueNumberLabels } from './mockApi/getReposOwnerRepoIssuesIssueNumberLabels.mock';
+import { postReposOwnerRepoIssuesIssueNumberLabels } from './mockApi/postReposOwnerRepoIssuesIssueNumberLabels.mock';
+import { putReposOwnerRepoIssuesIssueNumberLabels } from './mockApi/putReposOwnerRepoIssuesIssueNumberLabels.mock';
+import { deleteReposOwnerRepoIssuesIssueNumberLabels } from './mockApi/deleteReposOwnerRepoIssuesIssueNumberLabels.mock';
+import { deleteReposOwnerRepoIssuesIssueNumberLabelsName } from './mockApi/deleteReposOwnerRepoIssuesIssueNumberLabelsName.mock';
+import { putReposOwnerRepoIssuesIssueNumberLock } from './mockApi/putReposOwnerRepoIssuesIssueNumberLock.mock';
+import { deleteReposOwnerRepoIssuesIssueNumberLock } from './mockApi/deleteReposOwnerRepoIssuesIssueNumberLock.mock';
+import { getReposOwnerRepoIssuesIssueNumberReactions } from './mockApi/getReposOwnerRepoIssuesIssueNumberReactions.mock';
+import { postReposOwnerRepoIssuesIssueNumberReactions } from './mockApi/postReposOwnerRepoIssuesIssueNumberReactions.mock';
+import { deleteReposOwnerRepoIssuesIssueNumberReactionsReactionId } from './mockApi/deleteReposOwnerRepoIssuesIssueNumberReactionsReactionId.mock';
+import { getReposOwnerRepoIssuesIssueNumberTimeline } from './mockApi/getReposOwnerRepoIssuesIssueNumberTimeline.mock';
+import { getReposOwnerRepoKeys } from './mockApi/getReposOwnerRepoKeys.mock';
+import { postReposOwnerRepoKeys } from './mockApi/postReposOwnerRepoKeys.mock';
+import { getReposOwnerRepoKeysKeyId } from './mockApi/getReposOwnerRepoKeysKeyId.mock';
+import { deleteReposOwnerRepoKeysKeyId } from './mockApi/deleteReposOwnerRepoKeysKeyId.mock';
+import { getReposOwnerRepoLabels } from './mockApi/getReposOwnerRepoLabels.mock';
+import { postReposOwnerRepoLabels } from './mockApi/postReposOwnerRepoLabels.mock';
+import { getReposOwnerRepoLabelsName } from './mockApi/getReposOwnerRepoLabelsName.mock';
+import { patchReposOwnerRepoLabelsName } from './mockApi/patchReposOwnerRepoLabelsName.mock';
+import { deleteReposOwnerRepoLabelsName } from './mockApi/deleteReposOwnerRepoLabelsName.mock';
+import { getReposOwnerRepoLanguages } from './mockApi/getReposOwnerRepoLanguages.mock';
+import { putReposOwnerRepoLfs } from './mockApi/putReposOwnerRepoLfs.mock';
+import { deleteReposOwnerRepoLfs } from './mockApi/deleteReposOwnerRepoLfs.mock';
+import { getReposOwnerRepoLicense } from './mockApi/getReposOwnerRepoLicense.mock';
+import { postReposOwnerRepoMergeUpstream } from './mockApi/postReposOwnerRepoMergeUpstream.mock';
+import { postReposOwnerRepoMerges } from './mockApi/postReposOwnerRepoMerges.mock';
+import { getReposOwnerRepoMilestones } from './mockApi/getReposOwnerRepoMilestones.mock';
+import { postReposOwnerRepoMilestones } from './mockApi/postReposOwnerRepoMilestones.mock';
+import { getReposOwnerRepoMilestonesMilestoneNumber } from './mockApi/getReposOwnerRepoMilestonesMilestoneNumber.mock';
+import { patchReposOwnerRepoMilestonesMilestoneNumber } from './mockApi/patchReposOwnerRepoMilestonesMilestoneNumber.mock';
+import { deleteReposOwnerRepoMilestonesMilestoneNumber } from './mockApi/deleteReposOwnerRepoMilestonesMilestoneNumber.mock';
+import { getReposOwnerRepoMilestonesMilestoneNumberLabels } from './mockApi/getReposOwnerRepoMilestonesMilestoneNumberLabels.mock';
+import { getReposOwnerRepoNotifications } from './mockApi/getReposOwnerRepoNotifications.mock';
+import { putReposOwnerRepoNotifications } from './mockApi/putReposOwnerRepoNotifications.mock';
+import { getReposOwnerRepoPages } from './mockApi/getReposOwnerRepoPages.mock';
+import { postReposOwnerRepoPages } from './mockApi/postReposOwnerRepoPages.mock';
+import { putReposOwnerRepoPages } from './mockApi/putReposOwnerRepoPages.mock';
+import { deleteReposOwnerRepoPages } from './mockApi/deleteReposOwnerRepoPages.mock';
+import { getReposOwnerRepoPagesBuilds } from './mockApi/getReposOwnerRepoPagesBuilds.mock';
+import { postReposOwnerRepoPagesBuilds } from './mockApi/postReposOwnerRepoPagesBuilds.mock';
+import { getReposOwnerRepoPagesBuildsLatest } from './mockApi/getReposOwnerRepoPagesBuildsLatest.mock';
+import { getReposOwnerRepoPagesBuildsBuildId } from './mockApi/getReposOwnerRepoPagesBuildsBuildId.mock';
+import { getReposOwnerRepoPreReceiveHooks } from './mockApi/getReposOwnerRepoPreReceiveHooks.mock';
+import { getReposOwnerRepoPreReceiveHooksPreReceiveHookId } from './mockApi/getReposOwnerRepoPreReceiveHooksPreReceiveHookId.mock';
+import { patchReposOwnerRepoPreReceiveHooksPreReceiveHookId } from './mockApi/patchReposOwnerRepoPreReceiveHooksPreReceiveHookId.mock';
+import { deleteReposOwnerRepoPreReceiveHooksPreReceiveHookId } from './mockApi/deleteReposOwnerRepoPreReceiveHooksPreReceiveHookId.mock';
+import { getReposOwnerRepoProjects } from './mockApi/getReposOwnerRepoProjects.mock';
+import { postReposOwnerRepoProjects } from './mockApi/postReposOwnerRepoProjects.mock';
+import { getReposOwnerRepoPulls } from './mockApi/getReposOwnerRepoPulls.mock';
+import { postReposOwnerRepoPulls } from './mockApi/postReposOwnerRepoPulls.mock';
+import { getReposOwnerRepoPullsComments } from './mockApi/getReposOwnerRepoPullsComments.mock';
+import { getReposOwnerRepoPullsCommentsCommentId } from './mockApi/getReposOwnerRepoPullsCommentsCommentId.mock';
+import { patchReposOwnerRepoPullsCommentsCommentId } from './mockApi/patchReposOwnerRepoPullsCommentsCommentId.mock';
+import { deleteReposOwnerRepoPullsCommentsCommentId } from './mockApi/deleteReposOwnerRepoPullsCommentsCommentId.mock';
+import { getReposOwnerRepoPullsCommentsCommentIdReactions } from './mockApi/getReposOwnerRepoPullsCommentsCommentIdReactions.mock';
+import { postReposOwnerRepoPullsCommentsCommentIdReactions } from './mockApi/postReposOwnerRepoPullsCommentsCommentIdReactions.mock';
+import { deleteReposOwnerRepoPullsCommentsCommentIdReactionsReactionId } from './mockApi/deleteReposOwnerRepoPullsCommentsCommentIdReactionsReactionId.mock';
+import { getReposOwnerRepoPullsPullNumber } from './mockApi/getReposOwnerRepoPullsPullNumber.mock';
+import { patchReposOwnerRepoPullsPullNumber } from './mockApi/patchReposOwnerRepoPullsPullNumber.mock';
+import { getReposOwnerRepoPullsPullNumberComments } from './mockApi/getReposOwnerRepoPullsPullNumberComments.mock';
+import { postReposOwnerRepoPullsPullNumberComments } from './mockApi/postReposOwnerRepoPullsPullNumberComments.mock';
+import { postReposOwnerRepoPullsPullNumberCommentsCommentIdReplies } from './mockApi/postReposOwnerRepoPullsPullNumberCommentsCommentIdReplies.mock';
+import { getReposOwnerRepoPullsPullNumberCommits } from './mockApi/getReposOwnerRepoPullsPullNumberCommits.mock';
+import { getReposOwnerRepoPullsPullNumberFiles } from './mockApi/getReposOwnerRepoPullsPullNumberFiles.mock';
+import { getReposOwnerRepoPullsPullNumberMerge } from './mockApi/getReposOwnerRepoPullsPullNumberMerge.mock';
+import { putReposOwnerRepoPullsPullNumberMerge } from './mockApi/putReposOwnerRepoPullsPullNumberMerge.mock';
+import { getReposOwnerRepoPullsPullNumberRequestedReviewers } from './mockApi/getReposOwnerRepoPullsPullNumberRequestedReviewers.mock';
+import { postReposOwnerRepoPullsPullNumberRequestedReviewers } from './mockApi/postReposOwnerRepoPullsPullNumberRequestedReviewers.mock';
+import { deleteReposOwnerRepoPullsPullNumberRequestedReviewers } from './mockApi/deleteReposOwnerRepoPullsPullNumberRequestedReviewers.mock';
+import { getReposOwnerRepoPullsPullNumberReviews } from './mockApi/getReposOwnerRepoPullsPullNumberReviews.mock';
+import { postReposOwnerRepoPullsPullNumberReviews } from './mockApi/postReposOwnerRepoPullsPullNumberReviews.mock';
+import { getReposOwnerRepoPullsPullNumberReviewsReviewId } from './mockApi/getReposOwnerRepoPullsPullNumberReviewsReviewId.mock';
+import { putReposOwnerRepoPullsPullNumberReviewsReviewId } from './mockApi/putReposOwnerRepoPullsPullNumberReviewsReviewId.mock';
+import { deleteReposOwnerRepoPullsPullNumberReviewsReviewId } from './mockApi/deleteReposOwnerRepoPullsPullNumberReviewsReviewId.mock';
+import { getReposOwnerRepoPullsPullNumberReviewsReviewIdComments } from './mockApi/getReposOwnerRepoPullsPullNumberReviewsReviewIdComments.mock';
+import { putReposOwnerRepoPullsPullNumberReviewsReviewIdDismissals } from './mockApi/putReposOwnerRepoPullsPullNumberReviewsReviewIdDismissals.mock';
+import { postReposOwnerRepoPullsPullNumberReviewsReviewIdEvents } from './mockApi/postReposOwnerRepoPullsPullNumberReviewsReviewIdEvents.mock';
+import { putReposOwnerRepoPullsPullNumberUpdateBranch } from './mockApi/putReposOwnerRepoPullsPullNumberUpdateBranch.mock';
+import { getReposOwnerRepoReadme } from './mockApi/getReposOwnerRepoReadme.mock';
+import { getReposOwnerRepoReadmeDir } from './mockApi/getReposOwnerRepoReadmeDir.mock';
+import { getReposOwnerRepoReleases } from './mockApi/getReposOwnerRepoReleases.mock';
+import { postReposOwnerRepoReleases } from './mockApi/postReposOwnerRepoReleases.mock';
+import { getReposOwnerRepoReleasesAssetsAssetId } from './mockApi/getReposOwnerRepoReleasesAssetsAssetId.mock';
+import { patchReposOwnerRepoReleasesAssetsAssetId } from './mockApi/patchReposOwnerRepoReleasesAssetsAssetId.mock';
+import { deleteReposOwnerRepoReleasesAssetsAssetId } from './mockApi/deleteReposOwnerRepoReleasesAssetsAssetId.mock';
+import { postReposOwnerRepoReleasesGenerateNotes } from './mockApi/postReposOwnerRepoReleasesGenerateNotes.mock';
+import { getReposOwnerRepoReleasesLatest } from './mockApi/getReposOwnerRepoReleasesLatest.mock';
+import { getReposOwnerRepoReleasesTagsTag } from './mockApi/getReposOwnerRepoReleasesTagsTag.mock';
+import { getReposOwnerRepoReleasesReleaseId } from './mockApi/getReposOwnerRepoReleasesReleaseId.mock';
+import { patchReposOwnerRepoReleasesReleaseId } from './mockApi/patchReposOwnerRepoReleasesReleaseId.mock';
+import { deleteReposOwnerRepoReleasesReleaseId } from './mockApi/deleteReposOwnerRepoReleasesReleaseId.mock';
+import { getReposOwnerRepoReleasesReleaseIdAssets } from './mockApi/getReposOwnerRepoReleasesReleaseIdAssets.mock';
+import { postReposOwnerRepoReleasesReleaseIdAssets } from './mockApi/postReposOwnerRepoReleasesReleaseIdAssets.mock';
+import { getReposOwnerRepoReleasesReleaseIdReactions } from './mockApi/getReposOwnerRepoReleasesReleaseIdReactions.mock';
+import { postReposOwnerRepoReleasesReleaseIdReactions } from './mockApi/postReposOwnerRepoReleasesReleaseIdReactions.mock';
+import { deleteReposOwnerRepoReleasesReleaseIdReactionsReactionId } from './mockApi/deleteReposOwnerRepoReleasesReleaseIdReactionsReactionId.mock';
+import { getReposOwnerRepoSecretScanningAlerts } from './mockApi/getReposOwnerRepoSecretScanningAlerts.mock';
+import { getReposOwnerRepoSecretScanningAlertsAlertNumber } from './mockApi/getReposOwnerRepoSecretScanningAlertsAlertNumber.mock';
+import { patchReposOwnerRepoSecretScanningAlertsAlertNumber } from './mockApi/patchReposOwnerRepoSecretScanningAlertsAlertNumber.mock';
+import { getReposOwnerRepoSecretScanningAlertsAlertNumberLocations } from './mockApi/getReposOwnerRepoSecretScanningAlertsAlertNumberLocations.mock';
+import { getReposOwnerRepoStargazers } from './mockApi/getReposOwnerRepoStargazers.mock';
+import { getReposOwnerRepoStatsCodeFrequency } from './mockApi/getReposOwnerRepoStatsCodeFrequency.mock';
+import { getReposOwnerRepoStatsCommitActivity } from './mockApi/getReposOwnerRepoStatsCommitActivity.mock';
+import { getReposOwnerRepoStatsContributors } from './mockApi/getReposOwnerRepoStatsContributors.mock';
+import { getReposOwnerRepoStatsParticipation } from './mockApi/getReposOwnerRepoStatsParticipation.mock';
+import { getReposOwnerRepoStatsPunchCard } from './mockApi/getReposOwnerRepoStatsPunchCard.mock';
+import { postReposOwnerRepoStatusesSha } from './mockApi/postReposOwnerRepoStatusesSha.mock';
+import { getReposOwnerRepoSubscribers } from './mockApi/getReposOwnerRepoSubscribers.mock';
+import { getReposOwnerRepoSubscription } from './mockApi/getReposOwnerRepoSubscription.mock';
+import { putReposOwnerRepoSubscription } from './mockApi/putReposOwnerRepoSubscription.mock';
+import { deleteReposOwnerRepoSubscription } from './mockApi/deleteReposOwnerRepoSubscription.mock';
+import { getReposOwnerRepoTags } from './mockApi/getReposOwnerRepoTags.mock';
+import { getReposOwnerRepoTarballRef } from './mockApi/getReposOwnerRepoTarballRef.mock';
+import { getReposOwnerRepoTeams } from './mockApi/getReposOwnerRepoTeams.mock';
+import { getReposOwnerRepoTopics } from './mockApi/getReposOwnerRepoTopics.mock';
+import { putReposOwnerRepoTopics } from './mockApi/putReposOwnerRepoTopics.mock';
+import { postReposOwnerRepoTransfer } from './mockApi/postReposOwnerRepoTransfer.mock';
+import { getReposOwnerRepoZipballRef } from './mockApi/getReposOwnerRepoZipballRef.mock';
+import { postReposTemplateOwnerTemplateRepoGenerate } from './mockApi/postReposTemplateOwnerTemplateRepoGenerate.mock';
+import { getRepositories } from './mockApi/getRepositories.mock';
+import { getRepositoriesRepositoryIdEnvironmentsEnvironmentNameSecrets } from './mockApi/getRepositoriesRepositoryIdEnvironmentsEnvironmentNameSecrets.mock';
+import { getRepositoriesRepositoryIdEnvironmentsEnvironmentNameSecretsPublicKey } from './mockApi/getRepositoriesRepositoryIdEnvironmentsEnvironmentNameSecretsPublicKey.mock';
+import { getRepositoriesRepositoryIdEnvironmentsEnvironmentNameSecretsSecretName } from './mockApi/getRepositoriesRepositoryIdEnvironmentsEnvironmentNameSecretsSecretName.mock';
+import { putRepositoriesRepositoryIdEnvironmentsEnvironmentNameSecretsSecretName } from './mockApi/putRepositoriesRepositoryIdEnvironmentsEnvironmentNameSecretsSecretName.mock';
+import { deleteRepositoriesRepositoryIdEnvironmentsEnvironmentNameSecretsSecretName } from './mockApi/deleteRepositoriesRepositoryIdEnvironmentsEnvironmentNameSecretsSecretName.mock';
+import { getSearchCode } from './mockApi/getSearchCode.mock';
+import { getSearchCommits } from './mockApi/getSearchCommits.mock';
+import { getSearchIssues } from './mockApi/getSearchIssues.mock';
+import { getSearchLabels } from './mockApi/getSearchLabels.mock';
+import { getSearchRepositories } from './mockApi/getSearchRepositories.mock';
+import { getSearchTopics } from './mockApi/getSearchTopics.mock';
+import { getSearchUsers } from './mockApi/getSearchUsers.mock';
+import { getSetupApiConfigcheck } from './mockApi/getSetupApiConfigcheck.mock';
+import { postSetupApiConfigure } from './mockApi/postSetupApiConfigure.mock';
+import { getSetupApiMaintenance } from './mockApi/getSetupApiMaintenance.mock';
+import { postSetupApiMaintenance } from './mockApi/postSetupApiMaintenance.mock';
+import { getSetupApiSettings } from './mockApi/getSetupApiSettings.mock';
+import { putSetupApiSettings } from './mockApi/putSetupApiSettings.mock';
+import { getSetupApiSettingsAuthorizedKeys } from './mockApi/getSetupApiSettingsAuthorizedKeys.mock';
+import { postSetupApiSettingsAuthorizedKeys } from './mockApi/postSetupApiSettingsAuthorizedKeys.mock';
+import { deleteSetupApiSettingsAuthorizedKeys } from './mockApi/deleteSetupApiSettingsAuthorizedKeys.mock';
+import { postSetupApiStart } from './mockApi/postSetupApiStart.mock';
+import { postSetupApiUpgrade } from './mockApi/postSetupApiUpgrade.mock';
+import { getTeamsTeamId } from './mockApi/getTeamsTeamId.mock';
+import { patchTeamsTeamId } from './mockApi/patchTeamsTeamId.mock';
+import { deleteTeamsTeamId } from './mockApi/deleteTeamsTeamId.mock';
+import { getTeamsTeamIdDiscussions } from './mockApi/getTeamsTeamIdDiscussions.mock';
+import { postTeamsTeamIdDiscussions } from './mockApi/postTeamsTeamIdDiscussions.mock';
+import { getTeamsTeamIdDiscussionsDiscussionNumber } from './mockApi/getTeamsTeamIdDiscussionsDiscussionNumber.mock';
+import { patchTeamsTeamIdDiscussionsDiscussionNumber } from './mockApi/patchTeamsTeamIdDiscussionsDiscussionNumber.mock';
+import { deleteTeamsTeamIdDiscussionsDiscussionNumber } from './mockApi/deleteTeamsTeamIdDiscussionsDiscussionNumber.mock';
+import { getTeamsTeamIdDiscussionsDiscussionNumberComments } from './mockApi/getTeamsTeamIdDiscussionsDiscussionNumberComments.mock';
+import { postTeamsTeamIdDiscussionsDiscussionNumberComments } from './mockApi/postTeamsTeamIdDiscussionsDiscussionNumberComments.mock';
+import { getTeamsTeamIdDiscussionsDiscussionNumberCommentsCommentNumber } from './mockApi/getTeamsTeamIdDiscussionsDiscussionNumberCommentsCommentNumber.mock';
+import { patchTeamsTeamIdDiscussionsDiscussionNumberCommentsCommentNumber } from './mockApi/patchTeamsTeamIdDiscussionsDiscussionNumberCommentsCommentNumber.mock';
+import { deleteTeamsTeamIdDiscussionsDiscussionNumberCommentsCommentNumber } from './mockApi/deleteTeamsTeamIdDiscussionsDiscussionNumberCommentsCommentNumber.mock';
+import { getTeamsTeamIdDiscussionsDiscussionNumberCommentsCommentNumberReactions } from './mockApi/getTeamsTeamIdDiscussionsDiscussionNumberCommentsCommentNumberReactions.mock';
+import { postTeamsTeamIdDiscussionsDiscussionNumberCommentsCommentNumberReactions } from './mockApi/postTeamsTeamIdDiscussionsDiscussionNumberCommentsCommentNumberReactions.mock';
+import { getTeamsTeamIdDiscussionsDiscussionNumberReactions } from './mockApi/getTeamsTeamIdDiscussionsDiscussionNumberReactions.mock';
+import { postTeamsTeamIdDiscussionsDiscussionNumberReactions } from './mockApi/postTeamsTeamIdDiscussionsDiscussionNumberReactions.mock';
+import { getTeamsTeamIdMembers } from './mockApi/getTeamsTeamIdMembers.mock';
+import { getTeamsTeamIdMembersUsername } from './mockApi/getTeamsTeamIdMembersUsername.mock';
+import { putTeamsTeamIdMembersUsername } from './mockApi/putTeamsTeamIdMembersUsername.mock';
+import { deleteTeamsTeamIdMembersUsername } from './mockApi/deleteTeamsTeamIdMembersUsername.mock';
+import { getTeamsTeamIdMembershipsUsername } from './mockApi/getTeamsTeamIdMembershipsUsername.mock';
+import { putTeamsTeamIdMembershipsUsername } from './mockApi/putTeamsTeamIdMembershipsUsername.mock';
+import { deleteTeamsTeamIdMembershipsUsername } from './mockApi/deleteTeamsTeamIdMembershipsUsername.mock';
+import { getTeamsTeamIdProjects } from './mockApi/getTeamsTeamIdProjects.mock';
+import { getTeamsTeamIdProjectsProjectId } from './mockApi/getTeamsTeamIdProjectsProjectId.mock';
+import { putTeamsTeamIdProjectsProjectId } from './mockApi/putTeamsTeamIdProjectsProjectId.mock';
+import { deleteTeamsTeamIdProjectsProjectId } from './mockApi/deleteTeamsTeamIdProjectsProjectId.mock';
+import { getTeamsTeamIdRepos } from './mockApi/getTeamsTeamIdRepos.mock';
+import { getTeamsTeamIdReposOwnerRepo } from './mockApi/getTeamsTeamIdReposOwnerRepo.mock';
+import { putTeamsTeamIdReposOwnerRepo } from './mockApi/putTeamsTeamIdReposOwnerRepo.mock';
+import { deleteTeamsTeamIdReposOwnerRepo } from './mockApi/deleteTeamsTeamIdReposOwnerRepo.mock';
+import { getTeamsTeamIdTeams } from './mockApi/getTeamsTeamIdTeams.mock';
+import { getUser } from './mockApi/getUser.mock';
+import { patchUser } from './mockApi/patchUser.mock';
+import { getUserEmails } from './mockApi/getUserEmails.mock';
+import { postUserEmails } from './mockApi/postUserEmails.mock';
+import { deleteUserEmails } from './mockApi/deleteUserEmails.mock';
+import { getUserFollowers } from './mockApi/getUserFollowers.mock';
+import { getUserFollowing } from './mockApi/getUserFollowing.mock';
+import { getUserFollowingUsername } from './mockApi/getUserFollowingUsername.mock';
+import { putUserFollowingUsername } from './mockApi/putUserFollowingUsername.mock';
+import { deleteUserFollowingUsername } from './mockApi/deleteUserFollowingUsername.mock';
+import { getUserGpgKeys } from './mockApi/getUserGpgKeys.mock';
+import { postUserGpgKeys } from './mockApi/postUserGpgKeys.mock';
+import { getUserGpgKeysGpgKeyId } from './mockApi/getUserGpgKeysGpgKeyId.mock';
+import { deleteUserGpgKeysGpgKeyId } from './mockApi/deleteUserGpgKeysGpgKeyId.mock';
+import { getUserInstallations } from './mockApi/getUserInstallations.mock';
+import { getUserInstallationsInstallationIdRepositories } from './mockApi/getUserInstallationsInstallationIdRepositories.mock';
+import { putUserInstallationsInstallationIdRepositoriesRepositoryId } from './mockApi/putUserInstallationsInstallationIdRepositoriesRepositoryId.mock';
+import { deleteUserInstallationsInstallationIdRepositoriesRepositoryId } from './mockApi/deleteUserInstallationsInstallationIdRepositoriesRepositoryId.mock';
+import { getUserIssues } from './mockApi/getUserIssues.mock';
+import { getUserKeys } from './mockApi/getUserKeys.mock';
+import { postUserKeys } from './mockApi/postUserKeys.mock';
+import { getUserKeysKeyId } from './mockApi/getUserKeysKeyId.mock';
+import { deleteUserKeysKeyId } from './mockApi/deleteUserKeysKeyId.mock';
+import { getUserMembershipsOrgs } from './mockApi/getUserMembershipsOrgs.mock';
+import { getUserMembershipsOrgsOrg } from './mockApi/getUserMembershipsOrgsOrg.mock';
+import { patchUserMembershipsOrgsOrg } from './mockApi/patchUserMembershipsOrgsOrg.mock';
+import { getUserOrgs } from './mockApi/getUserOrgs.mock';
+import { postUserProjects } from './mockApi/postUserProjects.mock';
+import { getUserPublicEmails } from './mockApi/getUserPublicEmails.mock';
+import { getUserRepos } from './mockApi/getUserRepos.mock';
+import { postUserRepos } from './mockApi/postUserRepos.mock';
+import { getUserRepositoryInvitations } from './mockApi/getUserRepositoryInvitations.mock';
+import { patchUserRepositoryInvitationsInvitationId } from './mockApi/patchUserRepositoryInvitationsInvitationId.mock';
+import { deleteUserRepositoryInvitationsInvitationId } from './mockApi/deleteUserRepositoryInvitationsInvitationId.mock';
+import { getUserStarred } from './mockApi/getUserStarred.mock';
+import { getUserStarredOwnerRepo } from './mockApi/getUserStarredOwnerRepo.mock';
+import { putUserStarredOwnerRepo } from './mockApi/putUserStarredOwnerRepo.mock';
+import { deleteUserStarredOwnerRepo } from './mockApi/deleteUserStarredOwnerRepo.mock';
+import { getUserSubscriptions } from './mockApi/getUserSubscriptions.mock';
+import { getUserTeams } from './mockApi/getUserTeams.mock';
+import { getUsers } from './mockApi/getUsers.mock';
+import { getUsersUsername } from './mockApi/getUsersUsername.mock';
+import { getUsersUsernameEvents } from './mockApi/getUsersUsernameEvents.mock';
+import { getUsersUsernameEventsOrgsOrg } from './mockApi/getUsersUsernameEventsOrgsOrg.mock';
+import { getUsersUsernameEventsPublic } from './mockApi/getUsersUsernameEventsPublic.mock';
+import { getUsersUsernameFollowers } from './mockApi/getUsersUsernameFollowers.mock';
+import { getUsersUsernameFollowing } from './mockApi/getUsersUsernameFollowing.mock';
+import { getUsersUsernameFollowingTargetUser } from './mockApi/getUsersUsernameFollowingTargetUser.mock';
+import { getUsersUsernameGists } from './mockApi/getUsersUsernameGists.mock';
+import { getUsersUsernameGpgKeys } from './mockApi/getUsersUsernameGpgKeys.mock';
+import { getUsersUsernameHovercard } from './mockApi/getUsersUsernameHovercard.mock';
+import { getUsersUsernameInstallation } from './mockApi/getUsersUsernameInstallation.mock';
+import { getUsersUsernameKeys } from './mockApi/getUsersUsernameKeys.mock';
+import { getUsersUsernameOrgs } from './mockApi/getUsersUsernameOrgs.mock';
+import { getUsersUsernameProjects } from './mockApi/getUsersUsernameProjects.mock';
+import { getUsersUsernameReceivedEvents } from './mockApi/getUsersUsernameReceivedEvents.mock';
+import { getUsersUsernameReceivedEventsPublic } from './mockApi/getUsersUsernameReceivedEventsPublic.mock';
+import { getUsersUsernameRepos } from './mockApi/getUsersUsernameRepos.mock';
+import { putUsersUsernameSiteAdmin } from './mockApi/putUsersUsernameSiteAdmin.mock';
+import { deleteUsersUsernameSiteAdmin } from './mockApi/deleteUsersUsernameSiteAdmin.mock';
+import { getUsersUsernameStarred } from './mockApi/getUsersUsernameStarred.mock';
+import { getUsersUsernameSubscriptions } from './mockApi/getUsersUsernameSubscriptions.mock';
+import { putUsersUsernameSuspended } from './mockApi/putUsersUsernameSuspended.mock';
+import { deleteUsersUsernameSuspended } from './mockApi/deleteUsersUsernameSuspended.mock';
+import { getZen } from './mockApi/getZen.mock';
 
 faker.seed(1);
 
@@ -27,12 +740,725 @@ export const next = () => {
 };
 
 export const handlers = [
-  ...get__,
-  ...get__admin_hooks,
-  ...post__admin_hooks,
-  ...get__admin_hooks_hookId,
-  ...patch__admin_hooks_hookId,
-  ...delete__admin_hooks_hookId,
+  ...get,
+  ...getAdminHooks,
+  ...postAdminHooks,
+  ...getAdminHooksHookId,
+  ...patchAdminHooksHookId,
+  ...deleteAdminHooksHookId,
+  ...postAdminHooksHookIdPings,
+  ...getAdminKeys,
+  ...deleteAdminKeysKeyIds,
+  ...patchAdminLdapTeamsTeamIdMapping,
+  ...postAdminLdapTeamsTeamIdSync,
+  ...patchAdminLdapUsersUsernameMapping,
+  ...postAdminLdapUsersUsernameSync,
+  ...postAdminOrganizations,
+  ...patchAdminOrganizationsOrg,
+  ...getAdminPreReceiveEnvironments,
+  ...postAdminPreReceiveEnvironments,
+  ...getAdminPreReceiveEnvironmentsPreReceiveEnvironmentId,
+  ...patchAdminPreReceiveEnvironmentsPreReceiveEnvironmentId,
+  ...deleteAdminPreReceiveEnvironmentsPreReceiveEnvironmentId,
+  ...postAdminPreReceiveEnvironmentsPreReceiveEnvironmentIdDownloads,
+  ...getAdminPreReceiveEnvironmentsPreReceiveEnvironmentIdDownloadsLatest,
+  ...getAdminPreReceiveHooks,
+  ...postAdminPreReceiveHooks,
+  ...getAdminPreReceiveHooksPreReceiveHookId,
+  ...patchAdminPreReceiveHooksPreReceiveHookId,
+  ...deleteAdminPreReceiveHooksPreReceiveHookId,
+  ...getAdminTokens,
+  ...deleteAdminTokensTokenId,
+  ...postAdminUsers,
+  ...patchAdminUsersUsername,
+  ...deleteAdminUsersUsername,
+  ...postAdminUsersUsernameAuthorizations,
+  ...deleteAdminUsersUsernameAuthorizations,
+  ...getApp,
+  ...postAppManifestsCodeConversions,
+  ...getAppHookConfig,
+  ...patchAppHookConfig,
+  ...getAppHookDeliveries,
+  ...getAppHookDeliveriesDeliveryId,
+  ...postAppHookDeliveriesDeliveryIdAttempts,
+  ...getAppInstallations,
+  ...getAppInstallationsInstallationId,
+  ...deleteAppInstallationsInstallationId,
+  ...postAppInstallationsInstallationIdAccessTokens,
+  ...putAppInstallationsInstallationIdSuspended,
+  ...deleteAppInstallationsInstallationIdSuspended,
+  ...getApplicationsGrants,
+  ...getApplicationsGrantsGrantId,
+  ...deleteApplicationsGrantsGrantId,
+  ...deleteApplicationsClientIdGrant,
+  ...deleteApplicationsClientIdGrantsAccessToken,
+  ...postApplicationsClientIdToken,
+  ...patchApplicationsClientIdToken,
+  ...deleteApplicationsClientIdToken,
+  ...postApplicationsClientIdTokenScoped,
+  ...getApplicationsClientIdTokensAccessToken,
+  ...postApplicationsClientIdTokensAccessToken,
+  ...deleteApplicationsClientIdTokensAccessToken,
+  ...getAppsAppSlug,
+  ...getAuthorizations,
+  ...postAuthorizations,
+  ...putAuthorizationsClientsClientId,
+  ...putAuthorizationsClientsClientIdFingerprint,
+  ...getAuthorizationsAuthorizationId,
+  ...patchAuthorizationsAuthorizationId,
+  ...deleteAuthorizationsAuthorizationId,
+  ...getCodesOfConduct,
+  ...getCodesOfConductKey,
+  ...getEmojis,
+  ...getEnterpriseAnnouncement,
+  ...patchEnterpriseAnnouncement,
+  ...deleteEnterpriseAnnouncement,
+  ...getEnterpriseSettingsLicense,
+  ...getEnterpriseStatsAll,
+  ...getEnterpriseStatsComments,
+  ...getEnterpriseStatsGists,
+  ...getEnterpriseStatsHooks,
+  ...getEnterpriseStatsIssues,
+  ...getEnterpriseStatsMilestones,
+  ...getEnterpriseStatsOrgs,
+  ...getEnterpriseStatsPages,
+  ...getEnterpriseStatsPulls,
+  ...getEnterpriseStatsRepos,
+  ...getEnterpriseStatsUsers,
+  ...getEnterprisesEnterpriseActionsPermissions,
+  ...putEnterprisesEnterpriseActionsPermissions,
+  ...getEnterprisesEnterpriseActionsPermissionsOrganizations,
+  ...putEnterprisesEnterpriseActionsPermissionsOrganizations,
+  ...putEnterprisesEnterpriseActionsPermissionsOrganizationsOrgId,
+  ...deleteEnterprisesEnterpriseActionsPermissionsOrganizationsOrgId,
+  ...getEnterprisesEnterpriseActionsPermissionsSelectedActions,
+  ...putEnterprisesEnterpriseActionsPermissionsSelectedActions,
+  ...getEnterprisesEnterpriseActionsRunnerGroups,
+  ...postEnterprisesEnterpriseActionsRunnerGroups,
+  ...getEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupId,
+  ...patchEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupId,
+  ...deleteEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupId,
+  ...getEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdOrganizations,
+  ...putEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdOrganizations,
+  ...putEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdOrganizationsOrgId,
+  ...deleteEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdOrganizationsOrgId,
+  ...getEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdRunners,
+  ...putEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdRunners,
+  ...putEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdRunnersRunnerId,
+  ...deleteEnterprisesEnterpriseActionsRunnerGroupsRunnerGroupIdRunnersRunnerId,
+  ...getEnterprisesEnterpriseActionsRunners,
+  ...getEnterprisesEnterpriseActionsRunnersDownloads,
+  ...postEnterprisesEnterpriseActionsRunnersRegistrationToken,
+  ...postEnterprisesEnterpriseActionsRunnersRemoveToken,
+  ...getEnterprisesEnterpriseActionsRunnersRunnerId,
+  ...deleteEnterprisesEnterpriseActionsRunnersRunnerId,
+  ...getEnterprisesEnterpriseAuditLog,
+  ...getEvents,
+  ...getFeeds,
+  ...getGists,
+  ...postGists,
+  ...getGistsPublic,
+  ...getGistsStarred,
+  ...getGistsGistId,
+  ...patchGistsGistId,
+  ...deleteGistsGistId,
+  ...getGistsGistIdComments,
+  ...postGistsGistIdComments,
+  ...getGistsGistIdCommentsCommentId,
+  ...patchGistsGistIdCommentsCommentId,
+  ...deleteGistsGistIdCommentsCommentId,
+  ...getGistsGistIdCommits,
+  ...getGistsGistIdForks,
+  ...postGistsGistIdForks,
+  ...getGistsGistIdStar,
+  ...putGistsGistIdStar,
+  ...deleteGistsGistIdStar,
+  ...getGistsGistIdSha,
+  ...getGitignoreTemplates,
+  ...getGitignoreTemplatesName,
+  ...getInstallationRepositories,
+  ...deleteInstallationToken,
+  ...getIssues,
+  ...getLicenses,
+  ...getLicensesLicense,
+  ...postMarkdown,
+  ...postMarkdownRaw,
+  ...getMeta,
+  ...getNetworksOwnerRepoEvents,
+  ...getNotifications,
+  ...putNotifications,
+  ...getNotificationsThreadsThreadId,
+  ...patchNotificationsThreadsThreadId,
+  ...getNotificationsThreadsThreadIdSubscription,
+  ...putNotificationsThreadsThreadIdSubscription,
+  ...deleteNotificationsThreadsThreadIdSubscription,
+  ...getOctocat,
+  ...getOrganizations,
+  ...getOrgsOrg,
+  ...patchOrgsOrg,
+  ...getOrgsOrgActionsPermissions,
+  ...putOrgsOrgActionsPermissions,
+  ...getOrgsOrgActionsPermissionsRepositories,
+  ...putOrgsOrgActionsPermissionsRepositories,
+  ...putOrgsOrgActionsPermissionsRepositoriesRepositoryId,
+  ...deleteOrgsOrgActionsPermissionsRepositoriesRepositoryId,
+  ...getOrgsOrgActionsPermissionsSelectedActions,
+  ...putOrgsOrgActionsPermissionsSelectedActions,
+  ...getOrgsOrgActionsRunnerGroups,
+  ...postOrgsOrgActionsRunnerGroups,
+  ...getOrgsOrgActionsRunnerGroupsRunnerGroupId,
+  ...patchOrgsOrgActionsRunnerGroupsRunnerGroupId,
+  ...deleteOrgsOrgActionsRunnerGroupsRunnerGroupId,
+  ...getOrgsOrgActionsRunnerGroupsRunnerGroupIdRepositories,
+  ...putOrgsOrgActionsRunnerGroupsRunnerGroupIdRepositories,
+  ...putOrgsOrgActionsRunnerGroupsRunnerGroupIdRepositoriesRepositoryId,
+  ...deleteOrgsOrgActionsRunnerGroupsRunnerGroupIdRepositoriesRepositoryId,
+  ...getOrgsOrgActionsRunnerGroupsRunnerGroupIdRunners,
+  ...putOrgsOrgActionsRunnerGroupsRunnerGroupIdRunners,
+  ...putOrgsOrgActionsRunnerGroupsRunnerGroupIdRunnersRunnerId,
+  ...deleteOrgsOrgActionsRunnerGroupsRunnerGroupIdRunnersRunnerId,
+  ...getOrgsOrgActionsRunners,
+  ...getOrgsOrgActionsRunnersDownloads,
+  ...postOrgsOrgActionsRunnersRegistrationToken,
+  ...postOrgsOrgActionsRunnersRemoveToken,
+  ...getOrgsOrgActionsRunnersRunnerId,
+  ...deleteOrgsOrgActionsRunnersRunnerId,
+  ...getOrgsOrgActionsSecrets,
+  ...getOrgsOrgActionsSecretsPublicKey,
+  ...getOrgsOrgActionsSecretsSecretName,
+  ...putOrgsOrgActionsSecretsSecretName,
+  ...deleteOrgsOrgActionsSecretsSecretName,
+  ...getOrgsOrgActionsSecretsSecretNameRepositories,
+  ...putOrgsOrgActionsSecretsSecretNameRepositories,
+  ...putOrgsOrgActionsSecretsSecretNameRepositoriesRepositoryId,
+  ...deleteOrgsOrgActionsSecretsSecretNameRepositoriesRepositoryId,
+  ...getOrgsOrgAuditLog,
+  ...getOrgsOrgEvents,
+  ...getOrgsOrgHooks,
+  ...postOrgsOrgHooks,
+  ...getOrgsOrgHooksHookId,
+  ...patchOrgsOrgHooksHookId,
+  ...deleteOrgsOrgHooksHookId,
+  ...getOrgsOrgHooksHookIdConfig,
+  ...patchOrgsOrgHooksHookIdConfig,
+  ...getOrgsOrgHooksHookIdDeliveries,
+  ...getOrgsOrgHooksHookIdDeliveriesDeliveryId,
+  ...postOrgsOrgHooksHookIdDeliveriesDeliveryIdAttempts,
+  ...postOrgsOrgHooksHookIdPings,
+  ...getOrgsOrgInstallation,
+  ...getOrgsOrgInstallations,
+  ...getOrgsOrgIssues,
+  ...getOrgsOrgMembers,
+  ...getOrgsOrgMembersUsername,
+  ...deleteOrgsOrgMembersUsername,
+  ...getOrgsOrgMembershipsUsername,
+  ...putOrgsOrgMembershipsUsername,
+  ...deleteOrgsOrgMembershipsUsername,
+  ...getOrgsOrgOutsideCollaborators,
+  ...putOrgsOrgOutsideCollaboratorsUsername,
+  ...deleteOrgsOrgOutsideCollaboratorsUsername,
+  ...getOrgsOrgPreReceiveHooks,
+  ...getOrgsOrgPreReceiveHooksPreReceiveHookId,
+  ...patchOrgsOrgPreReceiveHooksPreReceiveHookId,
+  ...deleteOrgsOrgPreReceiveHooksPreReceiveHookId,
+  ...getOrgsOrgProjects,
+  ...postOrgsOrgProjects,
+  ...getOrgsOrgPublicMembers,
+  ...getOrgsOrgPublicMembersUsername,
+  ...putOrgsOrgPublicMembersUsername,
+  ...deleteOrgsOrgPublicMembersUsername,
+  ...getOrgsOrgRepos,
+  ...postOrgsOrgRepos,
+  ...getOrgsOrgSecretScanningAlerts,
+  ...getOrgsOrgTeams,
+  ...postOrgsOrgTeams,
+  ...getOrgsOrgTeamsTeamSlug,
+  ...patchOrgsOrgTeamsTeamSlug,
+  ...deleteOrgsOrgTeamsTeamSlug,
+  ...getOrgsOrgTeamsTeamSlugDiscussions,
+  ...postOrgsOrgTeamsTeamSlugDiscussions,
+  ...getOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumber,
+  ...patchOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumber,
+  ...deleteOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumber,
+  ...getOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberComments,
+  ...postOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberComments,
+  ...getOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberCommentsCommentNumber,
+  ...patchOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberCommentsCommentNumber,
+  ...deleteOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberCommentsCommentNumber,
+  ...getOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberCommentsCommentNumberReactions,
+  ...postOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberCommentsCommentNumberReactions,
+  ...deleteOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberCommentsCommentNumberReactionsReactionId,
+  ...getOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberReactions,
+  ...postOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberReactions,
+  ...deleteOrgsOrgTeamsTeamSlugDiscussionsDiscussionNumberReactionsReactionId,
+  ...getOrgsOrgTeamsTeamSlugMembers,
+  ...getOrgsOrgTeamsTeamSlugMembershipsUsername,
+  ...putOrgsOrgTeamsTeamSlugMembershipsUsername,
+  ...deleteOrgsOrgTeamsTeamSlugMembershipsUsername,
+  ...getOrgsOrgTeamsTeamSlugProjects,
+  ...getOrgsOrgTeamsTeamSlugProjectsProjectId,
+  ...putOrgsOrgTeamsTeamSlugProjectsProjectId,
+  ...deleteOrgsOrgTeamsTeamSlugProjectsProjectId,
+  ...getOrgsOrgTeamsTeamSlugRepos,
+  ...getOrgsOrgTeamsTeamSlugReposOwnerRepo,
+  ...putOrgsOrgTeamsTeamSlugReposOwnerRepo,
+  ...deleteOrgsOrgTeamsTeamSlugReposOwnerRepo,
+  ...getOrgsOrgTeamsTeamSlugTeams,
+  ...getProjectsColumnsCardsCardId,
+  ...patchProjectsColumnsCardsCardId,
+  ...deleteProjectsColumnsCardsCardId,
+  ...postProjectsColumnsCardsCardIdMoves,
+  ...getProjectsColumnsColumnId,
+  ...patchProjectsColumnsColumnId,
+  ...deleteProjectsColumnsColumnId,
+  ...getProjectsColumnsColumnIdCards,
+  ...postProjectsColumnsColumnIdCards,
+  ...postProjectsColumnsColumnIdMoves,
+  ...getProjectsProjectId,
+  ...patchProjectsProjectId,
+  ...deleteProjectsProjectId,
+  ...getProjectsProjectIdCollaborators,
+  ...putProjectsProjectIdCollaboratorsUsername,
+  ...deleteProjectsProjectIdCollaboratorsUsername,
+  ...getProjectsProjectIdCollaboratorsUsernamePermission,
+  ...getProjectsProjectIdColumns,
+  ...postProjectsProjectIdColumns,
+  ...getRateLimit,
+  ...deleteReactionsReactionId,
+  ...getReposOwnerRepo,
+  ...patchReposOwnerRepo,
+  ...deleteReposOwnerRepo,
+  ...getReposOwnerRepoActionsArtifacts,
+  ...getReposOwnerRepoActionsArtifactsArtifactId,
+  ...deleteReposOwnerRepoActionsArtifactsArtifactId,
+  ...getReposOwnerRepoActionsArtifactsArtifactIdArchiveFormat,
+  ...getReposOwnerRepoActionsJobsJobId,
+  ...getReposOwnerRepoActionsJobsJobIdLogs,
+  ...getReposOwnerRepoActionsPermissions,
+  ...putReposOwnerRepoActionsPermissions,
+  ...getReposOwnerRepoActionsPermissionsSelectedActions,
+  ...putReposOwnerRepoActionsPermissionsSelectedActions,
+  ...getReposOwnerRepoActionsRunners,
+  ...getReposOwnerRepoActionsRunnersDownloads,
+  ...postReposOwnerRepoActionsRunnersRegistrationToken,
+  ...postReposOwnerRepoActionsRunnersRemoveToken,
+  ...getReposOwnerRepoActionsRunnersRunnerId,
+  ...deleteReposOwnerRepoActionsRunnersRunnerId,
+  ...getReposOwnerRepoActionsRuns,
+  ...getReposOwnerRepoActionsRunsRunId,
+  ...deleteReposOwnerRepoActionsRunsRunId,
+  ...getReposOwnerRepoActionsRunsRunIdApprovals,
+  ...getReposOwnerRepoActionsRunsRunIdArtifacts,
+  ...postReposOwnerRepoActionsRunsRunIdCancel,
+  ...getReposOwnerRepoActionsRunsRunIdJobs,
+  ...getReposOwnerRepoActionsRunsRunIdLogs,
+  ...deleteReposOwnerRepoActionsRunsRunIdLogs,
+  ...getReposOwnerRepoActionsRunsRunIdPendingDeployments,
+  ...postReposOwnerRepoActionsRunsRunIdPendingDeployments,
+  ...postReposOwnerRepoActionsRunsRunIdRerun,
+  ...getReposOwnerRepoActionsSecrets,
+  ...getReposOwnerRepoActionsSecretsPublicKey,
+  ...getReposOwnerRepoActionsSecretsSecretName,
+  ...putReposOwnerRepoActionsSecretsSecretName,
+  ...deleteReposOwnerRepoActionsSecretsSecretName,
+  ...getReposOwnerRepoActionsWorkflows,
+  ...getReposOwnerRepoActionsWorkflowsWorkflowId,
+  ...putReposOwnerRepoActionsWorkflowsWorkflowIdDisable,
+  ...postReposOwnerRepoActionsWorkflowsWorkflowIdDispatches,
+  ...putReposOwnerRepoActionsWorkflowsWorkflowIdEnable,
+  ...getReposOwnerRepoActionsWorkflowsWorkflowIdRuns,
+  ...getReposOwnerRepoAssignees,
+  ...getReposOwnerRepoAssigneesAssignee,
+  ...getReposOwnerRepoAutolinks,
+  ...postReposOwnerRepoAutolinks,
+  ...getReposOwnerRepoAutolinksAutolinkId,
+  ...deleteReposOwnerRepoAutolinksAutolinkId,
+  ...getReposOwnerRepoBranches,
+  ...getReposOwnerRepoBranchesBranch,
+  ...getReposOwnerRepoBranchesBranchProtection,
+  ...putReposOwnerRepoBranchesBranchProtection,
+  ...deleteReposOwnerRepoBranchesBranchProtection,
+  ...getReposOwnerRepoBranchesBranchProtectionEnforceAdmins,
+  ...postReposOwnerRepoBranchesBranchProtectionEnforceAdmins,
+  ...deleteReposOwnerRepoBranchesBranchProtectionEnforceAdmins,
+  ...getReposOwnerRepoBranchesBranchProtectionRequiredPullRequestReviews,
+  ...patchReposOwnerRepoBranchesBranchProtectionRequiredPullRequestReviews,
+  ...deleteReposOwnerRepoBranchesBranchProtectionRequiredPullRequestReviews,
+  ...getReposOwnerRepoBranchesBranchProtectionRequiredSignatures,
+  ...postReposOwnerRepoBranchesBranchProtectionRequiredSignatures,
+  ...deleteReposOwnerRepoBranchesBranchProtectionRequiredSignatures,
+  ...getReposOwnerRepoBranchesBranchProtectionRequiredStatusChecks,
+  ...patchReposOwnerRepoBranchesBranchProtectionRequiredStatusChecks,
+  ...deleteReposOwnerRepoBranchesBranchProtectionRequiredStatusChecks,
+  ...getReposOwnerRepoBranchesBranchProtectionRequiredStatusChecksContexts,
+  ...postReposOwnerRepoBranchesBranchProtectionRequiredStatusChecksContexts,
+  ...putReposOwnerRepoBranchesBranchProtectionRequiredStatusChecksContexts,
+  ...deleteReposOwnerRepoBranchesBranchProtectionRequiredStatusChecksContexts,
+  ...getReposOwnerRepoBranchesBranchProtectionRestrictions,
+  ...deleteReposOwnerRepoBranchesBranchProtectionRestrictions,
+  ...getReposOwnerRepoBranchesBranchProtectionRestrictionsApps,
+  ...postReposOwnerRepoBranchesBranchProtectionRestrictionsApps,
+  ...putReposOwnerRepoBranchesBranchProtectionRestrictionsApps,
+  ...deleteReposOwnerRepoBranchesBranchProtectionRestrictionsApps,
+  ...getReposOwnerRepoBranchesBranchProtectionRestrictionsTeams,
+  ...postReposOwnerRepoBranchesBranchProtectionRestrictionsTeams,
+  ...putReposOwnerRepoBranchesBranchProtectionRestrictionsTeams,
+  ...deleteReposOwnerRepoBranchesBranchProtectionRestrictionsTeams,
+  ...getReposOwnerRepoBranchesBranchProtectionRestrictionsUsers,
+  ...postReposOwnerRepoBranchesBranchProtectionRestrictionsUsers,
+  ...putReposOwnerRepoBranchesBranchProtectionRestrictionsUsers,
+  ...deleteReposOwnerRepoBranchesBranchProtectionRestrictionsUsers,
+  ...postReposOwnerRepoBranchesBranchRename,
+  ...postReposOwnerRepoCheckRuns,
+  ...getReposOwnerRepoCheckRunsCheckRunId,
+  ...patchReposOwnerRepoCheckRunsCheckRunId,
+  ...getReposOwnerRepoCheckRunsCheckRunIdAnnotations,
+  ...postReposOwnerRepoCheckRunsCheckRunIdRerequest,
+  ...postReposOwnerRepoCheckSuites,
+  ...patchReposOwnerRepoCheckSuitesPreferences,
+  ...getReposOwnerRepoCheckSuitesCheckSuiteId,
+  ...getReposOwnerRepoCheckSuitesCheckSuiteIdCheckRuns,
+  ...postReposOwnerRepoCheckSuitesCheckSuiteIdRerequest,
+  ...getReposOwnerRepoCodeScanningAlerts,
+  ...getReposOwnerRepoCodeScanningAlertsAlertNumber,
+  ...patchReposOwnerRepoCodeScanningAlertsAlertNumber,
+  ...getReposOwnerRepoCodeScanningAlertsAlertNumberInstances,
+  ...getReposOwnerRepoCodeScanningAnalyses,
+  ...getReposOwnerRepoCodeScanningAnalysesAnalysisId,
+  ...deleteReposOwnerRepoCodeScanningAnalysesAnalysisId,
+  ...postReposOwnerRepoCodeScanningSarifs,
+  ...getReposOwnerRepoCodeScanningSarifsSarifId,
+  ...getReposOwnerRepoCollaborators,
+  ...getReposOwnerRepoCollaboratorsUsername,
+  ...putReposOwnerRepoCollaboratorsUsername,
+  ...deleteReposOwnerRepoCollaboratorsUsername,
+  ...getReposOwnerRepoCollaboratorsUsernamePermission,
+  ...getReposOwnerRepoComments,
+  ...getReposOwnerRepoCommentsCommentId,
+  ...patchReposOwnerRepoCommentsCommentId,
+  ...deleteReposOwnerRepoCommentsCommentId,
+  ...getReposOwnerRepoCommentsCommentIdReactions,
+  ...postReposOwnerRepoCommentsCommentIdReactions,
+  ...deleteReposOwnerRepoCommentsCommentIdReactionsReactionId,
+  ...getReposOwnerRepoCommits,
+  ...getReposOwnerRepoCommitsCommitShaBranchesWhereHead,
+  ...getReposOwnerRepoCommitsCommitShaComments,
+  ...postReposOwnerRepoCommitsCommitShaComments,
+  ...getReposOwnerRepoCommitsCommitShaPulls,
+  ...getReposOwnerRepoCommitsRef,
+  ...getReposOwnerRepoCommitsRefCheckRuns,
+  ...getReposOwnerRepoCommitsRefCheckSuites,
+  ...getReposOwnerRepoCommitsRefStatus,
+  ...getReposOwnerRepoCommitsRefStatuses,
+  ...getReposOwnerRepoCompareBasehead,
+  ...postReposOwnerRepoContentReferencesContentReferenceIdAttachments,
+  ...getReposOwnerRepoContentsPath,
+  ...putReposOwnerRepoContentsPath,
+  ...deleteReposOwnerRepoContentsPath,
+  ...getReposOwnerRepoContributors,
+  ...getReposOwnerRepoDeployments,
+  ...postReposOwnerRepoDeployments,
+  ...getReposOwnerRepoDeploymentsDeploymentId,
+  ...deleteReposOwnerRepoDeploymentsDeploymentId,
+  ...getReposOwnerRepoDeploymentsDeploymentIdStatuses,
+  ...postReposOwnerRepoDeploymentsDeploymentIdStatuses,
+  ...getReposOwnerRepoDeploymentsDeploymentIdStatusesStatusId,
+  ...postReposOwnerRepoDispatches,
+  ...getReposOwnerRepoEnvironments,
+  ...getReposOwnerRepoEnvironmentsEnvironmentName,
+  ...putReposOwnerRepoEnvironmentsEnvironmentName,
+  ...deleteReposOwnerRepoEnvironmentsEnvironmentName,
+  ...getReposOwnerRepoEvents,
+  ...getReposOwnerRepoForks,
+  ...postReposOwnerRepoForks,
+  ...postReposOwnerRepoGitBlobs,
+  ...getReposOwnerRepoGitBlobsFileSha,
+  ...postReposOwnerRepoGitCommits,
+  ...getReposOwnerRepoGitCommitsCommitSha,
+  ...getReposOwnerRepoGitMatchingRefsRef,
+  ...getReposOwnerRepoGitRefRef,
+  ...postReposOwnerRepoGitRefs,
+  ...patchReposOwnerRepoGitRefsRef,
+  ...deleteReposOwnerRepoGitRefsRef,
+  ...postReposOwnerRepoGitTags,
+  ...getReposOwnerRepoGitTagsTagSha,
+  ...postReposOwnerRepoGitTrees,
+  ...getReposOwnerRepoGitTreesTreeSha,
+  ...getReposOwnerRepoHooks,
+  ...postReposOwnerRepoHooks,
+  ...getReposOwnerRepoHooksHookId,
+  ...patchReposOwnerRepoHooksHookId,
+  ...deleteReposOwnerRepoHooksHookId,
+  ...getReposOwnerRepoHooksHookIdConfig,
+  ...patchReposOwnerRepoHooksHookIdConfig,
+  ...getReposOwnerRepoHooksHookIdDeliveries,
+  ...getReposOwnerRepoHooksHookIdDeliveriesDeliveryId,
+  ...postReposOwnerRepoHooksHookIdDeliveriesDeliveryIdAttempts,
+  ...postReposOwnerRepoHooksHookIdPings,
+  ...postReposOwnerRepoHooksHookIdTests,
+  ...getReposOwnerRepoInstallation,
+  ...getReposOwnerRepoInvitations,
+  ...patchReposOwnerRepoInvitationsInvitationId,
+  ...deleteReposOwnerRepoInvitationsInvitationId,
+  ...getReposOwnerRepoIssues,
+  ...postReposOwnerRepoIssues,
+  ...getReposOwnerRepoIssuesComments,
+  ...getReposOwnerRepoIssuesCommentsCommentId,
+  ...patchReposOwnerRepoIssuesCommentsCommentId,
+  ...deleteReposOwnerRepoIssuesCommentsCommentId,
+  ...getReposOwnerRepoIssuesCommentsCommentIdReactions,
+  ...postReposOwnerRepoIssuesCommentsCommentIdReactions,
+  ...deleteReposOwnerRepoIssuesCommentsCommentIdReactionsReactionId,
+  ...getReposOwnerRepoIssuesEvents,
+  ...getReposOwnerRepoIssuesEventsEventId,
+  ...getReposOwnerRepoIssuesIssueNumber,
+  ...patchReposOwnerRepoIssuesIssueNumber,
+  ...postReposOwnerRepoIssuesIssueNumberAssignees,
+  ...deleteReposOwnerRepoIssuesIssueNumberAssignees,
+  ...getReposOwnerRepoIssuesIssueNumberComments,
+  ...postReposOwnerRepoIssuesIssueNumberComments,
+  ...getReposOwnerRepoIssuesIssueNumberEvents,
+  ...getReposOwnerRepoIssuesIssueNumberLabels,
+  ...postReposOwnerRepoIssuesIssueNumberLabels,
+  ...putReposOwnerRepoIssuesIssueNumberLabels,
+  ...deleteReposOwnerRepoIssuesIssueNumberLabels,
+  ...deleteReposOwnerRepoIssuesIssueNumberLabelsName,
+  ...putReposOwnerRepoIssuesIssueNumberLock,
+  ...deleteReposOwnerRepoIssuesIssueNumberLock,
+  ...getReposOwnerRepoIssuesIssueNumberReactions,
+  ...postReposOwnerRepoIssuesIssueNumberReactions,
+  ...deleteReposOwnerRepoIssuesIssueNumberReactionsReactionId,
+  ...getReposOwnerRepoIssuesIssueNumberTimeline,
+  ...getReposOwnerRepoKeys,
+  ...postReposOwnerRepoKeys,
+  ...getReposOwnerRepoKeysKeyId,
+  ...deleteReposOwnerRepoKeysKeyId,
+  ...getReposOwnerRepoLabels,
+  ...postReposOwnerRepoLabels,
+  ...getReposOwnerRepoLabelsName,
+  ...patchReposOwnerRepoLabelsName,
+  ...deleteReposOwnerRepoLabelsName,
+  ...getReposOwnerRepoLanguages,
+  ...putReposOwnerRepoLfs,
+  ...deleteReposOwnerRepoLfs,
+  ...getReposOwnerRepoLicense,
+  ...postReposOwnerRepoMergeUpstream,
+  ...postReposOwnerRepoMerges,
+  ...getReposOwnerRepoMilestones,
+  ...postReposOwnerRepoMilestones,
+  ...getReposOwnerRepoMilestonesMilestoneNumber,
+  ...patchReposOwnerRepoMilestonesMilestoneNumber,
+  ...deleteReposOwnerRepoMilestonesMilestoneNumber,
+  ...getReposOwnerRepoMilestonesMilestoneNumberLabels,
+  ...getReposOwnerRepoNotifications,
+  ...putReposOwnerRepoNotifications,
+  ...getReposOwnerRepoPages,
+  ...postReposOwnerRepoPages,
+  ...putReposOwnerRepoPages,
+  ...deleteReposOwnerRepoPages,
+  ...getReposOwnerRepoPagesBuilds,
+  ...postReposOwnerRepoPagesBuilds,
+  ...getReposOwnerRepoPagesBuildsLatest,
+  ...getReposOwnerRepoPagesBuildsBuildId,
+  ...getReposOwnerRepoPreReceiveHooks,
+  ...getReposOwnerRepoPreReceiveHooksPreReceiveHookId,
+  ...patchReposOwnerRepoPreReceiveHooksPreReceiveHookId,
+  ...deleteReposOwnerRepoPreReceiveHooksPreReceiveHookId,
+  ...getReposOwnerRepoProjects,
+  ...postReposOwnerRepoProjects,
+  ...getReposOwnerRepoPulls,
+  ...postReposOwnerRepoPulls,
+  ...getReposOwnerRepoPullsComments,
+  ...getReposOwnerRepoPullsCommentsCommentId,
+  ...patchReposOwnerRepoPullsCommentsCommentId,
+  ...deleteReposOwnerRepoPullsCommentsCommentId,
+  ...getReposOwnerRepoPullsCommentsCommentIdReactions,
+  ...postReposOwnerRepoPullsCommentsCommentIdReactions,
+  ...deleteReposOwnerRepoPullsCommentsCommentIdReactionsReactionId,
+  ...getReposOwnerRepoPullsPullNumber,
+  ...patchReposOwnerRepoPullsPullNumber,
+  ...getReposOwnerRepoPullsPullNumberComments,
+  ...postReposOwnerRepoPullsPullNumberComments,
+  ...postReposOwnerRepoPullsPullNumberCommentsCommentIdReplies,
+  ...getReposOwnerRepoPullsPullNumberCommits,
+  ...getReposOwnerRepoPullsPullNumberFiles,
+  ...getReposOwnerRepoPullsPullNumberMerge,
+  ...putReposOwnerRepoPullsPullNumberMerge,
+  ...getReposOwnerRepoPullsPullNumberRequestedReviewers,
+  ...postReposOwnerRepoPullsPullNumberRequestedReviewers,
+  ...deleteReposOwnerRepoPullsPullNumberRequestedReviewers,
+  ...getReposOwnerRepoPullsPullNumberReviews,
+  ...postReposOwnerRepoPullsPullNumberReviews,
+  ...getReposOwnerRepoPullsPullNumberReviewsReviewId,
+  ...putReposOwnerRepoPullsPullNumberReviewsReviewId,
+  ...deleteReposOwnerRepoPullsPullNumberReviewsReviewId,
+  ...getReposOwnerRepoPullsPullNumberReviewsReviewIdComments,
+  ...putReposOwnerRepoPullsPullNumberReviewsReviewIdDismissals,
+  ...postReposOwnerRepoPullsPullNumberReviewsReviewIdEvents,
+  ...putReposOwnerRepoPullsPullNumberUpdateBranch,
+  ...getReposOwnerRepoReadme,
+  ...getReposOwnerRepoReadmeDir,
+  ...getReposOwnerRepoReleases,
+  ...postReposOwnerRepoReleases,
+  ...getReposOwnerRepoReleasesAssetsAssetId,
+  ...patchReposOwnerRepoReleasesAssetsAssetId,
+  ...deleteReposOwnerRepoReleasesAssetsAssetId,
+  ...postReposOwnerRepoReleasesGenerateNotes,
+  ...getReposOwnerRepoReleasesLatest,
+  ...getReposOwnerRepoReleasesTagsTag,
+  ...getReposOwnerRepoReleasesReleaseId,
+  ...patchReposOwnerRepoReleasesReleaseId,
+  ...deleteReposOwnerRepoReleasesReleaseId,
+  ...getReposOwnerRepoReleasesReleaseIdAssets,
+  ...postReposOwnerRepoReleasesReleaseIdAssets,
+  ...getReposOwnerRepoReleasesReleaseIdReactions,
+  ...postReposOwnerRepoReleasesReleaseIdReactions,
+  ...deleteReposOwnerRepoReleasesReleaseIdReactionsReactionId,
+  ...getReposOwnerRepoSecretScanningAlerts,
+  ...getReposOwnerRepoSecretScanningAlertsAlertNumber,
+  ...patchReposOwnerRepoSecretScanningAlertsAlertNumber,
+  ...getReposOwnerRepoSecretScanningAlertsAlertNumberLocations,
+  ...getReposOwnerRepoStargazers,
+  ...getReposOwnerRepoStatsCodeFrequency,
+  ...getReposOwnerRepoStatsCommitActivity,
+  ...getReposOwnerRepoStatsContributors,
+  ...getReposOwnerRepoStatsParticipation,
+  ...getReposOwnerRepoStatsPunchCard,
+  ...postReposOwnerRepoStatusesSha,
+  ...getReposOwnerRepoSubscribers,
+  ...getReposOwnerRepoSubscription,
+  ...putReposOwnerRepoSubscription,
+  ...deleteReposOwnerRepoSubscription,
+  ...getReposOwnerRepoTags,
+  ...getReposOwnerRepoTarballRef,
+  ...getReposOwnerRepoTeams,
+  ...getReposOwnerRepoTopics,
+  ...putReposOwnerRepoTopics,
+  ...postReposOwnerRepoTransfer,
+  ...getReposOwnerRepoZipballRef,
+  ...postReposTemplateOwnerTemplateRepoGenerate,
+  ...getRepositories,
+  ...getRepositoriesRepositoryIdEnvironmentsEnvironmentNameSecrets,
+  ...getRepositoriesRepositoryIdEnvironmentsEnvironmentNameSecretsPublicKey,
+  ...getRepositoriesRepositoryIdEnvironmentsEnvironmentNameSecretsSecretName,
+  ...putRepositoriesRepositoryIdEnvironmentsEnvironmentNameSecretsSecretName,
+  ...deleteRepositoriesRepositoryIdEnvironmentsEnvironmentNameSecretsSecretName,
+  ...getSearchCode,
+  ...getSearchCommits,
+  ...getSearchIssues,
+  ...getSearchLabels,
+  ...getSearchRepositories,
+  ...getSearchTopics,
+  ...getSearchUsers,
+  ...getSetupApiConfigcheck,
+  ...postSetupApiConfigure,
+  ...getSetupApiMaintenance,
+  ...postSetupApiMaintenance,
+  ...getSetupApiSettings,
+  ...putSetupApiSettings,
+  ...getSetupApiSettingsAuthorizedKeys,
+  ...postSetupApiSettingsAuthorizedKeys,
+  ...deleteSetupApiSettingsAuthorizedKeys,
+  ...postSetupApiStart,
+  ...postSetupApiUpgrade,
+  ...getTeamsTeamId,
+  ...patchTeamsTeamId,
+  ...deleteTeamsTeamId,
+  ...getTeamsTeamIdDiscussions,
+  ...postTeamsTeamIdDiscussions,
+  ...getTeamsTeamIdDiscussionsDiscussionNumber,
+  ...patchTeamsTeamIdDiscussionsDiscussionNumber,
+  ...deleteTeamsTeamIdDiscussionsDiscussionNumber,
+  ...getTeamsTeamIdDiscussionsDiscussionNumberComments,
+  ...postTeamsTeamIdDiscussionsDiscussionNumberComments,
+  ...getTeamsTeamIdDiscussionsDiscussionNumberCommentsCommentNumber,
+  ...patchTeamsTeamIdDiscussionsDiscussionNumberCommentsCommentNumber,
+  ...deleteTeamsTeamIdDiscussionsDiscussionNumberCommentsCommentNumber,
+  ...getTeamsTeamIdDiscussionsDiscussionNumberCommentsCommentNumberReactions,
+  ...postTeamsTeamIdDiscussionsDiscussionNumberCommentsCommentNumberReactions,
+  ...getTeamsTeamIdDiscussionsDiscussionNumberReactions,
+  ...postTeamsTeamIdDiscussionsDiscussionNumberReactions,
+  ...getTeamsTeamIdMembers,
+  ...getTeamsTeamIdMembersUsername,
+  ...putTeamsTeamIdMembersUsername,
+  ...deleteTeamsTeamIdMembersUsername,
+  ...getTeamsTeamIdMembershipsUsername,
+  ...putTeamsTeamIdMembershipsUsername,
+  ...deleteTeamsTeamIdMembershipsUsername,
+  ...getTeamsTeamIdProjects,
+  ...getTeamsTeamIdProjectsProjectId,
+  ...putTeamsTeamIdProjectsProjectId,
+  ...deleteTeamsTeamIdProjectsProjectId,
+  ...getTeamsTeamIdRepos,
+  ...getTeamsTeamIdReposOwnerRepo,
+  ...putTeamsTeamIdReposOwnerRepo,
+  ...deleteTeamsTeamIdReposOwnerRepo,
+  ...getTeamsTeamIdTeams,
+  ...getUser,
+  ...patchUser,
+  ...getUserEmails,
+  ...postUserEmails,
+  ...deleteUserEmails,
+  ...getUserFollowers,
+  ...getUserFollowing,
+  ...getUserFollowingUsername,
+  ...putUserFollowingUsername,
+  ...deleteUserFollowingUsername,
+  ...getUserGpgKeys,
+  ...postUserGpgKeys,
+  ...getUserGpgKeysGpgKeyId,
+  ...deleteUserGpgKeysGpgKeyId,
+  ...getUserInstallations,
+  ...getUserInstallationsInstallationIdRepositories,
+  ...putUserInstallationsInstallationIdRepositoriesRepositoryId,
+  ...deleteUserInstallationsInstallationIdRepositoriesRepositoryId,
+  ...getUserIssues,
+  ...getUserKeys,
+  ...postUserKeys,
+  ...getUserKeysKeyId,
+  ...deleteUserKeysKeyId,
+  ...getUserMembershipsOrgs,
+  ...getUserMembershipsOrgsOrg,
+  ...patchUserMembershipsOrgsOrg,
+  ...getUserOrgs,
+  ...postUserProjects,
+  ...getUserPublicEmails,
+  ...getUserRepos,
+  ...postUserRepos,
+  ...getUserRepositoryInvitations,
+  ...patchUserRepositoryInvitationsInvitationId,
+  ...deleteUserRepositoryInvitationsInvitationId,
+  ...getUserStarred,
+  ...getUserStarredOwnerRepo,
+  ...putUserStarredOwnerRepo,
+  ...deleteUserStarredOwnerRepo,
+  ...getUserSubscriptions,
+  ...getUserTeams,
+  ...getUsers,
+  ...getUsersUsername,
+  ...getUsersUsernameEvents,
+  ...getUsersUsernameEventsOrgsOrg,
+  ...getUsersUsernameEventsPublic,
+  ...getUsersUsernameFollowers,
+  ...getUsersUsernameFollowing,
+  ...getUsersUsernameFollowingTargetUser,
+  ...getUsersUsernameGists,
+  ...getUsersUsernameGpgKeys,
+  ...getUsersUsernameHovercard,
+  ...getUsersUsernameInstallation,
+  ...getUsersUsernameKeys,
+  ...getUsersUsernameOrgs,
+  ...getUsersUsernameProjects,
+  ...getUsersUsernameReceivedEvents,
+  ...getUsersUsernameReceivedEventsPublic,
+  ...getUsersUsernameRepos,
+  ...putUsersUsernameSiteAdmin,
+  ...deleteUsersUsernameSiteAdmin,
+  ...getUsersUsernameStarred,
+  ...getUsersUsernameSubscriptions,
+  ...putUsersUsernameSuspended,
+  ...deleteUsersUsernameSuspended,
+  ...getZen,
 ];
 
 // This configures a Service Worker with the given request handlers.

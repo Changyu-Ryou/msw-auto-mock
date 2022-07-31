@@ -1,6 +1,6 @@
 {
   "name": "gen-msw-mock-comm",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "auto Generate random mock data from swagger OpenAPI descriptions for msw.",
   "main": "dist/cli.js",
   "module": "./dist/cli.mjs",
@@ -25,6 +25,7 @@
   "dependencies": {
     "@apidevtools/swagger-parser": "^10.1.0",
     "cac": "^6.7.12",
+    "change-case": "^4.1.2",
     "oazapfts": "^3.6.0",
     "prettier": "2.5.1",
     "swagger2openapi": "^7.0.8"

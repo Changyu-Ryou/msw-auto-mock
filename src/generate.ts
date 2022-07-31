@@ -9,6 +9,7 @@ import { prettify, toExpressLikePath } from './utils';
 import { OperationCollection, transformToApiHandlerCode } from './transform';
 import { mockApiTemplate, mockTemplate } from './template';
 import { CliOptions, ImportFilePathType } from './types';
+import { camelCase } from 'change-case';
 
 export async function generate(spec: string, options: CliOptions) {
   const { output: outputFile } = options;
@@ -86,9 +87,7 @@ export async function generate(spec: string, options: CliOptions) {
     fs.mkdirSync(`${dirPath}/mockApi`);
 
     for (const value of operationCollection) {
-      const apiHandlerName = `${value.verb}_${value.path
-        .replaceAll('/', '_')
-        .replaceAll(':', '')}`;
+      const apiHandlerName = camelCase(`${value.verb}_${value.path}`);
 
       const code = mockApiTemplate(
         onlyFileName,
