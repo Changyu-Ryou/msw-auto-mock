@@ -489,21 +489,6 @@ export const handlers = [
             },
           }),
         ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-            })),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -512,24 +497,7 @@ export const handlers = [
   rest.delete(
     `${baseURL}/admin/pre-receive-environments/:preReceiveEnvironmentId`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-            })),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -545,21 +513,6 @@ export const handlers = [
             state: faker.lorem.slug(1),
             downloaded_at: faker.date.past(),
             message: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-            })),
           }),
         ],
       ];
@@ -1197,30 +1150,7 @@ export const handlers = [
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.post(`${baseURL}/app-manifests/:code/conversions`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(201), ctx.json(null)],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => faker.lorem.slug(1)),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(201), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -1278,34 +1208,6 @@ export const handlers = [
           }))
         ),
       ],
-      [
-        ctx.status(400),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -1337,34 +1239,6 @@ export const handlers = [
           },
         }),
       ],
-      [
-        ctx.status(400),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -1372,37 +1246,7 @@ export const handlers = [
   rest.post(
     `${baseURL}/app/hook/deliveries/:deliveryId/attempts`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(202), ctx.json({})],
-        [
-          ctx.status(400),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(202), ctx.json({})]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -1550,15 +1394,6 @@ export const handlers = [
           contact_email: '"test_13f1e99741e3e004@d7e1eb0bc0a1ba12.com"',
         }),
       ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -1566,18 +1401,7 @@ export const handlers = [
   rest.delete(
     `${baseURL}/app/installations/:installationId`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -1923,52 +1747,6 @@ export const handlers = [
             single_file_paths: ['config.yml', '.github/issue_TEMPLATE.md'],
           }),
         ],
-        [
-          ctx.status(401),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -1977,18 +1755,7 @@ export const handlers = [
   rest.put(
     `${baseURL}/app/installations/:installationId/suspended`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -1996,18 +1763,7 @@ export const handlers = [
   rest.delete(
     `${baseURL}/app/installations/:installationId/suspended`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -2063,34 +1819,6 @@ export const handlers = [
           }))
         ),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -2139,78 +1867,17 @@ export const handlers = [
           },
         }),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.delete(`${baseURL}/applications/grants/:grantId`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.delete(`${baseURL}/applications/:clientId/grant`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -2321,34 +1988,6 @@ export const handlers = [
           expires_at: faker.date.past(),
         }),
       ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -2452,52 +2091,12 @@ export const handlers = [
           expires_at: faker.date.past(),
         }),
       ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.delete(`${baseURL}/applications/:clientId/token`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -2602,52 +2201,6 @@ export const handlers = [
               },
             },
             expires_at: faker.date.past(),
-          }),
-        ],
-        [
-          ctx.status(401),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
           }),
         ],
       ];
@@ -2756,15 +2309,6 @@ export const handlers = [
               },
             },
             expires_at: faker.date.past(),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
           }),
         ],
       ];
@@ -2938,24 +2482,6 @@ export const handlers = [
           pem: '"-----BEGIN RSA PRIVATE KEY-----\\nMIIEogIBAAKCAQEArYxrNYD/iT5CZVpRJu4rBKmmze3PVmT/gCo2ATUvDvZTPTey\\nxcGJ3vvrJXazKk06pN05TN29o98jrYz4cengG3YGsXPNEpKsIrEl8NhbnxapEnM9\\nJCMRe0P5JcPsfZlX6hmiT7136GRWiGOUba2X9+HKh8QJVLG5rM007TBER9/z9mWm\\nrJuNh+m5l320oBQY/Qq3A7wzdEfZw8qm/mIN0FCeoXH1L6B8xXWaAYBwhTEh6SSn\\nZHlO1Xu1JWDmAvBCi0RO5aRSKM8q9QEkvvHP4yweAtK3N8+aAbZ7ovaDhyGz8r6r\\nzhU1b8Uo0Z2ysf503WqzQgIajr7Fry7/kUwpgQIDAQABAoIBADwJp80Ko1xHPZDy\\nfcCKBDfIuPvkmSW6KumbsLMaQv1aGdHDwwTGv3t0ixSay8CGlxMRtRDyZPib6SvQ\\n6OH/lpfpbMdW2ErkksgtoIKBVrDilfrcAvrNZu7NxRNbhCSvN8q0s4ICecjbbVQh\\nnueSdlA6vGXbW58BHMq68uRbHkP+k+mM9U0mDJ1HMch67wlg5GbayVRt63H7R2+r\\nVxcna7B80J/lCEjIYZznawgiTvp3MSanTglqAYi+m1EcSsP14bJIB9vgaxS79kTu\\noiSo93leJbBvuGo8QEiUqTwMw4tDksmkLsoqNKQ1q9P7LZ9DGcujtPy4EZsamSJT\\ny8OJt0ECgYEA2lxOxJsQk2kI325JgKFjo92mQeUObIvPfSNWUIZQDTjniOI6Gv63\\nGLWVFrZcvQBWjMEQraJA9xjPbblV8PtfO87MiJGLWCHFxmPz2dzoedN+2Coxom8m\\nV95CLz8QUShuao6u/RYcvUaZEoYs5bHcTmy5sBK80JyEmafJPtCQVxMCgYEAy3ar\\nZr3yv4xRPEPMat4rseswmuMooSaK3SKub19WFI5IAtB/e7qR1Rj9JhOGcZz+OQrl\\nT78O2OFYlgOIkJPvRMrPpK5V9lslc7tz1FSh3BZMRGq5jSyD7ETSOQ0c8T2O/s7v\\nbeEPbVbDe4mwvM24XByH0GnWveVxaDl51ABD65sCgYB3ZAspUkOA5egVCh8kNpnd\\nSd6SnuQBE3ySRlT2WEnCwP9Ph6oPgn+oAfiPX4xbRqkL8q/k0BdHQ4h+zNwhk7+h\\nWtPYRAP1Xxnc/F+jGjb+DVaIaKGU18MWPg7f+FI6nampl3Q0KvfxwX0GdNhtio8T\\nTj1E+SnFwh56SRQuxSh2gwKBgHKjlIO5NtNSflsUYFM+hyQiPiqnHzddfhSG+/3o\\nm5nNaSmczJesUYreH5San7/YEy2UxAugvP7aSY2MxB+iGsiJ9WD2kZzTUlDZJ7RV\\nUzWsoqBR+eZfVJ2FUWWvy8TpSG6trh4dFxImNtKejCR1TREpSiTV3Zb1dmahK9GV\\nrK9NAoGAbBxRLoC01xfxCTgt5BDiBcFVh4fp5yYKwavJPLzHSpuDOrrI9jDn1oKN\\nonq5sDU1i391zfQvdrbX4Ova48BN+B7p63FocP/MK5tyyBoT8zQEk2+vWDOw7H/Z\\nu5dTCPxTIsoIwUw1I+7yIxqJzLPFgR2gVBwY1ra/8iAqCj+zeBw=\\n-----END RSA PRIVATE KEY-----\\n"',
         }),
       ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -3067,34 +2593,6 @@ export const handlers = [
           }))
         ),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -3196,53 +2694,6 @@ export const handlers = [
             },
           },
           expires_at: faker.date.past(),
-        }),
-      ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(410),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
         }),
       ],
     ];
@@ -3443,44 +2894,6 @@ export const handlers = [
             },
           },
           expires_at: faker.date.past(),
-        }),
-      ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
         }),
       ],
     ];
@@ -3689,25 +3102,6 @@ export const handlers = [
             expires_at: faker.date.past(),
           }),
         ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -3810,25 +3204,6 @@ export const handlers = [
             },
           },
           expires_at: faker.date.past(),
-        }),
-      ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
         }),
       ],
     ];
@@ -3934,52 +3309,12 @@ export const handlers = [
           expires_at: faker.date.past(),
         }),
       ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.delete(`${baseURL}/authorizations/:authorizationId`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -4001,7 +3336,6 @@ export const handlers = [
           }))
         ),
       ],
-      [ctx.status(304), ctx.json(null)],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -4018,16 +3352,6 @@ export const handlers = [
           html_url: faker.internet.url(),
         }),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -4042,7 +3366,6 @@ export const handlers = [
             .reduce((acc, next) => Object.assign(acc, next), {})
         ),
       ],
-      [ctx.status(304), ctx.json(null)],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -6251,24 +5574,6 @@ export const handlers = [
           }))
         ),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(503),
-        ctx.json({
-          code: faker.lorem.slug(1),
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -6437,16 +5742,6 @@ export const handlers = [
             ].map(_ => null),
           }))
         ),
-      ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
       ],
     ];
 
@@ -6707,44 +6002,6 @@ export const handlers = [
           truncated: faker.datatype.boolean(),
         }),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -6854,35 +6111,6 @@ export const handlers = [
           }))
         ),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -6991,25 +6219,6 @@ export const handlers = [
             ].map(_ => null),
           }))
         ),
-      ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
       ],
     ];
 
@@ -7268,28 +6477,6 @@ export const handlers = [
             starred_at: '"2020-07-09T00:17:55Z"',
           },
           truncated: faker.datatype.boolean(),
-        }),
-      ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(403),
-        ctx.json({
-          block: {
-            reason: faker.lorem.slug(1),
-            created_at: faker.date.past(),
-            html_url: faker.internet.url(),
-          },
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
         }),
       ],
     ];
@@ -7551,61 +6738,12 @@ export const handlers = [
           truncated: faker.datatype.boolean(),
         }),
       ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.delete(`${baseURL}/gists/:gistId`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -7657,25 +6795,6 @@ export const handlers = [
           }))
         ),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -7721,25 +6840,6 @@ export const handlers = [
           author_association: 'OWNER',
         }),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -7783,28 +6883,6 @@ export const handlers = [
           created_at: '2011-04-18T23:23:56Z',
           updated_at: '2011-04-18T23:23:56Z',
           author_association: 'OWNER',
-        }),
-      ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(403),
-        ctx.json({
-          block: {
-            reason: faker.lorem.slug(1),
-            created_at: faker.date.past(),
-            html_url: faker.internet.url(),
-          },
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
         }),
       ],
     ];
@@ -7855,15 +6933,6 @@ export const handlers = [
             author_association: 'OWNER',
           }),
         ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -7872,28 +6941,7 @@ export const handlers = [
   rest.delete(
     `${baseURL}/gists/:gistId/comments/:commentId`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [ctx.status(304), ctx.json(null)],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -7946,25 +6994,6 @@ export const handlers = [
             committed_at: '2010-04-14T02:15:15Z',
           }))
         ),
-      ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
       ],
     ];
 
@@ -8235,25 +7264,6 @@ export const handlers = [
           }))
         ),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -8355,115 +7365,22 @@ export const handlers = [
           ].map(_ => null),
         }),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.get(`${baseURL}/gists/:gistId/star`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [ctx.status(404), ctx.json({})],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.put(`${baseURL}/gists/:gistId/star`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.delete(`${baseURL}/gists/:gistId/star`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -8722,43 +7639,6 @@ export const handlers = [
           truncated: faker.datatype.boolean(),
         }),
       ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -8775,7 +7655,6 @@ export const handlers = [
           ].map(_ => faker.lorem.slug(1))
         ),
       ],
-      [ctx.status(304), ctx.json(null)],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -8790,7 +7669,6 @@ export const handlers = [
             '# Object files\n*.o\n\n# Libraries\n*.lib\n*.a\n\n# Shared objects (inc. Windows DLLs)\n*.dll\n*.so\n*.so.*\n*.dylib\n\n# Executables\n*.exe\n*.out\n*.app\n',
         }),
       ],
-      [ctx.status(304), ctx.json(null)],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -9114,25 +7992,6 @@ export const handlers = [
             starred_at: '"2020-07-09T00:17:42Z"',
           })),
           repository_selection: 'selected',
-        }),
-      ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
         }),
       ],
     ];
@@ -9725,35 +8584,6 @@ export const handlers = [
           }))
         ),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -9777,7 +8607,6 @@ export const handlers = [
           }))
         ),
       ],
-      [ctx.status(304), ctx.json(null)],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -9810,42 +8639,17 @@ export const handlers = [
           featured: true,
         }),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.post(`${baseURL}/markdown`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(200), ctx.json(null)],
-      [ctx.status(304), ctx.json(null)],
-    ];
+    const resultArray = [[ctx.status(200), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.post(`${baseURL}/markdown/raw`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(200), ctx.json(null)],
-      [ctx.status(304), ctx.json(null)],
-    ];
+    const resultArray = [[ctx.status(200), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -9864,7 +8668,6 @@ export const handlers = [
           installed_version: '3.3.0',
         }),
       ],
-      [ctx.status(304), ctx.json(null)],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -10628,34 +9431,6 @@ export const handlers = [
           }))
         ),
       ],
-      [
-        ctx.status(301),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -11177,44 +9952,6 @@ export const handlers = [
           }))
         ),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -11228,25 +9965,6 @@ export const handlers = [
         }),
       ],
       [ctx.status(205), ctx.json(null)],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -11751,43 +10469,12 @@ export const handlers = [
             'https://api.github.com/notifications/threads/2/subscription',
         }),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.patch(`${baseURL}/notifications/threads/:threadId`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(205), ctx.json(null)],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(205), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -11805,25 +10492,6 @@ export const handlers = [
             url: 'https://api.github.com/notifications/threads/1/subscription',
             thread_url: 'https://api.github.com/notifications/threads/1',
             repository_url: 'https://api.github.com/repos/1',
-          }),
-        ],
-        [ctx.status(304), ctx.json(null)],
-        [
-          ctx.status(401),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
           }),
         ],
       ];
@@ -11847,25 +10515,6 @@ export const handlers = [
             repository_url: 'https://api.github.com/repos/1',
           }),
         ],
-        [ctx.status(304), ctx.json(null)],
-        [
-          ctx.status(401),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -11874,28 +10523,7 @@ export const handlers = [
   rest.delete(
     `${baseURL}/notifications/threads/:threadId/subscription`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [ctx.status(304), ctx.json(null)],
-        [
-          ctx.status(401),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -11931,7 +10559,6 @@ export const handlers = [
           }))
         ),
       ],
-      [ctx.status(304), ctx.json(null)],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -11994,15 +10621,6 @@ export const handlers = [
           members_can_create_public_pages: true,
           members_can_create_private_pages: true,
           updated_at: faker.date.past(),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
         }),
       ],
     ];
@@ -12069,16 +10687,6 @@ export const handlers = [
           updated_at: faker.date.past(),
         }),
       ],
-      [
-        ctx.status(409),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [ctx.status(422), ctx.json(null)],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -14571,10 +13179,7 @@ export const handlers = [
   rest.put(
     `${baseURL}/orgs/:org/actions/secrets/:secretName/repositories/:repositoryId`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [ctx.status(409), ctx.json(null)],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -14582,10 +13187,7 @@ export const handlers = [
   rest.delete(
     `${baseURL}/orgs/:org/actions/secrets/:secretName/repositories/:repositoryId`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [ctx.status(409), ctx.json(null)],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -15458,15 +14060,6 @@ export const handlers = [
           }))
         ),
       ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -15493,34 +14086,6 @@ export const handlers = [
           updated_at: '2011-09-06T20:39:23Z',
           created_at: '2011-09-06T17:26:27Z',
           type: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
         }),
       ],
     ];
@@ -15551,15 +14116,6 @@ export const handlers = [
           type: faker.lorem.slug(1),
         }),
       ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -15588,51 +14144,12 @@ export const handlers = [
           type: faker.lorem.slug(1),
         }),
       ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.delete(`${baseURL}/orgs/:org/hooks/:hookId`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -15690,34 +14207,6 @@ export const handlers = [
           }))
         ),
       ],
-      [
-        ctx.status(400),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -15751,34 +14240,6 @@ export const handlers = [
             },
           }),
         ],
-        [
-          ctx.status(400),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -15787,54 +14248,13 @@ export const handlers = [
   rest.post(
     `${baseURL}/orgs/:org/hooks/:hookId/deliveries/:deliveryId/attempts`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(202), ctx.json({})],
-        [
-          ctx.status(400),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(202), ctx.json({})]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
   ),
   rest.post(`${baseURL}/orgs/:org/hooks/:hookId/pings`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -16567,15 +14987,6 @@ export const handlers = [
           }))
         ),
       ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -16618,52 +15029,17 @@ export const handlers = [
           }))
         ),
       ],
-      [ctx.status(302), ctx.json(null)],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.get(`${baseURL}/orgs/:org/members/:username`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [ctx.status(302), ctx.json(null)],
-      [ctx.status(404), ctx.json(null)],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.delete(`${baseURL}/orgs/:org/members/:username`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -16721,24 +15097,6 @@ export const handlers = [
           permissions: {
             can_create_repository: faker.datatype.boolean(),
           },
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
         }),
       ],
     ];
@@ -16801,60 +15159,12 @@ export const handlers = [
           },
         }),
       ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.delete(`${baseURL}/orgs/:org/memberships/:username`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -16906,16 +15216,6 @@ export const handlers = [
       const resultArray = [
         [ctx.status(202), ctx.json({})],
         [ctx.status(204), ctx.json(null)],
-        [ctx.status(403), ctx.json(null)],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -16924,16 +15224,7 @@ export const handlers = [
   rest.delete(
     `${baseURL}/orgs/:org/outside_collaborators/:username`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -17079,18 +15370,6 @@ export const handlers = [
           }))
         ),
       ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => faker.lorem.slug(1)),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -17150,54 +15429,6 @@ export const handlers = [
           private: faker.datatype.boolean(),
         }),
       ],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(410),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => faker.lorem.slug(1)),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -17245,26 +15476,12 @@ export const handlers = [
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.get(`${baseURL}/orgs/:org/public_members/:username`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [ctx.status(404), ctx.json(null)],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.put(`${baseURL}/orgs/:org/public_members/:username`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -18079,34 +16296,6 @@ export const handlers = [
           starred_at: '"2020-07-09T00:17:42Z"',
         }),
       ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -18280,23 +16469,6 @@ export const handlers = [
           }))
         ),
       ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(503),
-        ctx.json({
-          code: faker.lorem.slug(1),
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -18347,15 +16519,6 @@ export const handlers = [
             },
           }))
         ),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
       ],
     ];
 
@@ -18457,34 +16620,6 @@ export const handlers = [
           ldap_dn: 'uid=example,ou=users,dc=github,dc=com',
         }),
       ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -18583,15 +16718,6 @@ export const handlers = [
             updated_at: faker.date.past(),
           },
           ldap_dn: 'uid=example,ou=users,dc=github,dc=com',
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
         }),
       ],
     ];
@@ -19635,7 +17761,6 @@ export const handlers = [
             state: faker.helpers.arrayElement(['active', 'pending']),
           }),
         ],
-        [ctx.status(404), ctx.json(null)],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -19653,8 +17778,6 @@ export const handlers = [
             state: faker.helpers.arrayElement(['active', 'pending']),
           }),
         ],
-        [ctx.status(403), ctx.json(null)],
-        [ctx.status(422), ctx.json(null)],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -19663,10 +17786,7 @@ export const handlers = [
   rest.delete(
     `${baseURL}/orgs/:org/teams/:teamSlug/memberships/:username`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [ctx.status(403), ctx.json(null)],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -19791,7 +17911,6 @@ export const handlers = [
             },
           }),
         ],
-        [ctx.status(404), ctx.json(null)],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -19800,16 +17919,7 @@ export const handlers = [
   rest.put(
     `${baseURL}/orgs/:org/teams/:teamSlug/projects/:projectId`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -20802,7 +18912,6 @@ export const handlers = [
           }),
         ],
         [ctx.status(204), ctx.json(null)],
-        [ctx.status(404), ctx.json(null)],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -20922,34 +19031,6 @@ export const handlers = [
           project_url: 'https://api.github.com/projects/120',
         }),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -21001,156 +19082,19 @@ export const handlers = [
           project_url: 'https://api.github.com/projects/120',
         }),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => faker.lorem.slug(1)),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.delete(`${baseURL}/projects/columns/cards/:cardId`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => faker.lorem.slug(1)),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.post(
     `${baseURL}/projects/columns/cards/:cardId/moves`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(201), ctx.json({})],
-        [ctx.status(304), ctx.json(null)],
-        [
-          ctx.status(401),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              code: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-            })),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
-        ],
-        [
-          ctx.status(503),
-          ctx.json({
-            code: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              code: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-            })),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(201), ctx.json({})]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -21168,34 +19112,6 @@ export const handlers = [
           name: 'Remaining tasks',
           created_at: '2016-09-05T14:18:44Z',
           updated_at: '2016-09-05T14:22:28Z',
-        }),
-      ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
         }),
       ],
     ];
@@ -21217,52 +19133,12 @@ export const handlers = [
           updated_at: '2016-09-05T14:22:28Z',
         }),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.delete(`${baseURL}/projects/columns/:columnId`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -21320,25 +19196,6 @@ export const handlers = [
           }))
         ),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -21390,81 +19247,12 @@ export const handlers = [
           project_url: 'https://api.github.com/projects/120',
         }),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [ctx.status(422), ctx.json(null)],
-      [
-        ctx.status(503),
-        ctx.json({
-          code: faker.lorem.slug(1),
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            code: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.post(`${baseURL}/projects/columns/:columnId/moves`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(201), ctx.json({})],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => faker.lorem.slug(1)),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(201), ctx.json({})]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -21521,25 +19309,6 @@ export const handlers = [
             'none',
           ]),
           private: faker.datatype.boolean(),
-        }),
-      ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
         }),
       ],
     ];
@@ -21601,98 +19370,12 @@ export const handlers = [
           private: faker.datatype.boolean(),
         }),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => faker.lorem.slug(1)),
-        }),
-      ],
-      [ctx.status(404), ctx.json(null)],
-      [
-        ctx.status(410),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => faker.lorem.slug(1)),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.delete(`${baseURL}/projects/:projectId`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => faker.lorem.slug(1)),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(410),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -21734,53 +19417,6 @@ export const handlers = [
           }))
         ),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -21788,56 +19424,7 @@ export const handlers = [
   rest.put(
     `${baseURL}/projects/:projectId/collaborators/:username`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [ctx.status(304), ctx.json(null)],
-        [
-          ctx.status(401),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -21845,56 +19432,7 @@ export const handlers = [
   rest.delete(
     `${baseURL}/projects/:projectId/collaborators/:username`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [ctx.status(304), ctx.json(null)],
-        [
-          ctx.status(401),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -21937,53 +19475,6 @@ export const handlers = [
             },
           }),
         ],
-        [ctx.status(304), ctx.json(null)],
-        [
-          ctx.status(401),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -22010,25 +19501,6 @@ export const handlers = [
           }))
         ),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -22046,37 +19518,6 @@ export const handlers = [
           name: 'Remaining tasks',
           created_at: '2016-09-05T14:18:44Z',
           updated_at: '2016-09-05T14:22:28Z',
-        }),
-      ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => faker.lorem.slug(1)),
         }),
       ],
     ];
@@ -22146,52 +19587,12 @@ export const handlers = [
           },
         }),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.delete(`${baseURL}/reactions/:reactionId`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(410),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -23327,33 +20728,6 @@ export const handlers = [
               status: faker.helpers.arrayElement(['enabled', 'disabled']),
             },
           },
-        }),
-      ],
-      [
-        ctx.status(301),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
         }),
       ],
     ];
@@ -24494,85 +21868,12 @@ export const handlers = [
           },
         }),
       ],
-      [
-        ctx.status(307),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.delete(`${baseURL}/repos/:owner/:repo`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [
-        ctx.status(307),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -24658,18 +21959,7 @@ export const handlers = [
   rest.get(
     `${baseURL}/repos/:owner/:repo/actions/artifacts/:artifactId/:archiveFormat`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(302), ctx.json(null)],
-        [
-          ctx.status(410),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-      ];
+      const resultArray = [];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -24724,7 +22014,7 @@ export const handlers = [
   rest.get(
     `${baseURL}/repos/:owner/:repo/actions/jobs/:jobId/logs`,
     (req, res, ctx) => {
-      const resultArray = [[ctx.status(302), ctx.json(null)]];
+      const resultArray = [];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -27809,18 +25099,7 @@ export const handlers = [
   rest.post(
     `${baseURL}/repos/:owner/:repo/actions/runs/:runId/cancel`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(202), ctx.json({})],
-        [
-          ctx.status(409),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(202), ctx.json({})]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -27882,7 +25161,7 @@ export const handlers = [
   rest.get(
     `${baseURL}/repos/:owner/:repo/actions/runs/:runId/logs`,
     (req, res, ctx) => {
-      const resultArray = [[ctx.status(302), ctx.json(null)]];
+      const resultArray = [];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -27890,27 +25169,7 @@ export const handlers = [
   rest.delete(
     `${baseURL}/repos/:owner/:repo/actions/runs/:runId/logs`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(500),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -29359,15 +26618,6 @@ export const handlers = [
           }))
         ),
       ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -29375,18 +26625,7 @@ export const handlers = [
   rest.get(
     `${baseURL}/repos/:owner/:repo/assignees/:assignee`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -29421,25 +26660,6 @@ export const handlers = [
           url_template: 'https://example.com/TICKET?query=<num>',
         }),
       ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -29456,15 +26676,6 @@ export const handlers = [
             url_template: 'https://example.com/TICKET?query=<num>',
           }),
         ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -29473,18 +26684,7 @@ export const handlers = [
   rest.delete(
     `${baseURL}/repos/:owner/:repo/autolinks/:autolinkId`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -29799,15 +26999,6 @@ export const handlers = [
             protection_url: faker.internet.url(),
           }))
         ),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
       ],
     ];
 
@@ -30251,24 +27442,6 @@ export const handlers = [
             required_approving_review_count: 1,
           }),
         ],
-        [
-          ctx.status(301),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -30571,15 +27744,6 @@ export const handlers = [
             },
           }),
         ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -30872,36 +28036,6 @@ export const handlers = [
             },
           }),
         ],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => faker.lorem.slug(1)),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -30910,18 +28044,7 @@ export const handlers = [
   rest.delete(
     `${baseURL}/repos/:owner/:repo/branches/:branch/protection`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -30961,18 +28084,7 @@ export const handlers = [
   rest.delete(
     `${baseURL}/repos/:owner/:repo/branches/:branch/protection/enforce_admins`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -31276,25 +28388,6 @@ export const handlers = [
             required_approving_review_count: 2,
           }),
         ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -31303,18 +28396,7 @@ export const handlers = [
   rest.delete(
     `${baseURL}/repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -31328,15 +28410,6 @@ export const handlers = [
           ctx.json({
             url: 'https://api.github.com/repos/octocat/Hello-World/branches/master/protection/enforce_admins',
             enabled: true,
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
           }),
         ],
       ];
@@ -31355,15 +28428,6 @@ export const handlers = [
             enabled: true,
           }),
         ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -31372,18 +28436,7 @@ export const handlers = [
   rest.delete(
     `${baseURL}/repos/:owner/:repo/branches/:branch/protection/required_signatures`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -31400,15 +28453,6 @@ export const handlers = [
             contexts: ['continuous-integration/travis-ci'],
             contexts_url:
               'https://api.github.com/repos/octocat/Hello-World/branches/master/protection/required_status_checks/contexts',
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
           }),
         ],
       ];
@@ -31428,34 +28472,6 @@ export const handlers = [
             contexts: ['continuous-integration/travis-ci'],
             contexts_url:
               'https://api.github.com/repos/octocat/Hello-World/branches/master/protection/required_status_checks/contexts',
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
           }),
         ],
       ];
@@ -31485,15 +28501,6 @@ export const handlers = [
             ].map(_ => faker.lorem.slug(1))
           ),
         ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -31512,43 +28519,6 @@ export const handlers = [
               ).keys(),
             ].map(_ => faker.lorem.slug(1))
           ),
-        ],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
         ],
       ];
 
@@ -31569,34 +28539,6 @@ export const handlers = [
             ].map(_ => faker.lorem.slug(1))
           ),
         ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -31615,34 +28557,6 @@ export const handlers = [
               ).keys(),
             ].map(_ => faker.lorem.slug(1))
           ),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
         ],
       ];
 
@@ -31762,15 +28676,6 @@ export const handlers = [
             })),
           }),
         ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -31844,15 +28749,6 @@ export const handlers = [
             }))
           ),
         ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -31917,25 +28813,6 @@ export const handlers = [
               pem: '"-----BEGIN RSA PRIVATE KEY-----\\nMIIEogIBAAKCAQEArYxrNYD/iT5CZVpRJu4rBKmmze3PVmT/gCo2ATUvDvZTPTey\\nxcGJ3vvrJXazKk06pN05TN29o98jrYz4cengG3YGsXPNEpKsIrEl8NhbnxapEnM9\\nJCMRe0P5JcPsfZlX6hmiT7136GRWiGOUba2X9+HKh8QJVLG5rM007TBER9/z9mWm\\nrJuNh+m5l320oBQY/Qq3A7wzdEfZw8qm/mIN0FCeoXH1L6B8xXWaAYBwhTEh6SSn\\nZHlO1Xu1JWDmAvBCi0RO5aRSKM8q9QEkvvHP4yweAtK3N8+aAbZ7ovaDhyGz8r6r\\nzhU1b8Uo0Z2ysf503WqzQgIajr7Fry7/kUwpgQIDAQABAoIBADwJp80Ko1xHPZDy\\nfcCKBDfIuPvkmSW6KumbsLMaQv1aGdHDwwTGv3t0ixSay8CGlxMRtRDyZPib6SvQ\\n6OH/lpfpbMdW2ErkksgtoIKBVrDilfrcAvrNZu7NxRNbhCSvN8q0s4ICecjbbVQh\\nnueSdlA6vGXbW58BHMq68uRbHkP+k+mM9U0mDJ1HMch67wlg5GbayVRt63H7R2+r\\nVxcna7B80J/lCEjIYZznawgiTvp3MSanTglqAYi+m1EcSsP14bJIB9vgaxS79kTu\\noiSo93leJbBvuGo8QEiUqTwMw4tDksmkLsoqNKQ1q9P7LZ9DGcujtPy4EZsamSJT\\ny8OJt0ECgYEA2lxOxJsQk2kI325JgKFjo92mQeUObIvPfSNWUIZQDTjniOI6Gv63\\nGLWVFrZcvQBWjMEQraJA9xjPbblV8PtfO87MiJGLWCHFxmPz2dzoedN+2Coxom8m\\nV95CLz8QUShuao6u/RYcvUaZEoYs5bHcTmy5sBK80JyEmafJPtCQVxMCgYEAy3ar\\nZr3yv4xRPEPMat4rseswmuMooSaK3SKub19WFI5IAtB/e7qR1Rj9JhOGcZz+OQrl\\nT78O2OFYlgOIkJPvRMrPpK5V9lslc7tz1FSh3BZMRGq5jSyD7ETSOQ0c8T2O/s7v\\nbeEPbVbDe4mwvM24XByH0GnWveVxaDl51ABD65sCgYB3ZAspUkOA5egVCh8kNpnd\\nSd6SnuQBE3ySRlT2WEnCwP9Ph6oPgn+oAfiPX4xbRqkL8q/k0BdHQ4h+zNwhk7+h\\nWtPYRAP1Xxnc/F+jGjb+DVaIaKGU18MWPg7f+FI6nampl3Q0KvfxwX0GdNhtio8T\\nTj1E+SnFwh56SRQuxSh2gwKBgHKjlIO5NtNSflsUYFM+hyQiPiqnHzddfhSG+/3o\\nm5nNaSmczJesUYreH5San7/YEy2UxAugvP7aSY2MxB+iGsiJ9WD2kZzTUlDZJ7RV\\nUzWsoqBR+eZfVJ2FUWWvy8TpSG6trh4dFxImNtKejCR1TREpSiTV3Zb1dmahK9GV\\nrK9NAoGAbBxRLoC01xfxCTgt5BDiBcFVh4fp5yYKwavJPLzHSpuDOrrI9jDn1oKN\\nonq5sDU1i391zfQvdrbX4Ova48BN+B7p63FocP/MK5tyyBoT8zQEk2+vWDOw7H/Z\\nu5dTCPxTIsoIwUw1I+7yIxqJzLPFgR2gVBwY1ra/8iAqCj+zeBw=\\n-----END RSA PRIVATE KEY-----\\n"',
             }))
           ),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
         ],
       ];
 
@@ -32002,25 +28879,6 @@ export const handlers = [
             }))
           ),
         ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -32085,25 +28943,6 @@ export const handlers = [
               pem: '"-----BEGIN RSA PRIVATE KEY-----\\nMIIEogIBAAKCAQEArYxrNYD/iT5CZVpRJu4rBKmmze3PVmT/gCo2ATUvDvZTPTey\\nxcGJ3vvrJXazKk06pN05TN29o98jrYz4cengG3YGsXPNEpKsIrEl8NhbnxapEnM9\\nJCMRe0P5JcPsfZlX6hmiT7136GRWiGOUba2X9+HKh8QJVLG5rM007TBER9/z9mWm\\nrJuNh+m5l320oBQY/Qq3A7wzdEfZw8qm/mIN0FCeoXH1L6B8xXWaAYBwhTEh6SSn\\nZHlO1Xu1JWDmAvBCi0RO5aRSKM8q9QEkvvHP4yweAtK3N8+aAbZ7ovaDhyGz8r6r\\nzhU1b8Uo0Z2ysf503WqzQgIajr7Fry7/kUwpgQIDAQABAoIBADwJp80Ko1xHPZDy\\nfcCKBDfIuPvkmSW6KumbsLMaQv1aGdHDwwTGv3t0ixSay8CGlxMRtRDyZPib6SvQ\\n6OH/lpfpbMdW2ErkksgtoIKBVrDilfrcAvrNZu7NxRNbhCSvN8q0s4ICecjbbVQh\\nnueSdlA6vGXbW58BHMq68uRbHkP+k+mM9U0mDJ1HMch67wlg5GbayVRt63H7R2+r\\nVxcna7B80J/lCEjIYZznawgiTvp3MSanTglqAYi+m1EcSsP14bJIB9vgaxS79kTu\\noiSo93leJbBvuGo8QEiUqTwMw4tDksmkLsoqNKQ1q9P7LZ9DGcujtPy4EZsamSJT\\ny8OJt0ECgYEA2lxOxJsQk2kI325JgKFjo92mQeUObIvPfSNWUIZQDTjniOI6Gv63\\nGLWVFrZcvQBWjMEQraJA9xjPbblV8PtfO87MiJGLWCHFxmPz2dzoedN+2Coxom8m\\nV95CLz8QUShuao6u/RYcvUaZEoYs5bHcTmy5sBK80JyEmafJPtCQVxMCgYEAy3ar\\nZr3yv4xRPEPMat4rseswmuMooSaK3SKub19WFI5IAtB/e7qR1Rj9JhOGcZz+OQrl\\nT78O2OFYlgOIkJPvRMrPpK5V9lslc7tz1FSh3BZMRGq5jSyD7ETSOQ0c8T2O/s7v\\nbeEPbVbDe4mwvM24XByH0GnWveVxaDl51ABD65sCgYB3ZAspUkOA5egVCh8kNpnd\\nSd6SnuQBE3ySRlT2WEnCwP9Ph6oPgn+oAfiPX4xbRqkL8q/k0BdHQ4h+zNwhk7+h\\nWtPYRAP1Xxnc/F+jGjb+DVaIaKGU18MWPg7f+FI6nampl3Q0KvfxwX0GdNhtio8T\\nTj1E+SnFwh56SRQuxSh2gwKBgHKjlIO5NtNSflsUYFM+hyQiPiqnHzddfhSG+/3o\\nm5nNaSmczJesUYreH5San7/YEy2UxAugvP7aSY2MxB+iGsiJ9WD2kZzTUlDZJ7RV\\nUzWsoqBR+eZfVJ2FUWWvy8TpSG6trh4dFxImNtKejCR1TREpSiTV3Zb1dmahK9GV\\nrK9NAoGAbBxRLoC01xfxCTgt5BDiBcFVh4fp5yYKwavJPLzHSpuDOrrI9jDn1oKN\\nonq5sDU1i391zfQvdrbX4Ova48BN+B7p63FocP/MK5tyyBoT8zQEk2+vWDOw7H/Z\\nu5dTCPxTIsoIwUw1I+7yIxqJzLPFgR2gVBwY1ra/8iAqCj+zeBw=\\n-----END RSA PRIVATE KEY-----\\n"',
             }))
           ),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
         ],
       ];
 
@@ -32159,15 +28998,6 @@ export const handlers = [
             }))
           ),
         ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -32221,25 +29051,6 @@ export const handlers = [
               },
             }))
           ),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
         ],
       ];
 
@@ -32295,25 +29106,6 @@ export const handlers = [
             }))
           ),
         ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -32367,25 +29159,6 @@ export const handlers = [
               },
             }))
           ),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
         ],
       ];
 
@@ -32433,15 +29206,6 @@ export const handlers = [
             }))
           ),
         ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -32487,25 +29251,6 @@ export const handlers = [
               starred_at: '"2020-07-09T00:17:55Z"',
             }))
           ),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
         ],
       ];
 
@@ -32553,25 +29298,6 @@ export const handlers = [
             }))
           ),
         ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -32617,25 +29343,6 @@ export const handlers = [
               starred_at: '"2020-07-09T00:17:55Z"',
             }))
           ),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
         ],
       ];
 
@@ -33078,43 +29785,6 @@ export const handlers = [
             protection_url: faker.internet.url(),
             pattern: '"mas*"',
             required_approving_review_count: 1,
-          }),
-        ],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
           }),
         ],
       ];
@@ -33676,36 +30346,7 @@ export const handlers = [
   rest.post(
     `${baseURL}/repos/:owner/:repo/check-runs/:checkRunId/rerequest`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(201), ctx.json({})],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(201), ctx.json({})]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -36317,32 +32958,6 @@ export const handlers = [
             }))
           ),
         ],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(503),
-          ctx.json({
-            code: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -36466,32 +33081,6 @@ export const handlers = [
                 ])
               ),
             },
-          }),
-        ],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(503),
-          ctx.json({
-            code: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
           }),
         ],
       ];
@@ -36619,32 +33208,6 @@ export const handlers = [
             },
           }),
         ],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(503),
-          ctx.json({
-            code: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -36699,32 +33262,6 @@ export const handlers = [
             }))
           ),
         ],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(503),
-          ctx.json({
-            code: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -36764,32 +33301,6 @@ export const handlers = [
             }))
           ),
         ],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(503),
-          ctx.json({
-            code: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -36823,32 +33334,6 @@ export const handlers = [
             warning: '123 results were ignored',
           }),
         ],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(503),
-          ctx.json({
-            code: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -36865,41 +33350,6 @@ export const handlers = [
             confirm_delete_url: faker.internet.url(),
           }),
         ],
-        [
-          ctx.status(400),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(503),
-          ctx.json({
-            code: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -36914,34 +33364,6 @@ export const handlers = [
           ctx.json({
             id: '6c81cd8e-b078-4ac3-a3be-1dad7dbd0b53',
             url: faker.internet.url(),
-          }),
-        ],
-        [ctx.status(400), ctx.json(null)],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [ctx.status(413), ctx.json(null)],
-        [
-          ctx.status(503),
-          ctx.json({
-            code: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
           }),
         ],
       ];
@@ -36961,24 +33383,6 @@ export const handlers = [
               'complete',
             ]),
             analyses_url: faker.internet.url(),
-          }),
-        ],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [ctx.status(404), ctx.json(null)],
-        [
-          ctx.status(503),
-          ctx.json({
-            code: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
           }),
         ],
       ];
@@ -37030,15 +33434,6 @@ export const handlers = [
           }))
         ),
       ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -37046,10 +33441,7 @@ export const handlers = [
   rest.get(
     `${baseURL}/repos/:owner/:repo/collaborators/:username`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [ctx.status(404), ctx.json(null)],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -37617,34 +34009,6 @@ export const handlers = [
           }),
         ],
         [ctx.status(204), ctx.json(null)],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -37700,15 +34064,6 @@ export const handlers = [
                 admin: faker.datatype.boolean(),
               },
             },
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
           }),
         ],
       ];
@@ -37846,15 +34201,6 @@ export const handlers = [
             },
           }),
         ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -37921,15 +34267,6 @@ export const handlers = [
             },
           }),
         ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -37938,18 +34275,7 @@ export const handlers = [
   rest.delete(
     `${baseURL}/repos/:owner/:repo/comments/:commentId`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -38001,15 +34327,6 @@ export const handlers = [
               created_at: '2016-05-20T20:09:31Z',
             }))
           ),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
         ],
       ];
 
@@ -38092,25 +34409,6 @@ export const handlers = [
             },
             content: 'heart',
             created_at: '2016-05-20T20:09:31Z',
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
           }),
         ],
       ];
@@ -38264,42 +34562,6 @@ export const handlers = [
           }))
         ),
       ],
-      [
-        ctx.status(400),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(409),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(500),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -38324,25 +34586,6 @@ export const handlers = [
               protected: faker.datatype.boolean(),
             }))
           ),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
         ],
       ];
 
@@ -38481,34 +34724,6 @@ export const handlers = [
               eyes: faker.datatype.number(),
               rocket: faker.datatype.number(),
             },
-          }),
-        ],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
           }),
         ],
       ];
@@ -39705,43 +35920,6 @@ export const handlers = [
               '@@ -132,7 +132,7 @@ module Test @@ -1000,7 +1000,7 @@ module Test',
             previous_filename: 'file.txt',
           })),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
-      [
-        ctx.status(500),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
         }),
       ],
     ];
@@ -41076,15 +37254,6 @@ export const handlers = [
             url: faker.internet.url(),
           }),
         ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -41143,15 +37312,6 @@ export const handlers = [
               },
             }))
           ),
-        ],
-        [
-          ctx.status(301),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
         ],
       ];
 
@@ -41592,24 +37752,6 @@ export const handlers = [
             })),
           }),
         ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(500),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -41628,88 +37770,13 @@ export const handlers = [
             node_id: 'MDE3OkNvbnRlbnRBdHRhY2htZW50MjE=',
           }),
         ],
-        [ctx.status(304), ctx.json(null)],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(410),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(415),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
     }
   ),
   rest.get(`${baseURL}/repos/:owner/:repo/contents/:path`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(200), ctx.json(null)],
-      [ctx.status(302), ctx.json(null)],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(200), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -41829,43 +37896,6 @@ export const handlers = [
           },
         }),
       ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(409),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -41931,51 +37961,6 @@ export const handlers = [
             },
           }),
         ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(409),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
-        ],
-        [
-          ctx.status(503),
-          ctx.json({
-            code: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -42016,24 +38001,6 @@ export const handlers = [
         ),
       ],
       [ctx.status(204), ctx.json(null)],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -42250,26 +38217,6 @@ export const handlers = [
           message: faker.lorem.slug(1),
         }),
       ],
-      [ctx.status(409), ctx.json(null)],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -42375,15 +38322,6 @@ export const handlers = [
             },
           }),
         ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -42392,30 +38330,7 @@ export const handlers = [
   rest.delete(
     `${baseURL}/repos/:owner/:repo/deployments/:deploymentId`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => faker.lorem.slug(1)),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -42528,15 +38443,6 @@ export const handlers = [
             }))
           ),
         ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -42638,25 +38544,6 @@ export const handlers = [
               webhook_secret: '"6fba8f2fc8a7e8f2cca5577eddd82ca7586b3b6b"',
               pem: '"-----BEGIN RSA PRIVATE KEY-----\\nMIIEogIBAAKCAQEArYxrNYD/iT5CZVpRJu4rBKmmze3PVmT/gCo2ATUvDvZTPTey\\nxcGJ3vvrJXazKk06pN05TN29o98jrYz4cengG3YGsXPNEpKsIrEl8NhbnxapEnM9\\nJCMRe0P5JcPsfZlX6hmiT7136GRWiGOUba2X9+HKh8QJVLG5rM007TBER9/z9mWm\\nrJuNh+m5l320oBQY/Qq3A7wzdEfZw8qm/mIN0FCeoXH1L6B8xXWaAYBwhTEh6SSn\\nZHlO1Xu1JWDmAvBCi0RO5aRSKM8q9QEkvvHP4yweAtK3N8+aAbZ7ovaDhyGz8r6r\\nzhU1b8Uo0Z2ysf503WqzQgIajr7Fry7/kUwpgQIDAQABAoIBADwJp80Ko1xHPZDy\\nfcCKBDfIuPvkmSW6KumbsLMaQv1aGdHDwwTGv3t0ixSay8CGlxMRtRDyZPib6SvQ\\n6OH/lpfpbMdW2ErkksgtoIKBVrDilfrcAvrNZu7NxRNbhCSvN8q0s4ICecjbbVQh\\nnueSdlA6vGXbW58BHMq68uRbHkP+k+mM9U0mDJ1HMch67wlg5GbayVRt63H7R2+r\\nVxcna7B80J/lCEjIYZznawgiTvp3MSanTglqAYi+m1EcSsP14bJIB9vgaxS79kTu\\noiSo93leJbBvuGo8QEiUqTwMw4tDksmkLsoqNKQ1q9P7LZ9DGcujtPy4EZsamSJT\\ny8OJt0ECgYEA2lxOxJsQk2kI325JgKFjo92mQeUObIvPfSNWUIZQDTjniOI6Gv63\\nGLWVFrZcvQBWjMEQraJA9xjPbblV8PtfO87MiJGLWCHFxmPz2dzoedN+2Coxom8m\\nV95CLz8QUShuao6u/RYcvUaZEoYs5bHcTmy5sBK80JyEmafJPtCQVxMCgYEAy3ar\\nZr3yv4xRPEPMat4rseswmuMooSaK3SKub19WFI5IAtB/e7qR1Rj9JhOGcZz+OQrl\\nT78O2OFYlgOIkJPvRMrPpK5V9lslc7tz1FSh3BZMRGq5jSyD7ETSOQ0c8T2O/s7v\\nbeEPbVbDe4mwvM24XByH0GnWveVxaDl51ABD65sCgYB3ZAspUkOA5egVCh8kNpnd\\nSd6SnuQBE3ySRlT2WEnCwP9Ph6oPgn+oAfiPX4xbRqkL8q/k0BdHQ4h+zNwhk7+h\\nWtPYRAP1Xxnc/F+jGjb+DVaIaKGU18MWPg7f+FI6nampl3Q0KvfxwX0GdNhtio8T\\nTj1E+SnFwh56SRQuxSh2gwKBgHKjlIO5NtNSflsUYFM+hyQiPiqnHzddfhSG+/3o\\nm5nNaSmczJesUYreH5San7/YEy2UxAugvP7aSY2MxB+iGsiJ9WD2kZzTUlDZJ7RV\\nUzWsoqBR+eZfVJ2FUWWvy8TpSG6trh4dFxImNtKejCR1TREpSiTV3Zb1dmahK9GV\\nrK9NAoGAbBxRLoC01xfxCTgt5BDiBcFVh4fp5yYKwavJPLzHSpuDOrrI9jDn1oKN\\nonq5sDU1i391zfQvdrbX4Ova48BN+B7p63FocP/MK5tyyBoT8zQEk2+vWDOw7H/Z\\nu5dTCPxTIsoIwUw1I+7yIxqJzLPFgR2gVBwY1ra/8iAqCj+zeBw=\\n-----END RSA PRIVATE KEY-----\\n"',
             },
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
           }),
         ],
       ];
@@ -42762,43 +38649,13 @@ export const handlers = [
             },
           }),
         ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
     }
   ),
   rest.post(`${baseURL}/repos/:owner/:repo/dispatches`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -42892,15 +38749,6 @@ export const handlers = [
               protected_branches: faker.datatype.boolean(),
               custom_branch_policies: faker.datatype.boolean(),
             },
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
           }),
         ],
       ];
@@ -44169,15 +40017,6 @@ export const handlers = [
           }))
         ),
       ],
-      [
-        ctx.status(400),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -45316,52 +41155,6 @@ export const handlers = [
           },
         }),
       ],
-      [
-        ctx.status(400),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -45373,52 +41166,6 @@ export const handlers = [
         ctx.json({
           url: faker.internet.url(),
           sha: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(409),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
         }),
       ],
     ];
@@ -45439,43 +41186,6 @@ export const handlers = [
             size: faker.datatype.number(),
             node_id: faker.lorem.slug(1),
             highlighted_content: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
           }),
         ],
       ];
@@ -45524,34 +41234,6 @@ export const handlers = [
           html_url: faker.internet.url(),
         }),
       ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -45597,15 +41279,6 @@ export const handlers = [
               payload: faker.lorem.slug(1),
             },
             html_url: faker.internet.url(),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
           }),
         ],
       ];
@@ -45656,15 +41329,6 @@ export const handlers = [
           },
         }),
       ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -45682,25 +41346,6 @@ export const handlers = [
             sha: '7638417db6d59f3c431d3e1f261cc637155684cd',
             url: faker.internet.url(),
           },
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
         }),
       ],
     ];
@@ -45722,25 +41367,6 @@ export const handlers = [
           },
         }),
       ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -45748,28 +41374,7 @@ export const handlers = [
   rest.delete(
     `${baseURL}/repos/:owner/:repo/git/refs/:ref`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -45801,25 +41406,6 @@ export const handlers = [
             payload: faker.lorem.slug(1),
             signature: faker.lorem.slug(1),
           },
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
         }),
       ],
     ];
@@ -45857,15 +41443,6 @@ export const handlers = [
             },
           }),
         ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -45898,43 +41475,6 @@ export const handlers = [
               required: ['path', 'mode', 'type', 'sha', 'url', 'size'],
             },
           ],
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
         }),
       ],
     ];
@@ -45970,34 +41510,6 @@ export const handlers = [
                 required: ['path', 'mode', 'type', 'sha', 'url', 'size'],
               },
             ],
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
           }),
         ],
       ];
@@ -46049,15 +41561,6 @@ export const handlers = [
           }))
         ),
       ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -46098,43 +41601,6 @@ export const handlers = [
             status: faker.lorem.slug(1),
             message: faker.lorem.slug(1),
           },
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
         }),
       ],
     ];
@@ -46179,15 +41645,6 @@ export const handlers = [
           },
         }),
       ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -46230,34 +41687,6 @@ export const handlers = [
           },
         }),
       ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -46265,18 +41694,7 @@ export const handlers = [
   rest.delete(
     `${baseURL}/repos/:owner/:repo/hooks/:hookId`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -46343,34 +41761,6 @@ export const handlers = [
             }))
           ),
         ],
-        [
-          ctx.status(400),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -46405,34 +41795,6 @@ export const handlers = [
             },
           }),
         ],
-        [
-          ctx.status(400),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -46441,37 +41803,7 @@ export const handlers = [
   rest.post(
     `${baseURL}/repos/:owner/:repo/hooks/:hookId/deliveries/:deliveryId/attempts`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(202), ctx.json({})],
-        [
-          ctx.status(400),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(202), ctx.json({})]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -46479,18 +41811,7 @@ export const handlers = [
   rest.post(
     `${baseURL}/repos/:owner/:repo/hooks/:hookId/pings`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -46498,18 +41819,7 @@ export const handlers = [
   rest.post(
     `${baseURL}/repos/:owner/:repo/hooks/:hookId/tests`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -46576,24 +41886,6 @@ export const handlers = [
           },
           suspended_at: faker.date.past(),
           contact_email: '"test_13f1e99741e3e004@d7e1eb0bc0a1ba12.com"',
-        }),
-      ],
-      [
-        ctx.status(301),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
         }),
       ],
     ];
@@ -48326,43 +43618,6 @@ export const handlers = [
           }))
         ),
       ],
-      [
-        ctx.status(301),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -48930,60 +44185,6 @@ export const handlers = [
           },
         }),
       ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(410),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
-      [
-        ctx.status(503),
-        ctx.json({
-          code: faker.lorem.slug(1),
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -49099,34 +44300,6 @@ export const handlers = [
           }))
         ),
       ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -49236,15 +44409,6 @@ export const handlers = [
               eyes: faker.datatype.number(),
               rocket: faker.datatype.number(),
             },
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
           }),
         ],
       ];
@@ -49359,25 +44523,6 @@ export const handlers = [
             },
           }),
         ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -49438,15 +44583,6 @@ export const handlers = [
               created_at: '2016-05-20T20:09:31Z',
             }))
           ),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
         ],
       ];
 
@@ -49529,25 +44665,6 @@ export const handlers = [
             },
             content: 'heart',
             created_at: '2016-05-20T20:09:31Z',
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
           }),
         ],
       ];
@@ -50421,25 +45538,6 @@ export const handlers = [
           }))
         ),
       ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -51298,33 +46396,6 @@ export const handlers = [
             },
           }),
         ],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(410),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -51907,34 +46978,6 @@ export const handlers = [
             },
           }),
         ],
-        [
-          ctx.status(301),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [ctx.status(304), ctx.json(null)],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(410),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -52515,69 +47558,6 @@ export const handlers = [
               eyes: faker.datatype.number(),
               rocket: faker.datatype.number(),
             },
-          }),
-        ],
-        [
-          ctx.status(301),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(410),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
-        ],
-        [
-          ctx.status(503),
-          ctx.json({
-            code: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
           }),
         ],
       ];
@@ -53866,24 +48846,6 @@ export const handlers = [
             }))
           ),
         ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(410),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -53996,52 +48958,6 @@ export const handlers = [
             },
           }),
         ],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(410),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -54060,15 +48976,6 @@ export const handlers = [
               ).keys(),
             ].map(_ => null)
           ),
-        ],
-        [
-          ctx.status(410),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
         ],
       ];
 
@@ -54096,15 +49003,6 @@ export const handlers = [
               default: true,
             }))
           ),
-        ],
-        [
-          ctx.status(410),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
         ],
       ];
 
@@ -54133,34 +49031,6 @@ export const handlers = [
             }))
           ),
         ],
-        [
-          ctx.status(410),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -54188,34 +49058,6 @@ export const handlers = [
             }))
           ),
         ],
-        [
-          ctx.status(410),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -54224,18 +49066,7 @@ export const handlers = [
   rest.delete(
     `${baseURL}/repos/:owner/:repo/issues/:issueNumber/labels`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [
-          ctx.status(410),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -54262,24 +49093,6 @@ export const handlers = [
             }))
           ),
         ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(410),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -54288,55 +49101,7 @@ export const handlers = [
   rest.put(
     `${baseURL}/repos/:owner/:repo/issues/:issueNumber/lock`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(410),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -54344,27 +49109,7 @@ export const handlers = [
   rest.delete(
     `${baseURL}/repos/:owner/:repo/issues/:issueNumber/lock`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -54416,24 +49161,6 @@ export const handlers = [
               created_at: '2016-05-20T20:09:31Z',
             }))
           ),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(410),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
         ],
       ];
 
@@ -54518,25 +49245,6 @@ export const handlers = [
             created_at: '2016-05-20T20:09:31Z',
           }),
         ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -54563,24 +49271,6 @@ export const handlers = [
               ).keys(),
             ].map(_ => ({}))
           ),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(410),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
         ],
       ];
 
@@ -54625,25 +49315,6 @@ export const handlers = [
           read_only: faker.datatype.boolean(),
         }),
       ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -54660,15 +49331,6 @@ export const handlers = [
           verified: faker.datatype.boolean(),
           created_at: faker.date.past(),
           read_only: faker.datatype.boolean(),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
         }),
       ],
     ];
@@ -54700,15 +49362,6 @@ export const handlers = [
           }))
         ),
       ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -54727,34 +49380,6 @@ export const handlers = [
           default: true,
         }),
       ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -54771,15 +49396,6 @@ export const handlers = [
           description: "Something isn't working",
           color: 'FFFFFF',
           default: true,
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
         }),
       ],
     ];
@@ -54824,10 +49440,7 @@ export const handlers = [
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.put(`${baseURL}/repos/:owner/:repo/lfs`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(202), ctx.json({})],
-      [ctx.status(403), ctx.json(null)],
-    ];
+    const resultArray = [[ctx.status(202), ctx.json({})]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -54885,8 +49498,6 @@ export const handlers = [
           base_branch: faker.lorem.slug(1),
         }),
       ],
-      [ctx.status(409), ctx.json(null)],
-      [ctx.status(422), ctx.json(null)],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -55022,36 +49633,6 @@ export const handlers = [
         }),
       ],
       [ctx.status(204), ctx.json(null)],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [ctx.status(404), ctx.json(null)],
-      [ctx.status(409), ctx.json(null)],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -55113,15 +49694,6 @@ export const handlers = [
           }))
         ),
       ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -55174,34 +49746,6 @@ export const handlers = [
           updated_at: '2014-03-03T18:58:10Z',
           closed_at: '2013-02-12T13:22:01Z',
           due_on: '2012-10-09T23:39:01Z',
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
         }),
       ],
     ];
@@ -55259,15 +49803,6 @@ export const handlers = [
             updated_at: '2014-03-03T18:58:10Z',
             closed_at: '2013-02-12T13:22:01Z',
             due_on: '2012-10-09T23:39:01Z',
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
           }),
         ],
       ];
@@ -55336,18 +49871,7 @@ export const handlers = [
   rest.delete(
     `${baseURL}/repos/:owner/:repo/milestones/:milestoneNumber`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -55941,15 +50465,6 @@ export const handlers = [
           https_enforced: true,
         }),
       ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -55981,105 +50496,17 @@ export const handlers = [
           https_enforced: true,
         }),
       ],
-      [
-        ctx.status(409),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.put(`${baseURL}/repos/:owner/:repo/pages`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [
-        ctx.status(400),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.delete(`${baseURL}/repos/:owner/:repo/pages`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -56392,54 +50819,6 @@ export const handlers = [
           }))
         ),
       ],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(410),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => faker.lorem.slug(1)),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -56497,54 +50876,6 @@ export const handlers = [
             'none',
           ]),
           private: faker.datatype.boolean(),
-        }),
-      ],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(410),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => faker.lorem.slug(1)),
         }),
       ],
     ];
@@ -57588,26 +51919,6 @@ export const handlers = [
           }))
         ),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -58237,34 +52548,6 @@ export const handlers = [
           changed_files: 5,
         }),
       ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -58453,15 +52736,6 @@ export const handlers = [
             body_text: '"comment body"',
           }),
         ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -58563,18 +52837,7 @@ export const handlers = [
   rest.delete(
     `${baseURL}/repos/:owner/:repo/pulls/comments/:commentId`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -58626,15 +52889,6 @@ export const handlers = [
               created_at: '2016-05-20T20:09:31Z',
             }))
           ),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
         ],
       ];
 
@@ -58717,25 +52971,6 @@ export const handlers = [
             },
             content: 'heart',
             created_at: '2016-05-20T20:09:31Z',
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
           }),
         ],
       ];
@@ -59386,25 +53621,6 @@ export const handlers = [
             changed_files: 5,
           }),
         ],
-        [ctx.status(304), ctx.json(null)],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(500),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -60045,34 +54261,6 @@ export const handlers = [
             changed_files: 5,
           }),
         ],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -60266,34 +54454,6 @@ export const handlers = [
             body_text: '"comment body"',
           }),
         ],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -60385,15 +54545,6 @@ export const handlers = [
             },
             body_html: '"<p>comment body</p>"',
             body_text: '"comment body"',
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
           }),
         ],
       ];
@@ -60578,34 +54729,6 @@ export const handlers = [
             }))
           ),
         ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
-        ],
-        [
-          ctx.status(500),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -60614,10 +54737,7 @@ export const handlers = [
   rest.get(
     `${baseURL}/repos/:owner/:repo/pulls/:pullNumber/merge`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [ctx.status(404), ctx.json(null)],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -60632,57 +54752,6 @@ export const handlers = [
             sha: faker.lorem.slug(1),
             merged: faker.datatype.boolean(),
             message: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(405),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-          }),
-        ],
-        [
-          ctx.status(409),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
           }),
         ],
       ];
@@ -61809,16 +55878,6 @@ export const handlers = [
             draft: faker.datatype.boolean(),
           }),
         ],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [ctx.status(422), ctx.json(null)],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -62857,25 +56916,6 @@ export const handlers = [
             draft: faker.datatype.boolean(),
           }),
         ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -63009,27 +57049,6 @@ export const handlers = [
             author_association: 'OWNER',
           }),
         ],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => faker.lorem.slug(1)),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -63091,15 +57110,6 @@ export const handlers = [
             body_html: faker.lorem.slug(1),
             body_text: faker.lorem.slug(1),
             author_association: 'OWNER',
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
           }),
         ],
       ];
@@ -63165,18 +57175,6 @@ export const handlers = [
             author_association: 'OWNER',
           }),
         ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => faker.lorem.slug(1)),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -63238,27 +57236,6 @@ export const handlers = [
             body_html: faker.lorem.slug(1),
             body_text: faker.lorem.slug(1),
             author_association: 'OWNER',
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => faker.lorem.slug(1)),
           }),
         ],
       ];
@@ -63361,15 +57338,6 @@ export const handlers = [
             }))
           ),
         ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -63431,27 +57399,6 @@ export const handlers = [
             body_html: faker.lorem.slug(1),
             body_text: faker.lorem.slug(1),
             author_association: 'OWNER',
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => faker.lorem.slug(1)),
           }),
         ],
       ];
@@ -63517,36 +57464,6 @@ export const handlers = [
             author_association: 'OWNER',
           }),
         ],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => faker.lorem.slug(1)),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -63561,34 +57478,6 @@ export const handlers = [
           ctx.json({
             message: faker.lorem.slug(1),
             url: faker.internet.url(),
-          }),
-        ],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
           }),
         ],
       ];
@@ -63621,34 +57510,6 @@ export const handlers = [
           submodule_git_url: '"git://example.com/defunkt/dotjs.git"',
         }),
       ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -63676,34 +57537,6 @@ export const handlers = [
           },
           target: '"actual/actual.md"',
           submodule_git_url: '"git://example.com/defunkt/dotjs.git"',
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
         }),
       ],
     ];
@@ -63829,15 +57662,6 @@ export const handlers = [
           }))
         ),
       ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -63953,25 +57777,6 @@ export const handlers = [
           },
         }),
       ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -64023,16 +57828,6 @@ export const handlers = [
               site_admin: faker.datatype.boolean(),
               starred_at: '"2020-07-09T00:17:55Z"',
             },
-          }),
-        ],
-        [ctx.status(302), ctx.json(null)],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
           }),
         ],
       ];
@@ -64111,15 +57906,6 @@ export const handlers = [
           ctx.json({
             name: 'Release v1.0.0 is now available!',
             body: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
           }),
         ],
       ];
@@ -64357,15 +58143,6 @@ export const handlers = [
             },
           }),
         ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -64484,15 +58261,6 @@ export const handlers = [
               eyes: faker.datatype.number(),
               rocket: faker.datatype.number(),
             },
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
           }),
         ],
       ];
@@ -64738,7 +58506,6 @@ export const handlers = [
             },
           }),
         ],
-        [ctx.status(422), ctx.json(null)],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -64791,15 +58558,6 @@ export const handlers = [
               created_at: '2016-05-20T20:09:31Z',
             }))
           ),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
         ],
       ];
 
@@ -64884,25 +58642,6 @@ export const handlers = [
             created_at: '2016-05-20T20:09:31Z',
           }),
         ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -64977,15 +58716,6 @@ export const handlers = [
             }))
           ),
         ],
-        [ctx.status(404), ctx.json(null)],
-        [
-          ctx.status(503),
-          ctx.json({
-            code: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -65043,16 +58773,6 @@ export const handlers = [
             },
             secret_type: faker.lorem.slug(1),
             secret: faker.lorem.slug(1),
-          }),
-        ],
-        [ctx.status(304), ctx.json(null)],
-        [ctx.status(404), ctx.json(null)],
-        [
-          ctx.status(503),
-          ctx.json({
-            code: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
           }),
         ],
       ];
@@ -65114,16 +58834,6 @@ export const handlers = [
             secret: faker.lorem.slug(1),
           }),
         ],
-        [ctx.status(404), ctx.json(null)],
-        [ctx.status(422), ctx.json(null)],
-        [
-          ctx.status(503),
-          ctx.json({
-            code: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -65146,43 +58856,13 @@ export const handlers = [
             }))
           ),
         ],
-        [ctx.status(404), ctx.json(null)],
-        [
-          ctx.status(503),
-          ctx.json({
-            code: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
     }
   ),
   rest.get(`${baseURL}/repos/:owner/:repo/stargazers`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(200), ctx.json(null)],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(200), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -65308,15 +58988,6 @@ export const handlers = [
                 faker.datatype.number({ max: MAX_ARRAY_LENGTH })
               ).keys(),
             ].map(_ => faker.datatype.number()),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
           }),
         ],
       ];
@@ -65453,16 +59124,6 @@ export const handlers = [
           repository_url: 'https://api.github.com/repos/octocat/example',
         }),
       ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [ctx.status(404), ctx.json(null)],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -65515,7 +59176,7 @@ export const handlers = [
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.get(`${baseURL}/repos/:owner/:repo/tarball/:ref`, (req, res, ctx) => {
-    const resultArray = [[ctx.status(302), ctx.json(null)]];
+    const resultArray = [];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -65582,15 +59243,6 @@ export const handlers = [
           ].map(_ => faker.lorem.slug(1)),
         }),
       ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -65601,27 +59253,6 @@ export const handlers = [
         ctx.status(200),
         ctx.json({
           names: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => faker.lorem.slug(1)),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
             ...new Array(
               faker.datatype.number({ max: MAX_ARRAY_LENGTH })
             ).keys(),
@@ -66113,7 +59744,7 @@ export const handlers = [
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.get(`${baseURL}/repos/:owner/:repo/zipball/:ref`, (req, res, ctx) => {
-    const resultArray = [[ctx.status(302), ctx.json(null)]];
+    const resultArray = [];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -66927,26 +60558,6 @@ export const handlers = [
           }))
         ),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -67569,43 +61180,6 @@ export const handlers = [
           })),
         }),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
-      [
-        ctx.status(503),
-        ctx.json({
-          code: faker.lorem.slug(1),
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -68210,7 +61784,6 @@ export const handlers = [
           })),
         }),
       ],
-      [ctx.status(304), ctx.json(null)],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -68805,43 +62378,6 @@ export const handlers = [
           })),
         }),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
-      [
-        ctx.status(503),
-        ctx.json({
-          code: faker.lorem.slug(1),
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -68888,44 +62424,6 @@ export const handlers = [
                 ].map(_ => faker.datatype.number()),
               })),
             })),
-          })),
-        }),
-      ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
           })),
         }),
       ],
@@ -69100,34 +62598,6 @@ export const handlers = [
           })),
         }),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
-      [
-        ctx.status(503),
-        ctx.json({
-          code: faker.lorem.slug(1),
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -69206,7 +62676,6 @@ export const handlers = [
           })),
         }),
       ],
-      [ctx.status(304), ctx.json(null)],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -69279,34 +62748,6 @@ export const handlers = [
             company: faker.lorem.slug(1),
             suspended_at: faker.date.past(),
           })),
-        }),
-      ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
-      [
-        ctx.status(503),
-        ctx.json({
-          code: faker.lorem.slug(1),
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
         }),
       ],
     ];
@@ -69713,15 +63154,6 @@ export const handlers = [
           ldap_dn: 'uid=example,ou=users,dc=github,dc=com',
         }),
       ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -69916,79 +63348,12 @@ export const handlers = [
           ldap_dn: 'uid=example,ou=users,dc=github,dc=com',
         }),
       ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.delete(`${baseURL}/teams/:teamId`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -70810,50 +64175,22 @@ export const handlers = [
           }))
         ),
       ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.get(`${baseURL}/teams/:teamId/members/:username`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [ctx.status(404), ctx.json(null)],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.put(`${baseURL}/teams/:teamId/members/:username`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [ctx.status(404), ctx.json(null)],
-      [ctx.status(422), ctx.json(null)],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.delete(`${baseURL}/teams/:teamId/members/:username`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [ctx.status(404), ctx.json(null)],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -70867,15 +64204,6 @@ export const handlers = [
             url: faker.internet.url(),
             role: 'member',
             state: faker.helpers.arrayElement(['active', 'pending']),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
           }),
         ],
       ];
@@ -70895,17 +64223,6 @@ export const handlers = [
             state: faker.helpers.arrayElement(['active', 'pending']),
           }),
         ],
-        [ctx.status(403), ctx.json(null)],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [ctx.status(422), ctx.json(null)],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -70914,10 +64231,7 @@ export const handlers = [
   rest.delete(
     `${baseURL}/teams/:teamId/memberships/:username`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [ctx.status(403), ctx.json(null)],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -70982,15 +64296,6 @@ export const handlers = [
           }))
         ),
       ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -71048,87 +64353,19 @@ export const handlers = [
           },
         }),
       ],
-      [ctx.status(404), ctx.json(null)],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.put(`${baseURL}/teams/:teamId/projects/:projectId`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.delete(
     `${baseURL}/teams/:teamId/projects/:projectId`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(422),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            errors: [
-              ...new Array(
-                faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-              ).keys(),
-            ].map(_ => ({
-              resource: faker.lorem.slug(1),
-              field: faker.lorem.slug(1),
-              message: faker.lorem.slug(1),
-              code: faker.lorem.slug(1),
-              index: faker.datatype.number(),
-              value: null,
-            })),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -71623,15 +64860,6 @@ export const handlers = [
           }))
         ),
       ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -72112,43 +65340,12 @@ export const handlers = [
         }),
       ],
       [ctx.status(204), ctx.json(null)],
-      [ctx.status(404), ctx.json(null)],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.put(`${baseURL}/teams/:teamId/repos/:owner/:repo`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -72207,70 +65404,12 @@ export const handlers = [
           }))
         ),
       ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.get(`${baseURL}/user`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(200), ctx.json(null)],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(200), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -72332,53 +65471,6 @@ export const handlers = [
           ldap_dn: faker.lorem.slug(1),
         }),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -72399,34 +65491,6 @@ export const handlers = [
             visibility: 'public',
           }))
         ),
-      ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
       ],
     ];
 
@@ -72449,108 +65513,12 @@ export const handlers = [
           }))
         ),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.delete(`${baseURL}/user/emails`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -72591,25 +65559,6 @@ export const handlers = [
             starred_at: '"2020-07-09T00:17:55Z"',
           }))
         ),
-      ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
       ],
     ];
 
@@ -72653,131 +65602,22 @@ export const handlers = [
           }))
         ),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.get(`${baseURL}/user/following/:username`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.put(`${baseURL}/user/following/:username`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.delete(`${baseURL}/user/following/:username`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -72824,34 +65664,6 @@ export const handlers = [
           }))
         ),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -72891,53 +65703,6 @@ export const handlers = [
           created_at: '2016-03-24T11:31:04-06:00',
           expires_at: faker.date.past(),
           raw_key: faker.lorem.slug(1),
-        }),
-      ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
         }),
       ],
     ];
@@ -72981,89 +65746,12 @@ export const handlers = [
           raw_key: faker.lorem.slug(1),
         }),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.delete(`${baseURL}/user/gpg_keys/:gpgKeyId`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -73141,25 +65829,6 @@ export const handlers = [
             suspended_at: faker.date.past(),
             contact_email: '"test_13f1e99741e3e004@d7e1eb0bc0a1ba12.com"',
           })),
-        }),
-      ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
         }),
       ],
     ];
@@ -73494,25 +66163,6 @@ export const handlers = [
             })),
           }),
         ],
-        [ctx.status(304), ctx.json(null)],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
       ];
 
       return res(...resultArray[next() % resultArray.length]);
@@ -73521,28 +66171,7 @@ export const handlers = [
   rest.put(
     `${baseURL}/user/installations/:installationId/repositories/:repositoryId`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [ctx.status(304), ctx.json(null)],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -73550,28 +66179,7 @@ export const handlers = [
   rest.delete(
     `${baseURL}/user/installations/:installationId/repositories/:repositoryId`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [ctx.status(304), ctx.json(null)],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -74157,16 +66765,6 @@ export const handlers = [
           }))
         ),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -74191,34 +66789,6 @@ export const handlers = [
           }))
         ),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -74235,53 +66805,6 @@ export const handlers = [
           created_at: faker.date.past(),
           verified: faker.datatype.boolean(),
           read_only: faker.datatype.boolean(),
-        }),
-      ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
         }),
       ],
     ];
@@ -74302,70 +66825,12 @@ export const handlers = [
           read_only: faker.datatype.boolean(),
         }),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.delete(`${baseURL}/user/keys/:keyId`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -74433,44 +66898,6 @@ export const handlers = [
           }))
         ),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -74529,24 +66956,6 @@ export const handlers = [
           permissions: {
             can_create_repository: faker.datatype.boolean(),
           },
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
         }),
       ],
     ];
@@ -74609,43 +67018,6 @@ export const handlers = [
           },
         }),
       ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -74675,25 +67047,6 @@ export const handlers = [
             description: 'A great organization',
           }))
         ),
-      ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
       ],
     ];
 
@@ -74754,37 +67107,6 @@ export const handlers = [
           private: faker.datatype.boolean(),
         }),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => faker.lorem.slug(1)),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -74805,34 +67127,6 @@ export const handlers = [
             visibility: 'public',
           }))
         ),
-      ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
       ],
     ];
 
@@ -75157,44 +67451,6 @@ export const handlers = [
           }))
         ),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -75506,62 +67762,6 @@ export const handlers = [
           watchers: faker.datatype.number(),
           master_branch: faker.lorem.slug(1),
           starred_at: '"2020-07-09T00:17:42Z"',
-        }),
-      ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(400),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
         }),
       ],
     ];
@@ -76134,34 +68334,6 @@ export const handlers = [
           }))
         ),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -76169,37 +68341,7 @@ export const handlers = [
   rest.patch(
     `${baseURL}/user/repository_invitations/:invitationId`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [ctx.status(304), ctx.json(null)],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(409),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -76207,37 +68349,7 @@ export const handlers = [
   rest.delete(
     `${baseURL}/user/repository_invitations/:invitationId`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [ctx.status(304), ctx.json(null)],
-        [
-          ctx.status(403),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(404),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-        [
-          ctx.status(409),
-          ctx.json({
-            message: faker.lorem.slug(1),
-            documentation_url: faker.internet.url(),
-            url: faker.internet.url(),
-            status: faker.lorem.slug(1),
-          }),
-        ],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -76561,131 +68673,22 @@ export const handlers = [
           }))
         ),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.get(`${baseURL}/user/starred/:owner/:repo`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.put(`${baseURL}/user/starred/:owner/:repo`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.delete(`${baseURL}/user/starred/:owner/:repo`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(204), ctx.json(null)],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(204), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -77179,25 +69182,6 @@ export const handlers = [
           }))
         ),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(401),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -77305,25 +69289,6 @@ export const handlers = [
           }))
         ),
       ],
-      [ctx.status(304), ctx.json(null)],
-      [
-        ctx.status(403),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -77366,24 +69331,12 @@ export const handlers = [
           }))
         ),
       ],
-      [ctx.status(304), ctx.json(null)],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.get(`${baseURL}/users/:username`, (req, res, ctx) => {
-    const resultArray = [
-      [ctx.status(200), ctx.json(null)],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-    ];
+    const resultArray = [[ctx.status(200), ctx.json(null)]];
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -79763,10 +71716,7 @@ export const handlers = [
   rest.get(
     `${baseURL}/users/:username/following/:targetUser`,
     (req, res, ctx) => {
-      const resultArray = [
-        [ctx.status(204), ctx.json(null)],
-        [ctx.status(404), ctx.json(null)],
-      ];
+      const resultArray = [[ctx.status(204), ctx.json(null)]];
 
       return res(...resultArray[next() % resultArray.length]);
     }
@@ -79876,25 +71826,6 @@ export const handlers = [
           }))
         ),
       ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
-      ],
     ];
 
     return res(...resultArray[next() % resultArray.length]);
@@ -79958,34 +71889,6 @@ export const handlers = [
           ].map(_ => ({
             message: faker.lorem.slug(1),
             octicon: faker.lorem.slug(1),
-          })),
-        }),
-      ],
-      [
-        ctx.status(404),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          url: faker.internet.url(),
-          status: faker.lorem.slug(1),
-        }),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
           })),
         }),
       ],
@@ -80171,25 +72074,6 @@ export const handlers = [
             private: faker.datatype.boolean(),
           }))
         ),
-      ],
-      [
-        ctx.status(422),
-        ctx.json({
-          message: faker.lorem.slug(1),
-          documentation_url: faker.internet.url(),
-          errors: [
-            ...new Array(
-              faker.datatype.number({ max: MAX_ARRAY_LENGTH })
-            ).keys(),
-          ].map(_ => ({
-            resource: faker.lorem.slug(1),
-            field: faker.lorem.slug(1),
-            message: faker.lorem.slug(1),
-            code: faker.lorem.slug(1),
-            index: faker.datatype.number(),
-            value: null,
-          })),
-        }),
       ],
     ];
 

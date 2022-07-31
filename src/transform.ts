@@ -15,13 +15,19 @@ export function transformToHandlerCode(
   return operationCollection
     .map(op => {
       return `rest.${op.verb}(\`\${baseURL}${op.path}\`, (req, res, ctx) => {
-        const resultArray = [${op.responseMap.map(response => {
-          return `[ctx.status(${parseInt(
-            response?.code!
-          )}), ctx.json(${transformJSONSchemaToFakerCode(
-            response?.responses?.['application/json']
-          )})]`;
-        })}];
+        const resultArray = [${op.responseMap
+          .map(response => {
+            if (
+              parseInt(response?.code) > 199 &&
+              parseInt(response?.code) < 300
+            )
+              return `[ctx.status(${parseInt(
+                response?.code!
+              )}), ctx.json(${transformJSONSchemaToFakerCode(
+                response?.responses?.['application/json']
+              )})]`;
+          })
+          .filter(el => el)}];
 
           return res(...resultArray[next() % resultArray.length])
         }),\n`;
