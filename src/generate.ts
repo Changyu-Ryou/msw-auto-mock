@@ -6,9 +6,9 @@ import { OpenAPIV3 } from 'openapi-types';
 
 import { getV3Doc } from './swagger';
 import { prettify, toExpressLikePath } from './utils';
-import { OperationCollection, transformToHandlerCode } from './transform';
-import { mockTemplate } from './template';
-import { CliOptions } from './types';
+import { OperationCollection, transformToApiHandlerCode } from './transform';
+import { mockApiTemplate, mockTemplate } from './template';
+import { CliOptions, ImportFilePathType } from './types';
 
 export async function generate(spec: string, options: CliOptions) {
   const { output: outputFile } = options;
@@ -19,7 +19,7 @@ export async function generate(spec: string, options: CliOptions) {
   const operationDefinitions = getOperationDefinitions(apiDoc);
   const includes = options?.includes?.split(',') ?? null;
   const excludes = options?.excludes?.split(',') ?? null;
-  const operationCollection: OperationCollection = operationDefinitions
+  const operationCollection: OperationCollection[] = operationDefinitions
     .filter(op => {
       if (includes && !includes.includes(op.path)) {
         return false;
@@ -68,20 +68,57 @@ export async function generate(spec: string, options: CliOptions) {
   } else if (typeof options.baseUrl === 'string') {
     baseURL = options.baseUrl;
   }
-  code = mockTemplate(
-    transformToHandlerCode(operationCollection),
-    baseURL,
-    options
-  );
 
-  if (outputFile) {
-    fs.writeFileSync(
-      path.resolve(process.cwd(), outputFile),
-      await prettify(outputFile, code)
-    );
+  const filePaths: ImportFilePathType[] = []; // api paths
+
+  if (outputFile && operationCollection) {
+    const dirPath = path.dirname(outputFile);
+    const ext = path.extname(outputFile);
+    const onlyFileName = path.basename(outputFile).replace(ext, '');
+
+    const mockApiDirPath = `${dirPath}/mockApi`;
+    const isExistMockApiDir = fs.existsSync(mockApiDirPath);
+
+    // create mockApi dir
+    if (isExistMockApiDir) {
+      fs.rmdirSync(mockApiDirPath, { recursive: true });
+    }
+    fs.mkdirSync(`${dirPath}/mockApi`);
+
+    for (const value of operationCollection) {
+      const apiHandlerName = `${value.verb}_${value.path
+        .replaceAll('/', '_')
+        .replaceAll(':', '')}`;
+
+      const code = mockApiTemplate(
+        onlyFileName,
+        apiHandlerName,
+        transformToApiHandlerCode(value)
+      );
+
+      const apiFileName = `${apiHandlerName}.mock${ext}`;
+      const filePath = `${dirPath}/mockApi/${apiFileName}`;
+
+      // seperate each api file
+      fs.writeFileSync(
+        path.resolve(process.cwd(), filePath),
+        await prettify(filePath, code)
+      );
+      filePaths.push({
+        fileName: apiFileName.replace(path.extname(apiFileName), ''),
+        apiHandlerName: apiHandlerName,
+      });
+    }
   } else {
-    console.log(await prettify(null, code));
+    console.log("No output file specified, won't generate mock files");
   }
+
+  // generate handler output file
+  code = mockTemplate(baseURL, filePaths, options);
+  fs.writeFileSync(
+    path.resolve(process.cwd(), outputFile),
+    await prettify(outputFile, code)
+  );
 
   function recursiveResolveSchema(
     schema: OpenAPIV3.ReferenceObject | OpenAPIV3.SchemaObject

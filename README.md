@@ -1,5 +1,10 @@
 # gen-msw-mock-comm
 
+## update
+
+- generate mocking data only 200 status response
+- create each mock api handler file
+
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/zoubingwu/msw-auto-mock/Test)
 ![npm](https://img.shields.io/npm/v/msw-auto-mock)
 
@@ -62,7 +67,3 @@ Run you app then you'll see a successful activation message from Mock Service Wo
 - `-e, --exclude <keywords>`: specify keywords to exclude, multiple keywords can be seperated with comma.
 - `--base-url`: output code with specified base url or fallback to server host specified in OpenAPI.
 - `-h, --help`: show help info.
-
-## custom update
-
-- this library generate mocking data only 200 response

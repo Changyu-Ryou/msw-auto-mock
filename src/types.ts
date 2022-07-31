@@ -5,3 +5,8 @@ export interface CliOptions {
   excludes?: string;
   baseUrl?: string | true;
 }
+
+export type ImportFilePathType = {
+  fileName: string;
+  apiHandlerName: string;
+};

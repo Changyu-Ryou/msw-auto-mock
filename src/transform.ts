@@ -7,10 +7,10 @@ export type OperationCollection = {
     code: string;
     responses?: Record<string, OpenAPIV3.SchemaObject>;
   }[];
-}[];
+};
 
 export function transformToHandlerCode(
-  operationCollection: OperationCollection
+  operationCollection: OperationCollection[]
 ): string {
   return operationCollection
     .map(op => {
@@ -34,6 +34,30 @@ export function transformToHandlerCode(
     })
     .join('  ')
     .trimEnd();
+}
+
+export function transformToApiHandlerCode(
+  operationCollection: OperationCollection
+): string {
+  return `rest.${operationCollection.verb}(\`\${baseURL}${
+    operationCollection.path
+  }\`, (req, res, ctx) => {
+        const resultArray = [${operationCollection.responseMap
+          .map(response => {
+            if (
+              parseInt(response?.code) > 199 &&
+              parseInt(response?.code) < 300
+            )
+              return `[ctx.status(${parseInt(
+                response?.code!
+              )}), ctx.json(${transformJSONSchemaToFakerCode(
+                response?.responses?.['application/json']
+              )})]`;
+          })
+          .filter(el => el)}];
+
+          return res(...resultArray[next() % resultArray.length])
+        }),\n`;
 }
 
 function transformJSONSchemaToFakerCode(
